@@ -2,7 +2,7 @@ import express from 'express';
 
 const controllers = require('./controllers');
 const middlewares = require('./middlewares');
-const errorHandles = require('./errorHandles');
+const errorHandlers = require('./errorHandlers');
 
 let app = express();
 
@@ -13,6 +13,6 @@ app.use(middlewares(app));
 app.use(controllers(app));
 
 // errorHandles
-app.use(errorHandles(app));
+app.use(errorHandlers(app));
 
 module.exports = app;

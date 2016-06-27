@@ -41,6 +41,8 @@ module.exports = function(req, res, next) {
 
         let results = libs.parseHtml(news.body.value);
 
+        let videos = libs.getVideos(news.field_free_body.value);
+
         let outputNews = {
             nodeId: news._id,
             title: news.body.summary,
@@ -51,6 +53,7 @@ module.exports = function(req, res, next) {
             createdAt: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             updatedAt: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             htmlBody: news.body.value,
+            videos: videos,
             mobileBody: results,
             freeBody: (news.field_free_body && news.field_free_body.value) || '',
             author: (news.field_newsby && news.field_newsby.value) || '',

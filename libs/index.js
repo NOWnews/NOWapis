@@ -1,4 +1,5 @@
 
 module.exports = {
-    parseHtml: require('./parseHtml')
+    parseHtml: require('./parseHtml'),
+    getVideos: require('./getVideos')
 };

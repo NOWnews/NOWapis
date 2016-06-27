@@ -3,6 +3,8 @@ import Promise from 'bluebird';
 import mongodb from 'mongodb';
 import moment from 'moment-timezone';
 
+const debug = require('debug')('NOWapis:controller:news:one');
+
 const config = require('../../config');
 const libs = require('../../libs');
 
@@ -61,6 +63,7 @@ module.exports = function(req, res, next) {
         };
 
         // news.mobileBody = results;
+        debug('outputNews = %j', outputNews);
 
         res.status(200);
         return res.json(outputNews);

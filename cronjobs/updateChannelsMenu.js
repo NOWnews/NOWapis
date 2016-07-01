@@ -26,6 +26,10 @@ module.exports = co.wrap(function*() {
     let channels = yield db.collection('fields_current.node').find({
         _id: { $in: channelIds },
         'field_release_status.value': 1
+    }, {
+        title: 1,
+        _id: 1,
+        field_node: 1
     })
     .sort({
         'field_homepos.value': -1
@@ -35,7 +39,8 @@ module.exports = co.wrap(function*() {
     let menu = _.map(channels, function(channel) {
         return {
             name: channel.title,
-            nodeId: channel._id
+            nodeId: channel._id,
+            news: channel.field_node
         };
     });
 

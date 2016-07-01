@@ -15,11 +15,8 @@ co(function*() {
     // 再跑 cronjob
     yield new Promise(function(resolve, reject) {
         let uploadXmlJob = schedule.scheduleJob('*/3 * * * *', function(){
-            cronjobs.updateAllCaches();
+            return cronjobs.updateAllCaches();
         });
-    })
-    .catch(function(err) {
-        return Promise.reject(err);
     });
 
     // yield cronjobs.updateAllCaches();

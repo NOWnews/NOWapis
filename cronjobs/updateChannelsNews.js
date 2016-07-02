@@ -5,7 +5,7 @@ import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
-const debug = require('debug')('NOWapis:controller:channels:menu');
+const debug = require('debug')('NOWapis:cronjobs:updateChannelsNews');
 const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');

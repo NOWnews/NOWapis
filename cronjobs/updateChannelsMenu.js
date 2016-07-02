@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import mongodb from 'mongodb';
 import _ from 'lodash';
 
-// const debug = require('debug')('NOWapis:controller:channels:menu');
+const debug = require('debug')('NOWapis:cronjobs:updateChannelsMenu');
 
 const config = require('../config');
 const redis = require('../redis');

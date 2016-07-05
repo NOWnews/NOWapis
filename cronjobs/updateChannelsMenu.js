@@ -44,7 +44,7 @@ module.exports = co.wrap(function*() {
         };
     });
 
-    let cacheMenu = yield redis.setValue('channelsMenu', menu);
+    let cacheMenu = yield redis.setValue('channelsMenu', menu, 3600 * 24);
 
     return yield Promise.resolve(menu);
 });

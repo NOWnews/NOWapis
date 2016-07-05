@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
 
     co(function*() {
 
-        let channelNews = yield redis.getValue(channelNodeId);
+        let channelNews = yield redis.getValue(`channel${channelNodeId}`);
         debug('channelNews = %j', channelNews);
 
         return res.send(channelNews);

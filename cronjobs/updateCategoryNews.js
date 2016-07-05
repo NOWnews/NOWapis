@@ -18,7 +18,7 @@ module.exports = co.wrap(function*() {
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
     let categories = yield redis.getValue('categories');
-    // console.log(1234444);
+
     // 撈取所有 category 新聞
     let categoryWithNews = yield Promise.map(categories, function(category) {
         return db.collection('fields_current.node').find({

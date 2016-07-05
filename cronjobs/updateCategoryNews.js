@@ -18,12 +18,12 @@ module.exports = co.wrap(function*() {
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
     let categories = yield redis.getValue('categories');
-
+    // console.log(1234444);
     // 撈取所有 category 新聞
     let categoryWithNews = yield Promise.map(categories, function(category) {
         return db.collection('fields_current.node').find({
-           // _bundle: 'news',
-           // _type: 'node',
+           _bundle: 'news',
+           _type: 'node',
            'field_main_category.tid': category._id
         }, {
             _id: 1,
@@ -37,12 +37,13 @@ module.exports = co.wrap(function*() {
         .sort({ 'field_release_date.value': -1 })
         .toArray()
         .then(function(categoryNews) {
+            debug('categoryNews = %j', categoryNews);
             return Promise.resolve({
                 categoryId: category._id,
                 news: categoryNews
             });
         });
-    }, { concurrency: 3 });
+    });
 
     // 將所有新聞整合在一起
     let allNews = [];
@@ -50,10 +51,15 @@ module.exports = co.wrap(function*() {
         allNews = _.concat(allNews, category.news);
     });
 
+    let count = 0;
+    debug(`開始撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
     // 將所有新聞加入新聞圖
     yield Promise.map(allNews, function(news) {
+        count++;
+        debug('count = %d', count);
         return libs.getImageFromNews(news);
     }, { concurrency: 10 });
+    debug(`結束撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
 
     // 存入 redis
     yield Promise.map(categoryWithNews, function(category) {

@@ -11,7 +11,7 @@ const updateCategoryNews = require('./updateCategoryNews');
 
 module.exports = co.wrap(function*() {
 
-    yield redis.client.flushallAsync();
+    // yield redis.client.flushallAsync();
 
     let categories = yield updateCategory();
     console.log('Update Category Menu Complete.');

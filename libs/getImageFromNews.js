@@ -28,6 +28,9 @@ module.exports = co.wrap(function*(news) {
             'field_rel_description': 1
         })
         .then(function(node) {
+            if(!node || !node.endpoints) {
+                return undefined;
+            }
             return Promise.resolve(node.endpoints[1].entity_id);
         });
     // debug('imageNodeId = %s', imageNodeId);

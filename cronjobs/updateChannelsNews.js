@@ -111,7 +111,7 @@ module.exports = co.wrap(function*() {
         });
 
         channel.news = newsWithImage;
-        return redis.setValue(channel.nodeId, channel);
+        return redis.setValue(`channel${channel.nodeId}`, channel, 3600 * 24);
     });
 
     return Promise.resolve({});

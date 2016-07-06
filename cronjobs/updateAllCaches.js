@@ -13,7 +13,9 @@ const updateInstant = require('./updateInstant');
 
 module.exports = co.wrap(function*() {
 
-    // yield redis.client.flushallAsync();
+    console.log(`Update Redis Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
+
+    yield redis.client.flushallAsync();
 
     yield updateInstant();
 
@@ -32,7 +34,7 @@ module.exports = co.wrap(function*() {
     let channelsNews = yield updateChannelsNews();
     console.log('Update Channels News Complete.');
 
-    console.log(`Update All Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
+    console.log(`Finish Update Redis Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
     console.log('--------------------------');
     return Promise.resolve({});
 });

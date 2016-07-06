@@ -13,11 +13,13 @@ const libs = require('../libs');
 const MongoDB = Promise.promisifyAll(mongodb);
 const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
+const concurrency = 10;
+
 module.exports = co.wrap(function*() {
 
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
-    let headlineNode = yield db.collection('fields_current.node').findOne({
+    let headlineNode = yield db.collection('fields_current.node').findOneAsync({
         _bundle: 'mainpage'
     });
 
@@ -41,12 +43,12 @@ module.exports = co.wrap(function*() {
             return Promise.resolve(news);
         });
 
-    yield Promise.mapSeries(headlineNewsNodes, function(news) {
-        return libs.getImageFromNews(news);
-    });
-    // yield Promise.map(headlineNewsNodes, function(news) {
+    // yield Promise.mapSeries(headlineNewsNodes, function(news) {
     //     return libs.getImageFromNews(news);
-    // }, { concurrency: 5 });
+    // });
+    yield Promise.map(headlineNewsNodes, function(news) {
+        return libs.getImageFromNews(news);
+    }, { concurrency: concurrency });
  
     let compareNews = {};
     _.forEach(headlineNewsNodes, function(news) {

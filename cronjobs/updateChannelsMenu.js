@@ -15,7 +15,7 @@ const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 module.exports = co.wrap(function*() {
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
-    let mainpage = yield db.collection('fields_current.node').findOne({
+    let mainpage = yield db.collection('fields_current.node').findOneAsync({
         _bundle: 'mainpage'
     });
 

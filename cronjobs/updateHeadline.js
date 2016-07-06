@@ -41,9 +41,12 @@ module.exports = co.wrap(function*() {
             return Promise.resolve(news);
         });
 
-    yield Promise.map(headlineNewsNodes, function(news) {
+    yield Promise.mapSeries(headlineNewsNodes, function(news) {
         return libs.getImageFromNews(news);
-    }, { concurrency: 10 });
+    });
+    // yield Promise.map(headlineNewsNodes, function(news) {
+    //     return libs.getImageFromNews(news);
+    // }, { concurrency: 5 });
  
     let compareNews = {};
     _.forEach(headlineNewsNodes, function(news) {
@@ -59,6 +62,7 @@ module.exports = co.wrap(function*() {
     debug('sortedNews = %j', sortedNews);
 
     yield redis.setValue('headline', sortedNews, 3600 * 24);
+    yield db.closeAsync();
 
     return yield Promise.resolve({});
 });

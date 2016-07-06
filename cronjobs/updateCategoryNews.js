@@ -30,6 +30,7 @@ module.exports = co.wrap(function*() {
             title: 1,
             // field_main_category: true,
             field_release_date: 1,
+            field_short_title: 1,
             // body: true,
             // field_news_ref: true
         })
@@ -54,17 +55,23 @@ module.exports = co.wrap(function*() {
     let count = 0;
     debug(`開始撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
     // 將所有新聞加入新聞圖
-    yield Promise.map(allNews, function(news) {
+    yield Promise.mapSeries(allNews, function(news) {
         count++;
         debug('count = %d', count);
         return libs.getImageFromNews(news);
-    }, { concurrency: 10 });
+    });
+    // yield Promise.map(allNews, function(news) {
+    //     count++;
+    //     debug('count = %d', count);
+    //     return libs.getImageFromNews(news);
+    // }, { concurrency: 5 });
     debug(`結束撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
 
     // 存入 redis
     yield Promise.map(categoryWithNews, function(category) {
         return redis.setValue(`category${category.categoryId}`, category, 3600 * 24);
     });
+    yield db.closeAsync();
 
     return Promise.resolve({});
 });

@@ -9,10 +9,13 @@ const updateChannelsNews = require('./updateChannelsNews');
 const updateCategory = require('./updateCategory');
 const updateCategoryNews = require('./updateCategoryNews');
 const updateHeadline = require('./updateHeadline');
+const updateInstant = require('./updateInstant');
 
 module.exports = co.wrap(function*() {
 
-    yield redis.client.flushallAsync();
+    // yield redis.client.flushallAsync();
+
+    yield updateInstant();
 
     let headline = yield updateHeadline();
     console.log('Update headline Complete.');

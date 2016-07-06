@@ -23,6 +23,7 @@ module.exports = co.wrap(function*() {
     debug('categories = %j', categories);
 
     let cacheCategory = yield redis.setValue('categories', categories, 3600 * 24);
+    yield db.closeAsync();
 
     return yield Promise.resolve(cacheCategory);
 

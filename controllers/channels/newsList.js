@@ -20,6 +20,7 @@ module.exports = function(req, res, next) {
 
     co(function*() {
 
+        // 去跟 redis 要資料，有資料直接 response
         let redisChannelNews = yield redis.getValue(`channel${channelNodeId}`);
         debug('redisChannelNews = %j', redisChannelNews);
         if(redisChannelNews && redisChannelNews.length !== 0) {
@@ -28,6 +29,7 @@ module.exports = function(req, res, next) {
 
         let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
+        // 找到某個 channel
         let channel = yield db.collection('fields_current.node').findOneAsync({
                 _id: channelNodeId,
                 'field_release_status.value': 1
@@ -41,11 +43,13 @@ module.exports = function(req, res, next) {
             // });
         debug('channel = %j', channel);
 
+        // 把 channel 的 node id 撈出來
         let nodeIds = _.map(channel.field_node, function(node) {
             return node.target_id;
         });
         debug('nodeIds = %j', nodeIds);
 
+        // 用 node id 去找相關的新聞
         let channelWithNews = yield db.collection('fields_current.node').find({
             _id: { $in : nodeIds }
         }, {
@@ -62,92 +66,29 @@ module.exports = function(req, res, next) {
         .toArrayAsync();
         debug('channelWithNews = %j', channelWithNews);
 
+        //  加入新聞圖片
         let newsWithImage = yield Promise.map(channelWithNews, function(news) {
             return libs.getImageFromNews(news);
         });
 
+        // 用來排列順序的資料
         let compareNews = {};
         _.forEach(channelWithNews, function(news) {
             compareNews[news._id] = news;
         });
 
+        // 排序完成的資料
         let sortedNews = _.map(nodeIds, function(id) {
             return compareNews[id];
         });
+
+        // 把資料存入 redis 並且關掉 db instance
+        yield [
+            redis.setValue(`channel${channelNodeId}`, sortedNews, 180),
+            db.closeAsync()
+        ];
 
         return res.send(sortedNews);
     })
     .catch(next);
 };
-
-
-/*
- * 備份之前的 code
- */
-// module.exports = function(req, res, next) {
-
-//     let channelNodeId = parseInt(req.params.nodeId, 10);
-
-//     co(function*() {
-
-//         let db = yield MongoClient.connectAsync(config.newsMongoDb);
-
-//         // 找出這個特輯的資料
-//         let channel = yield db.collection('fields_current.node').findOne({
-//             _id: channelNodeId
-//         });
-
-//         // 取得特輯內相關新聞的 nodeId
-//         let channelNewsIds = _.map(channel.field_node, function(node) {
-//             return node.target_id;
-//         });
-
-//         debug('channelNewsIds = %j', channelNewsIds);
-
-//         // 找出所有新聞
-//         let channelNews = yield db.collection('fields_current.node').find({
-//             _id: { $in: channelNewsIds }
-//         }, {
-//             _id: 1,
-//             title: 1,
-//             created: 1,
-//             changed: 1,
-//             body: 1,
-//             field_adult: 1,
-//             field_authors: 1,
-//             field_newsby: 1,
-//             field_short_title: 1,
-//         })
-//         .toArrayAsync();
-
-//         /*
-//          * TODO: 處理新聞圖片
-//          */
-
-//         /*
-//          * 排序所有新聞，順便處理新聞資料格式，沒有任何的值可以參考，只能硬幹
-//          */
-//         let compareChannelNews = {};
-//         _.forEach(channelNews, function(news) {
-//             compareChannelNews[news._id] = {
-//                 nodeId: news._id,
-//                 title: news.body.summary,
-//                 summary: news.title,
-//                 shortTitle: (news.field_short_title && news.field_short_title.value) || '',
-//                 created: news.created,
-//                 changed: news.changed,
-//                 createdAt: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
-//                 updatedAt: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
-//                 author: (news.field_newsby && news.field_newsby.value) || '',
-//             };
-//         });
-
-//         let sortedChannelNews = _.map(channelNewsIds, function(nodeId) {
-//             return compareChannelNews[nodeId];
-//         });
-
-
-//         return res.send(sortedChannelNews);
-//     })
-//     .catch(next);
-// };

@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
 
     co(function*() {
 
-        // 如果有資料就直接吐出去
+        // 去跟 redis 要資料，有資料直接 response
         let redisCategoryNews = yield redis.getValue(`category${categoryId}`);
         debug('redisCategoryNews = %j', redisCategoryNews);
         if(redisCategoryNews && redisCategoryNews.length !== 0) {
@@ -29,6 +29,7 @@ module.exports = function(req, res, next) {
         // 如果沒有資料就進去 db 撈，並且 cache 起來
         let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
+        // 找出某個分類的新聞
         let categoryNews = yield db.collection('fields_current.node').find({
            _bundle: 'news',
            _type: 'node',
@@ -46,10 +47,12 @@ module.exports = function(req, res, next) {
         .sort({ 'field_release_date.value': -1 })
         .toArrayAsync();
 
+        // 找出圖片
         let newsWithImage = yield Promise.map(categoryNews, function(news) {
             return libs.getImageFromNews(news);
         });
 
+        // 把資料存入 redis 並且關掉 db instance
         yield [
             redis.setValue(`category${categoryId}`, newsWithImage, 180),
             db.closeAsync()

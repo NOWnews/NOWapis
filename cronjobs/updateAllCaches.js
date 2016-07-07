@@ -15,7 +15,7 @@ module.exports = co.wrap(function*() {
 
     console.log(`Update Redis Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
 
-    yield redis.client.flushallAsync();
+    // yield redis.client.flushallAsync();
 
     yield updateInstant();
 

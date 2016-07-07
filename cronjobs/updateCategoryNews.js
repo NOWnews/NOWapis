@@ -37,7 +37,7 @@ module.exports = co.wrap(function*() {
         })
         .limit(30)
         .sort({ 'field_release_date.value': -1 })
-        .toArray()
+        .toArrayAsync()
         .then(function(categoryNews) {
             debug('categoryNews = %j', categoryNews);
             return Promise.resolve({

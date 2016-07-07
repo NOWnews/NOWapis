@@ -18,7 +18,7 @@ module.exports = co.wrap(function*(news) {
 
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
-    let imageNodeId = yield db.collection('fields_current.relation').findOne({
+    let imageNodeId = yield db.collection('fields_current.relation').findOneAsync({
             _bundle: 'relation_news_image',
             // _type: 'relation',
             'endpoints.entity_id': news._id
@@ -39,7 +39,7 @@ module.exports = co.wrap(function*(news) {
         return Promise.resolve(news);
     }
 
-    let imageNode = yield db.collection('fields_current.node').findOne({
+    let imageNode = yield db.collection('fields_current.node').findOneAsync({
             _id: imageNodeId,
             // _bundle: 'media',
             // _type: 'node',
@@ -59,7 +59,7 @@ module.exports = co.wrap(function*(news) {
 
     let fid = imageNode.field_media_entity.fid;
 
-    let imageData = yield db.collection('fields_current.file').findOne({
+    let imageData = yield db.collection('fields_current.file').findOneAsync({
             // _bundle: 'image',
             // _type: 'file',
             fid: fid

@@ -13,6 +13,8 @@ const updateInstant = require('./updateInstant');
 
 module.exports = co.wrap(function*() {
 
+    console.log(`Update Redis Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
+
     // yield redis.client.flushallAsync();
 
     yield updateInstant();
@@ -23,16 +25,16 @@ module.exports = co.wrap(function*() {
     let categories = yield updateCategory();
     console.log('Update Category Menu Complete.');
 
-    let categoryNews = yield updateCategoryNews();
-    console.log('Update Category News Complete.');
+    // let categoryNews = yield updateCategoryNews();
+    // console.log('Update Category News Complete.');
 
     let channelsMenu = yield updateChannelsMenu();
     console.log('Update Channels Menu Complete.');
 
-    let channelsNews = yield updateChannelsNews();
-    console.log('Update Channels News Complete.');
+    // let channelsNews = yield updateChannelsNews();
+    // console.log('Update Channels News Complete.');
 
-    console.log(`Update All Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
+    console.log(`Finish Update Redis Data At ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
     console.log('--------------------------');
     return Promise.resolve({});
 });

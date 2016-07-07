@@ -13,6 +13,8 @@ const libs = require('../libs');
 const MongoDB = Promise.promisifyAll(mongodb);
 const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
+const concurrency = 10;
+
 module.exports = co.wrap(function*() {
 
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
@@ -75,31 +77,7 @@ module.exports = co.wrap(function*() {
 
     // 將所有新聞加入新聞圖
     debug(`開始撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
-    yield Promise.mapSeries(allNews, function(news) {
-        // debug('news = %s', news._id);
-        count++;
-        debug('count = %d', count);
-        return libs.getImageFromNews(news)
-            .then(function(news) {
-                // debug('news = %j', news);
-                // 新聞內容格式化
-                let formatNews = {
-                    nodeId: news._id,
-                    title: news.title,
-                    shoutTitle: (news.field_short_title && news.field_short_title.value) || '',
-                    summary: (news.body && news.body.summary) || '',
-                    created: news.created,
-                    changed: news.changed,
-                    createdAt: moment(news.created*1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
-                    updatedAt: moment(news.changed*1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
-                    image: news.image
-                };
-
-                compareNews[news._id] = formatNews;
-                return Promise.resolve(formatNews);
-            });
-    });
-    // yield Promise.map(allNews, function(news) {
+    // yield Promise.mapSeries(allNews, function(news) {
     //     // debug('news = %s', news._id);
     //     count++;
     //     debug('count = %d', count);
@@ -122,7 +100,31 @@ module.exports = co.wrap(function*() {
     //             compareNews[news._id] = formatNews;
     //             return Promise.resolve(formatNews);
     //         });
-    // }, { concurrency: 5 });
+    // });
+    yield Promise.map(allNews, function(news) {
+        // debug('news = %s', news._id);
+        count++;
+        debug('count = %d', count);
+        return libs.getImageFromNews(news)
+            .then(function(news) {
+                // debug('news = %j', news);
+                // 新聞內容格式化
+                let formatNews = {
+                    nodeId: news._id,
+                    title: news.title,
+                    shoutTitle: (news.field_short_title && news.field_short_title.value) || '',
+                    summary: (news.body && news.body.summary) || '',
+                    created: news.created,
+                    changed: news.changed,
+                    createdAt: moment(news.created*1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
+                    updatedAt: moment(news.changed*1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
+                    image: news.image
+                };
+
+                compareNews[news._id] = formatNews;
+                return Promise.resolve(formatNews);
+            });
+    }, { concurrency: concurrency });
     debug(`結束撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
 
     // debug('compareNews = %j', compareNews);

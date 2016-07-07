@@ -13,6 +13,8 @@ const libs = require('../libs');
 const MongoDB = Promise.promisifyAll(mongodb);
 const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
+const concurrency = 10;
+
 module.exports = co.wrap(function*() {
 
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
@@ -69,12 +71,13 @@ module.exports = co.wrap(function*() {
     .toArrayAsync();
 
     // 加入新聞圖片
-    let newsWithImage = yield Promise.mapSeries(newsList, function(news) {
-        return libs.getImageFromNews(news);
-    });
-    // let newsWithImage = yield Promise.map(newsList, function(news) {
+    // let newsWithImage = yield Promise.mapSeries(newsList, function(news) {
     //     return libs.getImageFromNews(news);
-    // }, { concurrency: 5 });
+    // });
+    // yield libs.getImageFromNodeIds(nodeIds);
+    let newsWithImage = yield Promise.map(newsList, function(news) {
+        return libs.getImageFromNews(news);
+    }, { concurrency: concurrency });
 
     // 比較排序
     let compareNews = {};

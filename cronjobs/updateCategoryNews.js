@@ -12,6 +12,7 @@ const libs = require('../libs');
 
 const MongoDB = Promise.promisifyAll(mongodb);
 const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
@@ -36,7 +37,7 @@ module.exports = co.wrap(function*() {
         })
         .limit(30)
         .sort({ 'field_release_date.value': -1 })
-        .toArray()
+        .toArrayAsync()
         .then(function(categoryNews) {
             debug('categoryNews = %j', categoryNews);
             return Promise.resolve({
@@ -55,16 +56,16 @@ module.exports = co.wrap(function*() {
     let count = 0;
     debug(`開始撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
     // 將所有新聞加入新聞圖
-    yield Promise.mapSeries(allNews, function(news) {
-        count++;
-        debug('count = %d', count);
-        return libs.getImageFromNews(news);
-    });
-    // yield Promise.map(allNews, function(news) {
+    // yield Promise.mapSeries(allNews, function(news) {
     //     count++;
     //     debug('count = %d', count);
     //     return libs.getImageFromNews(news);
-    // }, { concurrency: 5 });
+    // });
+    yield Promise.map(allNews, function(news) {
+        count++;
+        debug('count = %d', count);
+        return libs.getImageFromNews(news);
+    }, { concurrency: concurrency });
     debug(`結束撈取新聞時間: ${moment().tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss')}`);
 
     // 存入 redis

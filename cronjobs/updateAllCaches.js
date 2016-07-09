@@ -10,6 +10,7 @@ const updateCategory = require('./updateCategory');
 const updateCategoryNews = require('./updateCategoryNews');
 const updateHeadline = require('./updateHeadline');
 const updateInstant = require('./updateInstant');
+const updateHotNews = require('./updateHotNews');
 
 module.exports = co.wrap(function*() {
 
@@ -17,10 +18,13 @@ module.exports = co.wrap(function*() {
 
     // yield redis.client.flushallAsync();
 
-    yield updateInstant();
+    yield [
+        updateHotNews(),
+        updateInstant(),
+        updateHeadline()
+    ];
 
-    let headline = yield updateHeadline();
-    console.log('Update headline Complete.');
+    // console.log('Update headline Complete.');
 
     let categories = yield updateCategory();
     console.log('Update Category Menu Complete.');

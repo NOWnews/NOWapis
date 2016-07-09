@@ -4,6 +4,7 @@ const news = require('./news');
 const channels = require('./channels');
 const category = require('./category');
 const headline = require('./headline');
+const hotNews = require('./hotNews');
 
 module.exports = function(app) {
 
@@ -12,6 +13,7 @@ module.exports = function(app) {
     app.use('/', channels);
     app.use('/', category);
     app.use('/', headline);
+    app.use('/', hotNews);
 
     return function(req, res, next) {
         return next();

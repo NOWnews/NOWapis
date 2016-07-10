@@ -1,6 +1,6 @@
 import co from 'co';
 
-const debug = require('debug')('NOWapis:controller:channels:menu');
+const debug = require('debug')('NOWapis:controller:headline');
 const redis = require('../../redis');
 
 module.exports = function(req, res, next) {

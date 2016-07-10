@@ -5,7 +5,7 @@ import mongodb from 'mongodb';
 import _ from 'lodash';
 // import moment from 'moment-timezone';
 
-const debug = require('debug')('NOWapis:cronjobs:hotNews');
+const debug = require('debug')('NOWapis:cronjobs:updateHotNews');
 const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
@@ -22,7 +22,7 @@ module.exports = co.wrap(function*() {
     let now = Math.floor(+new Date() / 1000);
 
     let newsList = yield db.collection('fields_current.node').find({
-            '_bundle':'news', 
+            '_bundle':'news',
             'field_release_status.value': 1,
             'field_release_status2.value': { $gt: 0 },
             'field_release_date.value': { $lte : now },

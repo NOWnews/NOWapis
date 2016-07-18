@@ -31,12 +31,6 @@ let formatUrl = function(file) {
 
 module.exports = co.wrap(function*(nodeIds) {
 
-    // if(!news) {
-    //     return Promise.reject(new Error('Need News Data'));
-    // }
-
-    // news.image = {};
-
     let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
     let newsRelations = yield db.collection('fields_current.relation').find({
@@ -89,28 +83,6 @@ module.exports = co.wrap(function*(nodeIds) {
     });
     debug('imageData = %j', imageData);
 
-    // let fids = [];
-    // _.forEach(imageNodes, function(value, key) {
-    //     fids.push(parseInt(key, 10));
-    // });
-    // debug('fids = %j', fids);
-
-    // let files = yield db.collection('fields_current.file').find({
-    //         // _bundle: 'image',
-    //         // _type: 'file',
-    //         fid: { $in: fids }
-    //     }, {
-    //         uri: 1,
-    //         field_file_image_width: 1,
-    //         field_file_image_height: 1
-    //     })
-    //     .toArrayAsync();
-    // debug('files = %j', files[0]);
-
-    // let mappingImageNodeAndFile = _.map(function() {
-
-    // });
-
-
+    yield db.closeAsync();
     return yield Promise.resolve({});
 });

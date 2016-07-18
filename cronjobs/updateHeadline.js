@@ -63,8 +63,10 @@ module.exports = co.wrap(function*() {
     // debug('headlineNewsNodes = %j', headlineNewsNodes);
     debug('sortedNews = %j', sortedNews);
 
-    yield redis.setValue('headline', sortedNews, 3600 * 24);
-    yield db.closeAsync();
+    yield [
+        redis.setValue('headline', sortedNews, 3600 * 24),
+        db.closeAsync()
+    ];
 
     return yield Promise.resolve({});
 });

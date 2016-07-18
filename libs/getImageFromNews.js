@@ -92,5 +92,6 @@ module.exports = co.wrap(function*(news) {
     // news.image.thumbnail = 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
     // debug('news = %j', news);
     // debug('news id = %s', news._id);
+    yield db.closeAsync();
     return yield Promise.resolve(news);
 });

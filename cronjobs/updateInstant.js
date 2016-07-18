@@ -90,7 +90,10 @@ module.exports = co.wrap(function*() {
         return compareNews[nodeId];
     });
 
-    yield redis.setValue('instant', sortedNewsList, 3600 * 24);
-    yield db.closeAsync();
+    yield [
+        redis.setValue('instant', sortedNewsList, 3600 * 24),
+        db.closeAsync()
+    ];
+
     return Promise.resolve({});
 });

@@ -65,6 +65,8 @@ module.exports = function(req, res, next) {
         // news.mobileBody = results;
         debug('outputNews = %j', outputNews);
 
+        yield db.closeAsync();
+
         res.status(200);
         return res.json(outputNews);
         // return res.json(news);

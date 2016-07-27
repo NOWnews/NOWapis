@@ -3,7 +3,7 @@ import co from 'co';
 import Promise from 'bluebird';
 import mongodb from 'mongodb';
 import _ from 'lodash';
-// import moment from 'moment-timezone';
+import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:cronjobs:instant');
 const config = require('../config');
@@ -62,7 +62,8 @@ module.exports = co.wrap(function*() {
     }, {
         _id: 1,
         title: 1,
-        // field_main_category: true,
+        created: 1,
+        field_main_category: 1,
         field_release_date: 1,
         field_short_title: 1,
         // body: true,
@@ -75,9 +76,21 @@ module.exports = co.wrap(function*() {
     //     return libs.getImageFromNews(news);
     // });
     // yield libs.getImageFromNodeIds(nodeIds);
+
+    // 尋找新聞首圖
     let newsWithImage = yield Promise.map(newsList, function(news) {
         return libs.getImageFromNews(news);
     }, { concurrency: concurrency });
+
+    // 找尋新聞分類
+    yield Promise.map(newsList, function(news) {
+        return libs.findNewsMainCategory(news);
+    }, { concurrency: concurrency });
+
+    // 時間正規化
+    _.map(newsList, function(news) {
+        news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+    });
 
     // 比較排序
     let compareNews = {};

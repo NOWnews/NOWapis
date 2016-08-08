@@ -1,6 +1,8 @@
 import co from 'co';
 import Promise from 'bluebird';
 import mongodb from 'mongodb';
+import moment from 'moment-timezone';
+import _ from 'lodash';
 
 const debug = require('debug')('NOWapis:controller:news:newest');
 
@@ -24,10 +26,15 @@ module.exports = function(req, res, next) {
 
         debug('newestNews = %j', newestNews);
 
+        let nodeIds = _.map(newestNews, function(news) {
+            let time = moment(news.created * 1000).format('YYYY/MM/DD');
+            return `http://www.nownews.com/n/${time}/${news._id}`;
+        });
+
         yield db.closeAsync();
 
         res.status(200);
-        return res.json(newestNews);
+        return res.json(nodeIds);
     })
     .catch(next);
 };

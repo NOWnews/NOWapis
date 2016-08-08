@@ -18,7 +18,8 @@ module.exports = function(req, res, next) {
         let db = yield MongoClient.connectAsync(config.newsMongoDb);
 
         let newestNews = yield db.collection('fields_current.node').find({
-                _bundle: 'news'
+                _bundle: 'news',
+                'field_release_status.value': 1
             })
             .sort({_id: -1})
             .limit(10)

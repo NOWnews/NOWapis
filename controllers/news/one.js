@@ -41,6 +41,10 @@ module.exports = function(req, res, next) {
             return Promise.reject(new Error(`找不到這個新聞， nodeId = ${nodeId}`));
         }
 
+        // 找尋新聞首圖
+        yield libs.getImageFromNews(news);
+        // debug('image = %j', news.image);
+
         let results = libs.parseHtml(news.body.value);
 
         let videos = libs.getVideos(news.field_free_body.value);
@@ -48,6 +52,7 @@ module.exports = function(req, res, next) {
         let outputNews = {
             nodeId: news._id,
             title: news.body.summary,
+            image: news.image,
             summary: news.title,
             shortTitle: (news.field_short_title && news.field_short_title.value) || '',
             created: news.created,

@@ -51,10 +51,11 @@ module.exports = function(req, res, next) {
 
         let outputNews = {
             nodeId: news._id,
-            title: news.body.summary,
-            image: news.image,
-            summary: news.title,
+            title: news.title,
             shortTitle: (news.field_short_title && news.field_short_title.value) || '',
+            url: `/n/${moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD')}/${news._id}`,
+            image: news.image,
+            summary: news.body.summary,
             created: news.created,
             changed: news.changed,
             createdAt: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),

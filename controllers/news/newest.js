@@ -1,23 +1,24 @@
 import co from 'co';
-import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import Promise from 'bluebird';
+// import mongodb from 'mongodb';
 import moment from 'moment-timezone';
 import _ from 'lodash';
 
 const debug = require('debug')('NOWapis:controller:news:newest');
 
-const config = require('../../config');
+// const config = require('../../config');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = function(req, res, next) {
 
     co(function*(){
 
-        let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        let mongodb14 = yield require('../../mongodb14');
 
-        let newestNews = yield db.collection('fields_current.node').find({
+        let newestNews = yield mongodb14.collection('fields_current.node').find({
                 _bundle: 'news',
                 'field_release_status.value': 1
             })
@@ -32,7 +33,7 @@ module.exports = function(req, res, next) {
             return `http://www.nownews.com/n/${time}/${news._id}`;
         });
 
-        yield db.closeAsync();
+        // yield db.closeAsync();
 
         res.status(200);
         return res.json(nodeIds);

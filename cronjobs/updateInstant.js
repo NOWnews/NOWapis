@@ -1,28 +1,29 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:cronjobs:instant');
-const config = require('../config');
+// const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
     let now = Math.floor(+new Date() / 1000);
     let tid = 2611;
 
     // 找出速報的關聯
-    let instanceRelations = yield db.collection('fields_current.relation').find({
+    let instanceRelations = yield mongodb14.collection('fields_current.relation').find({
         _bundle: 'moderator',
         endpoints: {
             entity_type: 'taxonomy_term',
@@ -57,7 +58,7 @@ module.exports = co.wrap(function*() {
     });
 
     // 找尋所有新聞
-    let newsList = yield db.collection('fields_current.node').find({
+    let newsList = yield mongodb14.collection('fields_current.node').find({
         _id: { $in: nodeIds }
     }, {
         _id: 1,
@@ -103,10 +104,11 @@ module.exports = co.wrap(function*() {
         return compareNews[nodeId];
     });
 
-    yield [
-        redis.setValue('instant', sortedNewsList, 3600 * 24),
-        db.closeAsync()
-    ];
+    yield redis.setValue('instant', sortedNewsList, 3600 * 24);
+    // yield [
+    //     redis.setValue('instant', sortedNewsList, 3600 * 24),
+    //     db.closeAsync()
+    // ];
 
     return Promise.resolve({});
 });

@@ -1,27 +1,28 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:cronjobs:updateHotNews');
-const config = require('../config');
+// const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
     let now = Math.floor(+new Date() / 1000);
 
-    let newsList = yield db.collection('fields_current.node').find({
+    let newsList = yield mongodb14.collection('fields_current.node').find({
             '_bundle':'news',
             'field_release_status.value': 1,
             'field_release_status2.value': { $gt: 0 },
@@ -64,10 +65,11 @@ module.exports = co.wrap(function*() {
 
     debug('newsWithImage = %j', newsWithImage);
 
-    yield [
-        redis.setValue('hotNews', newsWithImage, 3600 * 24),
-        db.closeAsync()
-    ];
+    yield redis.setValue('hotNews', newsWithImage, 3600 * 24);
+    // yield [
+    //     redis.setValue('hotNews', newsWithImage, 3600 * 24),
+    //     db.closeAsync()
+    // ];
 
     return Promise.resolve({});
 });

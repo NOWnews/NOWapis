@@ -1,21 +1,22 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
 
 const debug = require('debug')('NOWapis:cronjobs:updateChannelsMenu');
 
-const config = require('../config');
+// const config = require('../config');
 const redis = require('../redis');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = co.wrap(function*() {
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
-    let mainpage = yield db.collection('fields_current.node').findOneAsync({
+    let mainpage = yield mongodb14.collection('fields_current.node').findOneAsync({
         _bundle: 'mainpage'
     });
 
@@ -23,7 +24,7 @@ module.exports = co.wrap(function*() {
         return collection.target_id;
     });
 
-    let channels = yield db.collection('fields_current.node').find({
+    let channels = yield mongodb14.collection('fields_current.node').find({
         _id: { $in: channelIds },
         'field_release_status.value': 1
     }, {
@@ -45,7 +46,7 @@ module.exports = co.wrap(function*() {
     });
 
     let cacheMenu = yield redis.setValue('channelsMenu', menu, 3600 * 24);
-    yield db.closeAsync();
+    // yield db.closeAsync();
 
     return yield Promise.resolve(menu);
 });

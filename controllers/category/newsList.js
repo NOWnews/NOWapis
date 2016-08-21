@@ -1,16 +1,16 @@
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
-import _ from 'lodash';
-import moment from 'moment-timezone';
+// import mongodb from 'mongodb';
+// import _ from 'lodash';
+// import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:category:newsList');
 const redis = require('../../redis');
 const libs = require('../../libs');
-const config = require('../../config');
+// const config = require('../../config');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = function(req, res, next) {
 
@@ -27,10 +27,11 @@ module.exports = function(req, res, next) {
         }
 
         // 如果沒有資料就進去 db 撈，並且 cache 起來
-        let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        let mongodb14 = yield require('../../mongodb14');
 
         // 找出某個分類的新聞
-        let categoryNews = yield db.collection('fields_current.node').find({
+        let categoryNews = yield mongodb14.collection('fields_current.node').find({
            _bundle: 'news',
            _type: 'node',
            'field_main_category.tid': categoryId
@@ -52,11 +53,8 @@ module.exports = function(req, res, next) {
             return libs.getImageFromNews(news);
         });
 
-        // 把資料存入 redis 並且關掉 db instance
-        yield [
-            redis.setValue(`category${categoryId}`, newsWithImage, 180),
-            db.closeAsync()
-        ];
+        // 把資料存入 redis
+        yield redis.setValue(`category${categoryId}`, newsWithImage, 180);
 
         return res.send(newsWithImage);
     })

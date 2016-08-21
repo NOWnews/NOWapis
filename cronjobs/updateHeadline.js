@@ -1,25 +1,26 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:cronjobs:updateHeadline');
-const config = require('../config');
+// const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
-    let headlineNode = yield db.collection('fields_current.node').findOneAsync({
+    let headlineNode = yield mongodb14.collection('fields_current.node').findOneAsync({
         _bundle: 'mainpage'
     });
 
@@ -27,7 +28,7 @@ module.exports = co.wrap(function*() {
         return item.target_id;
     });
 
-    let headlineNewsNodes = yield db.collection('fields_current.node').find({
+    let headlineNewsNodes = yield mongodb14.collection('fields_current.node').find({
             _id: { $in: headlineNewsIds }
         }, {
             _id: 1,
@@ -77,10 +78,11 @@ module.exports = co.wrap(function*() {
     // debug('headlineNewsNodes = %j', headlineNewsNodes);
     debug('sortedNews = %j', sortedNews);
 
-    yield [
-        redis.setValue('headline', sortedNews, 3600 * 24),
-        db.closeAsync()
-    ];
+    yield redis.setValue('headline', sortedNews, 3600 * 24);
+    // yield [
+    //     redis.setValue('headline', sortedNews, 3600 * 24),
+    //     db.closeAsync()
+    // ];
 
     return yield Promise.resolve({});
 });

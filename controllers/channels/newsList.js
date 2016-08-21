@@ -1,17 +1,17 @@
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
-import moment from 'moment-timezone';
+// import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:channels:newsList');
 
 const redis = require('../../redis');
 const libs = require('../../libs');
-const config = require('../../config');
+// const config = require('../../config');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 
 module.exports = function(req, res, next) {
@@ -27,10 +27,11 @@ module.exports = function(req, res, next) {
             return res.json(redisChannelNews);
         }
 
-        let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        let mongodb14 = yield require('../../mongodb14');
 
         // 找到某個 channel
-        let channel = yield db.collection('fields_current.node').findOneAsync({
+        let channel = yield mongodb14.collection('fields_current.node').findOneAsync({
                 _id: channelNodeId,
                 'field_release_status.value': 1
             }, {
@@ -50,7 +51,7 @@ module.exports = function(req, res, next) {
         debug('nodeIds = %j', nodeIds);
 
         // 用 node id 去找相關的新聞
-        let channelWithNews = yield db.collection('fields_current.node').find({
+        let channelWithNews = yield mongodb14.collection('fields_current.node').find({
             _id: { $in : nodeIds }
         }, {
             _id: 1,
@@ -83,10 +84,11 @@ module.exports = function(req, res, next) {
         });
 
         // 把資料存入 redis 並且關掉 db instance
-        yield [
-            redis.setValue(`channel${channelNodeId}`, sortedNews, 180),
-            db.closeAsync()
-        ];
+        yield redis.setValue(`channel${channelNodeId}`, sortedNews, 180);
+        // yield [
+        //     redis.setValue(`channel${channelNodeId}`, sortedNews, 180),
+        //     db.closeAsync()
+        // ];
 
         return res.send(sortedNews);
     })

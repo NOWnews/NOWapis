@@ -4,10 +4,10 @@ const co = require('co');
 const Promise = require('bluebird');
 const md5 = require('md5');
 const _ = require('lodash');
-const config = require('../config');
+// const config = require('../config');
 
-const MongoDB = Promise.promisifyAll(require('mongodb'));
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(require('mongodb'));
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 let formatUrl = function(file) {
 
@@ -31,9 +31,10 @@ let formatUrl = function(file) {
 
 module.exports = co.wrap(function*(nodeIds) {
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
-    let newsRelations = yield db.collection('fields_current.relation').find({
+    let newsRelations = yield mongodb14.collection('fields_current.relation').find({
             _bundle: 'relation_news_image',
             // _type: 'relation',
             'endpoints.entity_id': { $in: nodeIds }
@@ -57,14 +58,14 @@ module.exports = co.wrap(function*(nodeIds) {
     });
     debug('imageNodeIds = %j', imageNodeIds);
 
-    let imageNodes = yield db.collection('fields_current.node').find({
+    let imageNodes = yield mongodb14.collection('fields_current.node').find({
             _id: { $in: imageNodeIds }
         })
         .toArrayAsync();
     debug('imageNodes = %j', imageNodes);
 
     let imageData = yield Promise.map(imageNodes, function(node) {
-        return db.collection('fields_current.file').findOneAsync({
+        return mongodb14.collection('fields_current.file').findOneAsync({
             // _bundle: 'image',
             // _type: 'file',
             fid: node.field_media_entity.fid
@@ -83,6 +84,6 @@ module.exports = co.wrap(function*(nodeIds) {
     });
     debug('imageData = %j', imageData);
 
-    yield db.closeAsync();
+    // yield db.closeAsync();
     return yield Promise.resolve({});
 });

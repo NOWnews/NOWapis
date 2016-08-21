@@ -1,23 +1,24 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:cronjobs:updateChannelsNews');
-const config = require('../config');
+// const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
     let menu = yield redis.getValue('channelsMenu');
 
@@ -36,7 +37,7 @@ module.exports = co.wrap(function*() {
 
     // 找出每個 channel 相關的新聞
     let channelsNews = yield Promise.map(channels, function(channel) {
-        return db.collection('fields_current.node').find({
+        return mongodb14.collection('fields_current.node').find({
             _id: { $in: channel.news }
         }, {
             _id: 1,
@@ -139,7 +140,7 @@ module.exports = co.wrap(function*() {
         channel.news = newsWithImage;
         return redis.setValue(`channel${channel.nodeId}`, channel, 3600 * 24);
     });
-    yield db.closeAsync();
+    // yield db.closeAsync();
 
     return Promise.resolve({});
 });

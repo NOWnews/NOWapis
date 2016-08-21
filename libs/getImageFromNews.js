@@ -3,10 +3,10 @@ const debug = require('debug')('NOWapis:libs:getNewsImageFromNodeId');
 const co = require('co');
 const Promise = require('bluebird');
 const md5 = require('md5');
-const config = require('../config');
+// const config = require('../config');
 
-const MongoDB = Promise.promisifyAll(require('mongodb'));
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(require('mongodb'));
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = co.wrap(function*(news) {
 
@@ -16,9 +16,10 @@ module.exports = co.wrap(function*(news) {
 
     news.image = {};
 
-    let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+    let mongodb14 = yield require('../mongodb14');
 
-    let imageNodeId = yield db.collection('fields_current.relation').findOneAsync({
+    let imageNodeId = yield mongodb14.collection('fields_current.relation').findOneAsync({
             _bundle: 'relation_news_image',
             // _type: 'relation',
             'endpoints.entity_id': news._id
@@ -39,7 +40,7 @@ module.exports = co.wrap(function*(news) {
         return Promise.resolve(news);
     }
 
-    let imageNode = yield db.collection('fields_current.node').findOneAsync({
+    let imageNode = yield mongodb14.collection('fields_current.node').findOneAsync({
             _id: imageNodeId,
             // _bundle: 'media',
             // _type: 'node',
@@ -59,7 +60,7 @@ module.exports = co.wrap(function*(news) {
 
     let fid = imageNode.field_media_entity.fid;
 
-    let imageData = yield db.collection('fields_current.file').findOneAsync({
+    let imageData = yield mongodb14.collection('fields_current.file').findOneAsync({
             // _bundle: 'image',
             // _type: 'file',
             fid: fid
@@ -92,6 +93,6 @@ module.exports = co.wrap(function*(news) {
     // news.image.thumbnail = 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
     // debug('news = %j', news);
     // debug('news id = %s', news._id);
-    yield db.closeAsync();
+    // yield db.closeAsync();
     return yield Promise.resolve(news);
 });

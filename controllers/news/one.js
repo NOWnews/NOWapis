@@ -1,15 +1,15 @@
 import co from 'co';
 import Promise from 'bluebird';
-import mongodb from 'mongodb';
+// import mongodb from 'mongodb';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:news:one');
 
-const config = require('../../config');
+// const config = require('../../config');
 const libs = require('../../libs');
 
-const MongoDB = Promise.promisifyAll(mongodb);
-const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+// const MongoDB = Promise.promisifyAll(mongodb);
+// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = function(req, res, next) {
 
@@ -17,9 +17,10 @@ module.exports = function(req, res, next) {
 
     co(function*(){
 
-        let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
+        let mongodb14 = yield require('../../mongodb14');
 
-        let news = yield db.collection('fields_current.node').findOne({
+        let news = yield mongodb14.collection('fields_current.node').findOne({
             _id: nodeId,
             'field_release_status.value': 1
         }, {
@@ -71,7 +72,7 @@ module.exports = function(req, res, next) {
         // news.mobileBody = results;
         debug('outputNews = %j', outputNews);
 
-        yield db.closeAsync();
+        // yield db.closeAsync();
 
         res.status(200);
         return res.json(outputNews);

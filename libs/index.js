@@ -1,6 +1,7 @@
 
 
 module.exports = {
+    addImageApi: require('./addImageApi'),
     parseHtml: require('./parseHtml'),
     getVideos: require('./getVideos'),
     getImageFromNodeIds: require('./getImageFromNodeIds'),

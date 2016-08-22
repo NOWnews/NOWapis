@@ -46,6 +46,9 @@ module.exports = function(req, res, next) {
         yield libs.getImageFromNews(news);
         // debug('image = %j', news.image);
 
+        // 將新聞內文的圖片都加上 image api
+        news.body.value = libs.addImageApi(news.body.value);
+
         let results = libs.parseHtml(news.body.value);
 
         let videos = libs.getVideos(news.field_free_body.value);

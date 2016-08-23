@@ -8,12 +8,12 @@ const instant = require('./instant');
 
 module.exports = function(app) {
 
-    app.use('/', news);
     app.use('/', channels);
     app.use('/', category);
     app.use('/', headline);
     app.use('/', hotNews);
     app.use('/', instant);
+    app.use('/', news);
 
     return function(req, res, next) {
         return next();

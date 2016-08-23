@@ -3,7 +3,7 @@ let router = express.Router();
 
 const hotNews = require('./hotNews');
 
-router.route('/hotNews')
+router.route('/news/hotNews')
     .get(hotNews);
 
 module.exports = router;

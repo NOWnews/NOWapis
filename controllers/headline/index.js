@@ -3,7 +3,7 @@ let router = express.Router();
 
 const headline = require('./headline');
 
-router.route('/headline')
+router.route('/news/headline')
     .get(headline);
 
 module.exports = router;

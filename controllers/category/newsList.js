@@ -1,8 +1,8 @@
 import co from 'co';
 import Promise from 'bluebird';
 // import mongodb from 'mongodb';
-// import _ from 'lodash';
-// import moment from 'moment-timezone';
+import _ from 'lodash';
+import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:category:newsList');
 const redis = require('../../redis');
@@ -11,16 +11,18 @@ const libs = require('../../libs');
 
 // const MongoDB = Promise.promisifyAll(mongodb);
 // const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
+const concurrency = 10;
 
 module.exports = function(req, res, next) {
 
-    let categoryId = parseInt(req.params.nodeId, 10);
-    debug('categoryId = %s', categoryId);
+    let taxId = parseInt(req.params.taxId, 10);
+
+    debug('taxId = %s', taxId);
 
     co(function*() {
 
         // 去跟 redis 要資料，有資料直接 response
-        let redisCategoryNews = yield redis.getValue(`category${categoryId}`);
+        let redisCategoryNews = yield redis.getValue(`category${taxId}`);
         debug('redisCategoryNews = %j', redisCategoryNews);
         if(redisCategoryNews && redisCategoryNews.length !== 0) {
             return res.json(redisCategoryNews);
@@ -34,29 +36,40 @@ module.exports = function(req, res, next) {
         let categoryNews = yield mongodb14.collection('fields_current.node').find({
            _bundle: 'news',
            _type: 'node',
-           'field_main_category.tid': categoryId
+           'field_main_category.tid': taxId
         }, {
             _id: 1,
             title: 1,
-            // field_main_category: true,
+            created: 1,
+            field_main_category: 1,
             field_release_date: 1,
             field_short_title: 1,
             // body: true,
             // field_news_ref: true
         })
-        .limit(15)
+        .limit(18)
         .sort({ 'field_release_date.value': -1 })
         .toArrayAsync();
 
         // 找出圖片
-        let newsWithImage = yield Promise.map(categoryNews, function(news) {
+        let newsData = yield Promise.map(categoryNews, function(news) {
             return libs.getImageFromNews(news);
         });
 
-        // 把資料存入 redis
-        yield redis.setValue(`category${categoryId}`, newsWithImage, 180);
+        // 找尋新聞分類
+        yield Promise.map(newsData, function(news) {
+            return libs.findNewsMainCategory(news);
+        }, { concurrency: concurrency });
 
-        return res.send(newsWithImage);
+        // 時間正規化
+        _.map(newsData, function(news) {
+            news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+        });
+
+        // 把資料存入 redis
+        yield redis.setValue(`category${taxId}`, newsData, 180);
+
+        return res.send(newsData);
     })
     .catch(next);
 };

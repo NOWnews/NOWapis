@@ -8,6 +8,8 @@ const updateChannelsMenu = require('./updateChannelsMenu');
 const updateChannelsNews = require('./updateChannelsNews');
 const updateCategory = require('./updateCategory');
 const updateCategoryNews = require('./updateCategoryNews');
+const updatePhotosCategory = require('./updatePhotosCategory');
+
 const updateHeadline = require('./updateHeadline');
 const updateInstant = require('./updateInstant');
 const updateHotNews = require('./updateHotNews');
@@ -27,13 +29,16 @@ module.exports = co.wrap(function*() {
     // console.log('Update headline Complete.');
 
     let categories = yield updateCategory();
-    console.log('Update Category Menu Complete.');
+    // console.log('Update Category Menu Complete.');
 
     // let categoryNews = yield updateCategoryNews();
     // console.log('Update Category News Complete.');
 
     let channelsMenu = yield updateChannelsMenu();
-    console.log('Update Channels Menu Complete.');
+    // console.log('Update Channels Menu Complete.');
+
+    let photoCategories = yield updatePhotosCategory();
+    // console.log('Update Category Menu Complete.');
 
     // let channelsNews = yield updateChannelsNews();
     // console.log('Update Channels News Complete.');

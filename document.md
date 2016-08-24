@@ -88,6 +88,49 @@ None
 ]
 ```
 
+### `GET` /category/photos
+
+取得所有圖集大分類資料
+
+#### Url Parameters
+
+None
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+[
+  {
+    "_id": 2691,
+    "tid": 2691,
+    "vid": 3,
+    "name": "圖集總覽",
+    "weight": 0
+  },
+  {
+    "_id": 2551,
+    "name": "影劇",
+    "tid": 2551,
+    "vid": 3,
+    "weight": 0
+  },
+  ......
+  ......
+]
+```
+
 ### `GET` /category/news/{:taxId}
 
 取得某個新聞分類的所有新聞列表
@@ -159,6 +202,49 @@ None
     },
     "category": "政治",
     "createdAt": "2016/08/23 14:49:50"
+  },
+  ......
+  ......
+]
+```
+
+### `GET` /category/photos/{:taxId}
+
+取得某個圖集的所有圖集列表
+
+#### Url Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| taxId | 某個分類的 taxId | String | √ | `/category/photos/2691` |
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+[
+  {
+    "title": "<火線掏寶>劇照",
+    "mainNodeId": 2216311,
+    "nodeId": 2216312,
+    "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/b4/a2/b4a23d6913c3056763ca9cebe64214bb.jpg"
+  },
+  {
+    "title": "張韶涵《全面淪陷》MV側拍",
+    "mainNodeId": 2216298,
+    "nodeId": 2216224,
+    "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/7f/0e/7f0e4d3cacaf0c843acc28857372d05a.jpg"
   },
   ......
   ......

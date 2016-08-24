@@ -103,6 +103,10 @@ module.exports = (req, res, next) => {
                 .toArrayAsync()
                 .then((docs) => {
                     let nodeIds = _.map(docs, (doc) => {
+                        debug('doc = %j', doc);
+
+                        result.cite = doc.field_media_title.value; // 列表主圖圖說
+
                         let nodeId;
                         _.forEach(doc.endpoints, (obj) => {
                             if(obj.entity_id !== photosNode._id) {

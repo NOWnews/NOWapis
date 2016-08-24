@@ -2,7 +2,7 @@ import co from 'co';
 import Promise from 'bluebird';
 // import mongodb from 'mongodb';
 import _ from 'lodash';
-// import moment from 'moment-timezone';
+import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:channels:newsList');
 
@@ -12,7 +12,7 @@ const libs = require('../../libs');
 
 // const MongoDB = Promise.promisifyAll(mongodb);
 // const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
-
+const concurrency = 10;
 
 module.exports = function(req, res, next) {
 
@@ -57,12 +57,13 @@ module.exports = function(req, res, next) {
             _id: 1,
             title: 1,
             created: 1,
-            changed: 1,
-            body: 1,
+            // changed: 1,
+            // body: 1,
             // field_adult: 1,
-            field_authors: 1,
-            field_newsby: 1,
-            field_short_title: 1,
+            // field_authors: 1,
+            // field_newsby: 1,
+            field_main_category: 1,
+            field_short_title: 1
         })
         .toArrayAsync();
         debug('channelWithNews = %j', channelWithNews);
@@ -70,6 +71,16 @@ module.exports = function(req, res, next) {
         //  加入新聞圖片
         let newsWithImage = yield Promise.map(channelWithNews, function(news) {
             return libs.getImageFromNews(news);
+        });
+
+        // 找尋新聞分類
+        yield Promise.map(channelWithNews, function(news) {
+            return libs.findNewsMainCategory(news);
+        }, { concurrency: concurrency });
+
+        // 時間正規化
+        _.map(channelWithNews, function(news) {
+            news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
         });
 
         // 用來排列順序的資料
@@ -83,14 +94,20 @@ module.exports = function(req, res, next) {
             return compareNews[id];
         });
 
+        let output = {
+            channelId: channel._id,
+            channelName: channel.title,
+            newsList: sortedNews
+        };
+
         // 把資料存入 redis 並且關掉 db instance
-        yield redis.setValue(`channel${channelNodeId}`, sortedNews, 180);
+        yield redis.setValue(`channel${channelNodeId}`, output, 180);
         // yield [
         //     redis.setValue(`channel${channelNodeId}`, sortedNews, 180),
         //     db.closeAsync()
         // ];
 
-        return res.send(sortedNews);
+        return res.send(output);
     })
     .catch(next);
 };

@@ -757,7 +757,99 @@ None
     "field_short_title": {
       "value": "永不放棄　李宗偉明年要拚世界冠軍"
     }
-  }
+  },
+  "hrefNews": [
+    {
+      "_id": 2216590,
+      "title": "驚！5歲童夜夜坐著睡　竟是這東西塞呼吸道",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
+        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
+        "uri": "hash://醫藥_01_4.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/df/19/df19f28714f1658775d5fa7a399e1ad0.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/df/19/df19f28714f1658775d5fa7a399e1ad0.jpg"
+      },
+      "category": "健康"
+    },
+    {
+      "_id": 2216106,
+      "title": "新光醫院傳暴力！　男持鐵棒闖入診間襲醫",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲醫療暴力事件後，新光醫院立即派人慰問受攻擊的醫師。（圖／翻攝自醫勞盟）",
+        "description": "▲醫療暴力事件後，新光醫院立即派人慰問受攻擊的醫師。（圖／翻攝自醫勞盟）",
+        "uri": "hash://螢幕快照 2016-08-24 下午6.13.13.png",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/d8/05/d805aa25eec91990947e3b8863e5de9c.png",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/d8/05/d805aa25eec91990947e3b8863e5de9c.png"
+      },
+      "category": "健康"
+    },
+    {
+      "_id": 2216067,
+      "title": "血友病藥物回收不完整？　病友團體不滿",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／翻攝自網路）",
+        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／翻攝自網路）",
+        "uri": "hash://醫藥圖-05_0.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9d/84/9d842b6cc91258256476a75af87390fe.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9d/84/9d842b6cc91258256476a75af87390fe.jpg"
+      },
+      "category": "健康"
+    },
+    {
+      "_id": 2215956,
+      "title": "抗癌新發現　台灣原生植物成新藥",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲衛福部、經濟部共同主辦「藥物科技研究發展獎」開跑，要發掘更多台灣本土新藥。（圖／記者陳鈞凱攝,2016.8.24）",
+        "description": "▲衛福部、經濟部共同主辦「藥物科技研究發展獎」開跑，要發掘更多台灣本土新藥。（圖／記者陳鈞凱攝,2016.8.24）",
+        "uri": "hash://S__19193858.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/bb/29/bb2950da9b397e74a36efc9e11bf4ff0.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/bb/29/bb2950da9b397e74a36efc9e11bf4ff0.jpg"
+      },
+      "category": "健康"
+    },
+    {
+      "_id": 2215624,
+      "title": "防缺藥潮！近千項「必要藥品」列管　缺藥不報要罰",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
+        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
+        "uri": "hash://醫藥_04_1.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/e9/28/e928f25067844fd1cb9e15c84fab8716.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/e9/28/e928f25067844fd1cb9e15c84fab8716.jpg"
+      },
+      "category": "健康"
+    },
+    {
+      "_id": 2215534,
+      "title": "當心！境外染登革熱217例　13年新高",
+      "field_main_category": {
+        "tid": 419896
+      },
+      "image": {
+        "title": "▲腸病毒疫情趨緩，但疾管署公布上周仍新增1例腸病毒71型重症個案。（圖／記者陳鈞凱攝,2016.8.23）",
+        "description": "▲腸病毒疫情趨緩，但疾管署公布上周仍新增1例腸病毒71型重症個案。（圖／記者陳鈞凱攝,2016.8.23）",
+        "uri": "hash://S__19136535.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/67/00/6700325f496ef364ce0ecc01218cfa27.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/67/00/6700325f496ef364ce0ecc01218cfa27.jpg"
+      },
+      "category": "健康"
+    }
+  ]
 }
 ```
 

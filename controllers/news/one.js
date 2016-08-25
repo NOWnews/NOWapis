@@ -77,8 +77,8 @@ module.exports = function(req, res, next) {
 
         // yield db.closeAsync();
 
-        // 找出上一篇與下一篇新聞
-        let pageNextPrev = yield [
+        // 找出上一篇新聞，下一篇新聞，推薦新聞
+        let other = yield [
             mongodb14.collection('fields_current.node').find({
                     _bundle: 'news',
                     _id: {
@@ -112,13 +112,29 @@ module.exports = function(req, res, next) {
                 .toArrayAsync()
                 .then((docs) => {
                     return Promise.resolve(docs[0]);
+                }),
+            Promise.map(news.field_news_ref, (doc) => {
+                let newsId = doc.target_id;
+                return mongodb14.collection('fields_current.node').findOneAsync({
+                        _id: newsId
+                    }, {
+                        title: 1,
+                        'field_main_category': 1
+                    })
+                    .then((news) => {
+                        return libs.getImageFromNews(news);
+                    })
+                    .then((news) => {
+                        return libs.findNewsMainCategory(news);
+                    });
                 })
         ];
 
-        debug('pageNextPrev = %j', pageNextPrev);
+        debug('other = %j', other);
 
-        outputNews.prev = pageNextPrev[0];
-        outputNews.next = pageNextPrev[1];
+        outputNews.prev = other[0];
+        outputNews.next = other[1];
+        outputNews.hrefNews = other[2];
 
         res.status(200);
         return res.json(outputNews);

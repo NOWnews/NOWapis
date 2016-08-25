@@ -1,9 +1,8 @@
-
 import co from 'co';
 import Promise from 'bluebird';
 import config from '../config';
 
-const debug = require('debug')('NOWapis:cronjobs:updatePhotosCategory');
+const debug = require('debug')('NOWapis:cronjobs:updateVideosCategory');
 
 const redis = require('../redis');
 
@@ -11,9 +10,9 @@ module.exports = co.wrap(function*() {
 
     let mongodb14 = yield require('../mongodb14');
 
-    let photosCategory = yield Promise.map(config.photosTids, function(photo) {
+    let videoCategoris = yield Promise.map(config.videosTids, function(video) {
         return mongodb14.collection('fields_current.taxonomy_term').findOneAsync({
-                _id: photo.tid
+                _id: video.tid
             }, {
                 _id: 1,
                 tid: 1,
@@ -26,7 +25,7 @@ module.exports = co.wrap(function*() {
             });
     });
 
-    let cachePhotosCategory = yield redis.setValue('photosCategories', photosCategory, 3600 * 24);
+    let cacheVideosCategories = yield redis.setValue('videosCategories', videoCategoris, 3600 * 24);
 
-    return yield Promise.resolve(cachePhotosCategory);
+    return yield Promise.resolve(cacheVideosCategories);
 });

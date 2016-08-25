@@ -5,7 +5,7 @@ let router = Router();
 
 const one = require('./one');
 
-router.route('/photos/:nodeId')
+router.route('/videos/:nodeId')
     .get(one);
 
 module.exports = router;

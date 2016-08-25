@@ -1,6 +1,7 @@
 
 const news = require('./news');
 const photos = require('./photos');
+const videos = require('./videos');
 const channels = require('./channels');
 const category = require('./category');
 const headline = require('./headline');
@@ -16,6 +17,7 @@ module.exports = function(app) {
     app.use('/', instant);
     app.use('/', news);
     app.use('/', photos);
+    app.use('/', videos);
 
     return function(req, res, next) {
         return next();

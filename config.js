@@ -24,4 +24,43 @@ module.exports = {
         expireSeconds: 3600
      },
 
+     /*
+      * 圖集分類 tid 總覽(先寫死，因為查詢的邏輯太複雜)
+      */
+    photosTids: [
+        { tid: 2691, name: '圖集總覽' },
+        { tid: 2551, name: '影劇' },
+        { tid: 3472, name: '正妹' },
+        { tid: 3471, name: '要聞' },
+        { tid: 2562, name: '新奇' },
+        { tid: 2730, name: '寵物' },
+        { tid: 2607, name: '運動' },
+        { tid: 2806, name: '旅遊' },
+        { tid: 8039, name: '名人' },
+        { tid: 2559, name: '其他' },
+    ],
+
+    /*
+     * 影音分類 tid 總覽(先寫死，因為查詢的邏輯太複雜)
+     */
+    videosTids: [
+        { tid: 8297, name: '最新' },
+        { tid: 2698, name: '新聞' },
+        { tid: 3981, name: '美食' },
+        { tid: 2927, name: '娛樂' },
+        { tid: 2806, name: '旅遊' },
+        { tid: 2607, name: '運動' },
+        { tid: 3757, name: '時尚' },
+        { tid: 3996, name: '文化' },
+        { tid: 14133, name: '知識' },
+        { tid: 2730, name: '寵物' },
+    ],
+
+    /*
+     * Youtube api 端點資訊
+     */
+    youtube: {
+        thumbnail: 'http://img.youtube.com/vi',
+        embed: 'https://www.youtube.com/embed'
+    }
 };

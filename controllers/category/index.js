@@ -28,6 +28,14 @@ router.route('/category/photos/:taxId')
 /*
  * 影音
  */
+const videosCategoriesList = require('./videosCategoriesList'); // 圖集全部分類
+const videosList = require('./videosList'); // 新聞分類新聞列表
+
+router.route('/category/videos')
+    .get(videosCategoriesList);
+
+router.route('/category/videos/:taxId')
+    .get(videosList);
 
 
 module.exports = router;

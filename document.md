@@ -131,6 +131,49 @@ None
 ]
 ```
 
+### `GET` /category/videos
+
+取得所有影音分類資料
+
+#### Url Parameters
+
+None
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+[
+  {
+    "_id": 8297,
+    "tid": 8297,
+    "vid": 3,
+    "name": "影音",
+    "weight": 0
+  },
+  {
+    "_id": 2698,
+    "tid": 2698,
+    "vid": 3,
+    "name": "新聞",
+    "weight": 0
+  },
+  .....
+  .....
+]
+```
+
 ### `GET` /category/news/{:taxId}
 
 取得某個新聞分類的所有新聞列表
@@ -253,9 +296,52 @@ None
 ]
 ```
 
+### `GET` /category/videos/{:taxId}
+
+取得某個影音分類的所有影音列表
+
+#### Url Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| taxId | 某個分類的 taxId | String | √ | `/category/videos/3981` |
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+[
+  {
+    "nodeId": 1309704,
+    "title": "貝貝的享食生活 - 香蕉蛋糕教學",
+    "createdAt": "2014/07/06 04:46:55",
+    "youtubeThumbnail": "http://img.youtube.com/vi/WfShnqdiWZ0/0.jpg"
+  },
+  {
+    "nodeId": 1039981,
+    "title": "【今日美食賞】公館特色餐廳 絕妙的SABABA中東美食 ",
+    "createdAt": "2013/12/03 15:01:34",
+    "youtubeThumbnail": "http://img.youtube.com/vi/c8L1WXEVBKc/0.jpg"
+  },
+  ......
+  ......
+]
+```
+
 ### `GET` /channels/news
 
-取得新聞特輯的列表資料
+取得新聞特輯的列表頁
 
 #### Url Parameters
 
@@ -353,7 +439,7 @@ None
 
 ### `GET` /channels/news/{:nodeId}
 
-取得某個特輯新聞內的所有新聞列表
+取得某個特輯新聞內的所有新聞列表頁
 
 #### Url Parameters
 
@@ -428,7 +514,7 @@ None
 
 ### `GET` /news/headline
 
-取得頭條新聞
+取得頭條新聞列表頁
 
 #### Url Parameters
 
@@ -526,7 +612,7 @@ None
 
 ### `GET` /news/hotNews
 
-取得頭條新聞
+取得頭條新聞列表頁
 
 #### Url Parameters
 
@@ -601,7 +687,7 @@ None
 
 ### `GET` /news/instant
 
-取得速報新聞
+取得速報新聞列表頁
 
 #### Url Parameters
 
@@ -676,7 +762,7 @@ None
 
 ### `GET` /news/{:nodeId}
 
-單一則新聞
+新聞內頁
 
 #### Url Parameters
 
@@ -758,7 +844,7 @@ None
       "value": "永不放棄　李宗偉明年要拚世界冠軍"
     }
   },
-  "hrefNews": [
+  "refNews": [
     {
       "_id": 2216590,
       "title": "驚！5歲童夜夜坐著睡　竟是這東西塞呼吸道",
@@ -892,7 +978,7 @@ None
 
 ### `GET` /photos/{:nodeId}
 
-單一則圖集
+圖集內頁
 
 #### Url Parameters
 
@@ -970,5 +1056,52 @@ None
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c0/76/c076d43a95c17a0d1630fbe9cb4217ad.jpg"
     }
   ]
+}
+```
+
+### `GET` /videos/{:nodeId}
+
+影音內頁
+
+#### Url Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| nodeId | 影音的 nodeId  | String | √ | `/videos/1309704` |
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+{
+  "_id": 1309704,
+  "body": {
+    "summary": "",
+    "value": "<p>▲名媛Bébé貝貝將以最簡單多角度方式，示範香蕉蛋糕的作法步驟攝教學，分享給喜歡品嘗以及希望學習甜點的朋友們<br />\r\n\t影音提供：Bébé貝貝https://www.facebook.com/baybay1111</p>\r\n",
+    "format": "full_html"
+  },
+  "changed": 1405398586,
+  "created": 1404593215,
+  "field_image": null,
+  "field_media_entity": {
+    "fid": 775624,
+    "display": 1
+  },
+  "title": "貝貝的享食生活 - 香蕉蛋糕教學",
+  "image": "http://img.youtube.com/vi/WfShnqdiWZ0/0.jpg",
+  "youtubeId": "WfShnqdiWZ0",
+  "src": "https://www.youtube.com/embed/WfShnqdiWZ0",
+  "createdAt": "2014/07/06 04:46:55"
 }
 ```

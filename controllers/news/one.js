@@ -134,7 +134,7 @@ module.exports = function(req, res, next) {
 
         outputNews.prev = other[0];
         outputNews.next = other[1];
-        outputNews.hrefNews = other[2];
+        outputNews.refNews = other[2];
 
         res.status(200);
         return res.json(outputNews);

@@ -783,3 +783,86 @@ None
   "http://www.nownews.com/n/2016/08/23/2214647"
 ]
 ```
+
+### `GET` /photos/{:nodeId}
+
+單一則圖集
+
+#### Url Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| nodeId | 圖集的 nodeId  | String | √ | `/photos/2215559` |
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+None
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+{
+  "nodeId": 2215559,
+  "cite": "▲Clay Buchholz。（圖／美聯社／達志影像）",
+  "mainImage": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/a4/48/a44867a11ea81eec3ad285da62e14c0b.jpg",
+  "collectionImages": [
+    {
+      "nodeId": 2215559,
+      "cite": "▲Clay Buchholz。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215559,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/a4/48/a44867a11ea81eec3ad285da62e14c0b.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/a4/48/a44867a11ea81eec3ad285da62e14c0b.jpg"
+    },
+    {
+      "nodeId": 2215462,
+      "cite": "▲林丹及李宗偉。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215462,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/3f/90/3f90333b245eea1340513aec462dd0b0.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/3f/90/3f90333b245eea1340513aec462dd0b0.jpg"
+    },
+    {
+      "nodeId": 2215387,
+      "cite": "▲皇家隊Yordano Ventura投的精采。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215387,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/5b/f1/5bf1f9c7424fe764906e5edcdb8c9251.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/5b/f1/5bf1f9c7424fe764906e5edcdb8c9251.jpg"
+    },
+    {
+      "nodeId": 2215355,
+      "cite": "▲陽岱鋼經常在關鍵時刻建功。（圖／取材自日本職棒太平洋聯盟TV）",
+      "fileNodeId": 2215355,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/64/0c/640c074f18708a5fc8bebf7c5e7edd1f.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/64/0c/640c074f18708a5fc8bebf7c5e7edd1f.jpg"
+    },
+    {
+      "nodeId": 2215354,
+      "cite": "▲Gary Sanchez。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215354,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/ec/16/ec16cb7bd30365bb356c125fcd4d5e7c.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ec/16/ec16cb7bd30365bb356c125fcd4d5e7c.jpg"
+    },
+    {
+      "nodeId": 2215317,
+      "cite": "▲Jose Bautista。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215317,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/d5/ff/d5ff5b6d253ff1b8f0a2606e0526ef55.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/d5/ff/d5ff5b6d253ff1b8f0a2606e0526ef55.jpg"
+    },
+    {
+      "nodeId": 2215270,
+      "cite": "▲遊騎兵隊決定釋出Josh Hamilton 。（圖／美聯社／達志影像）",
+      "fileNodeId": 2215270,
+      "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/c0/76/c076d43a95c17a0d1630fbe9cb4217ad.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c0/76/c076d43a95c17a0d1630fbe9cb4217ad.jpg"
+    }
+  ]
+}
+```

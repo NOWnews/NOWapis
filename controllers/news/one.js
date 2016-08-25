@@ -20,7 +20,7 @@ module.exports = function(req, res, next) {
         // let db = yield MongoClient.connectAsync(config.newsMongoDb);
         let mongodb14 = yield require('../../mongodb14');
 
-        let news = yield mongodb14.collection('fields_current.node').findOne({
+        let news = yield mongodb14.collection('fields_current.node').findOneAsync({
             _id: nodeId,
             'field_release_status.value': 1
         }, {

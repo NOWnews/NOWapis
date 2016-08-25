@@ -77,6 +77,49 @@ module.exports = function(req, res, next) {
 
         // yield db.closeAsync();
 
+        // 找出上一篇與下一篇新聞
+        let pageNextPrev = yield [
+            mongodb14.collection('fields_current.node').find({
+                    _bundle: 'news',
+                    _id: {
+                        $lt: nodeId
+                    },
+                    'field_release_status.value': 1
+                },{
+                    _id: 1,
+                    title: 1,
+                    field_short_title: 1
+                })
+                .sort({_id: -1})
+                .limit(1)
+                .toArrayAsync()
+                .then((docs) => {
+                    return Promise.resolve(docs[0]);
+                }),
+            mongodb14.collection('fields_current.node').find({
+                    _bundle: 'news',
+                    _id: {
+                        $gt: nodeId
+                    },
+                    'field_release_status.value': 1
+                },{
+                    _id: 1,
+                    title: 1,
+                    field_short_title: 1
+                })
+                .sort({_id: 1})
+                .limit(1)
+                .toArrayAsync()
+                .then((docs) => {
+                    return Promise.resolve(docs[0]);
+                })
+        ];
+
+        debug('pageNextPrev = %j', pageNextPrev);
+
+        outputNews.prev = pageNextPrev[0];
+        outputNews.next = pageNextPrev[1];
+
         res.status(200);
         return res.json(outputNews);
         // return res.json(news);

@@ -743,7 +743,21 @@ None
   ],
   "freeBody": "<div class=\"other_info1\">\r\n\t<a href=\"http://goo.gl/C8QriH\" style=\"display:block; color:#E40012; line-height: 1em; margin-bottom: 0.5em; font-weight: 900;\">》》投票去，我有話要說！</a>\r\n\t<div class=\"other_info1\">\r\n\t\t<div>\r\n\t\t\t<span style=\"color: rgb(51, 51, 51); font-family: Arial, 新細明體; font-size: 16px; line-height: 30px;\">更多NOWnews新聞</span>都在行動APP上：</div>\r\n\t\t<a href=\"https://goo.gl/AWVNkD\" style=\"display:block; color:#097cd2;\">》》Android APP請點這裡下載</a> <a href=\"https://goo.gl/M49ADW\" style=\"display:block; color:#097cd2;\">》》iOS APP請點這裡下載</a> <a href=\"http://legacy.nownews.com/events/adtips/mobile_app/NowNews_Mobile.apk\" style=\"display:block; color:#097cd2;\">》》大陸地區請點此直接下載APK安裝</a></div>\r\n</div>\r\n",
   "author": "娛樂中心／綜合報導",
-  "adult": "0"
+  "adult": "0",
+  "prev": {
+    "_id": 2216641,
+    "title": "阿富汗美國大學遇襲2死25傷　歹徒遭擊斃",
+    "field_short_title": {
+      "value": "阿國美大學遇襲2死　2歹徒遭擊斃"
+    }
+  },
+  "next": {
+    "_id": 2216647,
+    "title": "奧運／永不放棄　李宗偉明年還要拚世界冠軍",
+    "field_short_title": {
+      "value": "永不放棄　李宗偉明年要拚世界冠軍"
+    }
+  }
 }
 ```
 

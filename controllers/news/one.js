@@ -51,7 +51,11 @@ module.exports = function(req, res, next) {
 
         let results = libs.parseHtml(news.body.value);
 
-        let videos = libs.getVideos(news.field_free_body.value);
+        let videos = [];
+        if(news.field_free_body) {
+            videos = libs.getVideos(news.field_free_body.value);
+        }
+        // let videos = libs.getVideos(news.field_free_body.value);
 
         let outputNews = {
             nodeId: news._id,

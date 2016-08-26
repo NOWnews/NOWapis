@@ -7,6 +7,7 @@ const category = require('./category');
 const headline = require('./headline');
 const hotNews = require('./hotNews');
 const instant = require('./instant');
+const search = require('./search');
 
 module.exports = function(app) {
 
@@ -18,6 +19,7 @@ module.exports = function(app) {
     app.use('/', news);
     app.use('/', photos);
     app.use('/', videos);
+    app.use('/', search);
 
     return function(req, res, next) {
         return next();

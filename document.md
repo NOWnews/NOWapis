@@ -1111,3 +1111,80 @@ None
   "createdAt": "2014/07/06 04:46:55"
 }
 ```
+
+### `GET` /search
+
+搜尋標題
+
+#### Url Parameters
+
+None
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| keyword | 搜尋關鍵字 | String | √ | `/search?keyword=吳敦義` |
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+[
+  {
+    "_id": 2186966,
+    "title": "吳敦義演講大綱曝光　總統府洩密？還是假新聞？",
+    "created": 1469846881,
+    "field_release_date": {
+      "value": 1471822200
+    },
+    "field_short_title": {
+      "value": "演講大綱曝光　府方洩密？假新聞？"
+    },
+    "field_main_category": {
+      "tid": 419883
+    },
+    "image": {
+      "title": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
+      "description": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
+      "uri": "hash://FullSizeRender_63.jpg",
+      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg"
+    },
+    "category": "政治",
+    "createdAt": "2016/08/22 07:30:00"
+  },
+  {
+    "_id": 2186957,
+    "title": "吳敦義赴美演講大綱外洩　蕭敬嚴批蔡政府「藐視法治」",
+    "created": 1469846879,
+    "field_release_date": {
+      "value": 1471749782
+    },
+    "field_short_title": {
+      "value": "吳演講大綱外洩　藍批小英藐視法治"
+    },
+    "field_main_category": {
+      "tid": 419883
+    },
+    "image": {
+      "title": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
+      "description": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
+      "uri": "hash://FullSizeRender_63.jpg",
+      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg"
+    },
+    "category": "政治",
+    "createdAt": "2016/08/21 11:23:02"
+  },
+  ......
+  ......
+]
+```

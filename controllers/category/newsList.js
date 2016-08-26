@@ -67,7 +67,7 @@ module.exports = function(req, res, next) {
 
         // 時間正規化
         _.map(newsData, function(news) {
-            news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+            news.createdAt = moment(news.field_release_date.value * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
         });
 
         // 把資料存入 redis

@@ -11,16 +11,20 @@ const redis = require('../../redis');
 
 module.exports = (req, res, next) => {
 
-    let taxId = parseInt(req.params.taxId, 10);
+    // let taxId = parseInt(req.params.taxId, 10);
+    let { taxId } = req.params;
+    let { limit, skip, page } = req.query;
     let now = Math.floor(+new Date() / 1000);
 
     co(function*() {
 
         // 去跟 redis 要資料，有資料直接 response
-        let redisPhotosCategories = yield redis.getValue(`photosCategories${taxId}`);
-        debug('redisPhotosCategories = %j', redisPhotosCategories);
-        if(redisPhotosCategories && redisPhotosCategories.length !== 0) {
-            return res.json(redisPhotosCategories);
+        if(page === 1) {
+            let redisPhotosCategories = yield redis.getValue(`photosCategories${taxId}`);
+            debug('redisPhotosCategories = %j', redisPhotosCategories);
+            if(redisPhotosCategories && redisPhotosCategories.length !== 0) {
+                return res.json(redisPhotosCategories);
+            }
         }
 
         let mongodb14 = yield require('../../mongodb14');
@@ -30,7 +34,7 @@ module.exports = (req, res, next) => {
                 _bundle: 'moderator_picture',
                 endpoints: {
                     entity_type: 'taxonomy_term',
-                    entity_id: taxId,
+                    entity_id: parseInt(taxId, 10),
                     r_index: 1
                 },
                 'field_release_date.value': {
@@ -49,7 +53,8 @@ module.exports = (req, res, next) => {
                 'field_ra.radioactivity_energy': -1,
                 'field_release_date.value': -1
             })
-            .limit(20)
+            .limit(limit)
+            .skip((page - 1) * limit)
             .toArrayAsync();
 
         // 將 realtionNodes 內的所有圖集主要 id 撈出來(有排序的)
@@ -172,7 +177,9 @@ module.exports = (req, res, next) => {
         });
 
         // 把資料存入 redis
-        yield redis.setValue(`photosCategories${taxId}`, photosList, 180);
+        if(page === 1) {
+            yield redis.setValue(`photosCategories${taxId}`, photosList, 180);
+        }
 
         return res.json(photosList);
     })

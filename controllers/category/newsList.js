@@ -15,17 +15,20 @@ const concurrency = 10;
 
 module.exports = function(req, res, next) {
 
-    let taxId = parseInt(req.params.taxId, 10);
+    let { taxId } = req.params;
+    let { limit, skip, page } = req.query;
 
     debug('taxId = %s', taxId);
 
     co(function*() {
 
         // 去跟 redis 要資料，有資料直接 response
-        let redisCategoryNews = yield redis.getValue(`category${taxId}`);
-        debug('redisCategoryNews = %j', redisCategoryNews);
-        if(redisCategoryNews && redisCategoryNews.length !== 0) {
-            return res.json(redisCategoryNews);
+        if(page === 1) {
+            let redisCategoryNews = yield redis.getValue(`category${taxId}`);
+            debug('redisCategoryNews = %j', redisCategoryNews);
+            if(redisCategoryNews && redisCategoryNews.length !== 0) {
+                return res.json(redisCategoryNews);
+            }
         }
 
         // 如果沒有資料就進去 db 撈，並且 cache 起來
@@ -36,7 +39,7 @@ module.exports = function(req, res, next) {
         let categoryNews = yield mongodb14.collection('fields_current.node').find({
            _bundle: 'news',
            _type: 'node',
-           'field_main_category.tid': taxId
+           'field_main_category.tid': parseInt(taxId, 10)
         }, {
             _id: 1,
             title: 1,
@@ -47,7 +50,8 @@ module.exports = function(req, res, next) {
             // body: true,
             // field_news_ref: true
         })
-        .limit(18)
+        .limit(limit)
+        .skip((page - 1) * limit)
         .sort({ 'field_release_date.value': -1 })
         .toArrayAsync();
 
@@ -67,7 +71,9 @@ module.exports = function(req, res, next) {
         });
 
         // 把資料存入 redis
-        yield redis.setValue(`category${taxId}`, newsData, 180);
+        if(page === 1) {
+            yield redis.setValue(`category${taxId}`, newsData, 180);
+        }
 
         return res.send(newsData);
     })

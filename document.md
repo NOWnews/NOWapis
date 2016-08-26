@@ -190,7 +190,9 @@ None
 
 #### Query Parameters
 
-None
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| page | 分頁 | String |  | `/category/news/419883?page=2` |
 
 #### Response Status Code
 
@@ -267,7 +269,9 @@ None
 
 #### Query Parameters
 
-None
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| page | 分頁 | String |  | `/category/photos/2691?page=2` |
 
 #### Response Status Code
 
@@ -312,7 +316,9 @@ None
 
 #### Query Parameters
 
-None
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| page | 分頁 | String |  | `/category/videos/3981?page=2` |
 
 #### Response Status Code
 

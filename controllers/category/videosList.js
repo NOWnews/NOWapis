@@ -12,6 +12,7 @@ const debug = require('debug')('NOWapis:controller:category:videosList');
 module.exports = (req, res, next) => {
 
     let { taxId } = req.params;
+    let { limit, skip, page } = req.query;
     let tids;
     let now = Math.floor(+new Date() / 1000);
 
@@ -28,10 +29,12 @@ module.exports = (req, res, next) => {
     co(function*() {
 
         // 去跟 redis 要資料，有資料直接 response
-        let redisVideosCategories = yield redis.getValue(`videosCategories${taxId}`);
-        debug('redisVideosCategories = %j', redisVideosCategories);
-        if(redisVideosCategories && redisVideosCategories.length !== 0) {
-            return res.json(redisVideosCategories);
+        if(page === 1) {
+            let redisVideosCategories = yield redis.getValue(`videosCategories${taxId}`);
+            debug('redisVideosCategories = %j', redisVideosCategories);
+            if(redisVideosCategories && redisVideosCategories.length !== 0) {
+                return res.json(redisVideosCategories);
+            }
         }
 
         let mongodb14 = yield require('../../mongodb14');
@@ -50,7 +53,8 @@ module.exports = (req, res, next) => {
 
         let videoNode = yield mongodb14.collection('fields_current.node').find(conditions)
             .sort({ 'field_release_date.value': -1})
-            .limit(18)
+            .limit(limit)
+            .skip((page - 1) * limit)
             .toArrayAsync();
 
         // 取得某個 tax 影音的列表頁
@@ -68,6 +72,16 @@ module.exports = (req, res, next) => {
                 })
                 .then((imageData) => {
 
+                    if(!imageData) {
+                        return Promise.resolve({
+                            nodeId: doc._id,
+                            title: doc.title,
+                            createdAt: moment(doc.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
+                            youtubeThumbnail: null
+                        });
+                    }
+
+                    // console.log(imageData);
                     let matches = imageData.uri.match(/youtube:\/\/v\/(.*)/);
                     let youtubeId = matches[1];
                     let youtubeThumbnail = `${config.youtube.thumbnail}/${youtubeId}/0.jpg`;
@@ -85,7 +99,9 @@ module.exports = (req, res, next) => {
         // debug('images = %j', images);
 
         // 把資料存入 redis
-        yield redis.setValue(`videosCategories${taxId}`, videosList, 180);
+        if(page === 1) {
+            yield redis.setValue(`videosCategories${taxId}`, videosList, 180);
+        }
 
         return res.json(videosList);
     })

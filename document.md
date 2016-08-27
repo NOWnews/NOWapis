@@ -1114,7 +1114,7 @@ None
 
 ### `GET` /search
 
-搜尋標題
+用 solr 搜尋相關新聞
 
 #### Url Parameters
 
@@ -1128,7 +1128,7 @@ None
 
 | 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
 |---|---|---|---|---|
-| keyword | 搜尋關鍵字 | String | √ | `/search?keyword=吳敦義` |
+| keyword | 搜尋關鍵字 | String | √ | `/search?keyword=蔡英文` |
 
 #### Response Status Code
 
@@ -1137,54 +1137,57 @@ None
 #### Response Data
 
 ```
-[
-  {
-    "_id": 2186966,
-    "title": "吳敦義演講大綱曝光　總統府洩密？還是假新聞？",
-    "created": 1469846881,
-    "field_release_date": {
-      "value": 1471822200
+{
+  "keyword": "蔡英文",
+  "newsList": [
+    {
+      "_id": 2219608,
+      "title": "該調整就調整　蔡英文不怕外界批評",
+      "created": 1472302584,
+      "field_release_date": {
+        "value": 1472302584
+      },
+      "field_short_title": {
+        "value": "該調整就調整　蔡英文不怕外界批評"
+      },
+      "field_main_category": {
+        "tid": 419883
+      },
+      "image": {
+        "title": "▲前總統李登輝與總統蔡英文參加「人民直選總統暨台灣民主化發展20周年研討會」。（圖／總統府提供,2016.08.27）",
+        "description": "▲前總統李登輝與總統蔡英文參加「人民直選總統暨台灣民主化發展20周年研討會」。（圖／總統府提供,2016.08.27）",
+        "uri": "hash://全螢幕擷取 2016827 下午 015605.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/d5/53/d553819cc92c603ba16a328f246b6db2.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/d5/53/d553819cc92c603ba16a328f246b6db2.jpg"
+      },
+      "category": "政治",
+      "createdAt": "2016/08/27 20:56:24"
     },
-    "field_short_title": {
-      "value": "演講大綱曝光　府方洩密？假新聞？"
+    {
+      "_id": 2219370,
+      "title": "愛滋生案衛福部開罰100萬　國防部將提行政救濟",
+      "created": 1472287026,
+      "field_release_date": {
+        "value": 1472287919
+      },
+      "field_short_title": {
+        "value": "衛福部開罰百萬　軍方將提行政救濟"
+      },
+      "field_main_category": {
+        "tid": 419883
+      },
+      "image": {
+        "title": "▲針對國防大學退學愛滋生的歧視案，疾管署不排除祭出國內最高紀錄的百萬罰單，也可能寫下公家機關挨罰的首例。（圖／記者陳鈞凱攝,2016.8.15）",
+        "description": "▲針對國防大學退學愛滋生的歧視案，疾管署不排除祭出國內最高紀錄的百萬罰單，也可能寫下公家機關挨罰的首例。（圖／記者陳鈞凱攝,2016.8.15）",
+        "uri": "hash://S__18702338.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/98/7e/987ebb363550ec32308878553164054d.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/98/7e/987ebb363550ec32308878553164054d.jpg"
+      },
+      "category": "政治",
+      "createdAt": "2016/08/27 16:51:59"
     },
-    "field_main_category": {
-      "tid": 419883
-    },
-    "image": {
-      "title": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
-      "description": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
-      "uri": "hash://FullSizeRender_63.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg"
-    },
-    "category": "政治",
-    "createdAt": "2016/08/22 07:30:00"
-  },
-  {
-    "_id": 2186957,
-    "title": "吳敦義赴美演講大綱外洩　蕭敬嚴批蔡政府「藐視法治」",
-    "created": 1469846879,
-    "field_release_date": {
-      "value": 1471749782
-    },
-    "field_short_title": {
-      "value": "吳演講大綱外洩　藍批小英藐視法治"
-    },
-    "field_main_category": {
-      "tid": 419883
-    },
-    "image": {
-      "title": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
-      "description": "▲前副總統吳敦義，今(25)日對於是否已考慮好出馬角逐國民黨主席一事表示，考慮不是一天、兩天的事。（圖／記者林人芳攝，2016.07.25）",
-      "uri": "hash://FullSizeRender_63.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/69/f1/69f15ec4a7cc143c5be3fc6e29a43757.jpg"
-    },
-    "category": "政治",
-    "createdAt": "2016/08/21 11:23:02"
-  },
-  ......
-  ......
-]
+    ......
+    ......
+  ]
+}
 ```

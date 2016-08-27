@@ -62,5 +62,15 @@ module.exports = {
     youtube: {
         thumbnail: 'http://img.youtube.com/vi',
         embed: 'https://www.youtube.com/embed'
+    },
+
+    /*
+     * solr 相關設定檔
+     */
+    solr: {
+        host: 'solr10.nownews.com.tw',
+        port: '8080',
+        core: 'core0',
+        path: 'solr'
     }
 };

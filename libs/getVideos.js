@@ -24,5 +24,19 @@ module.exports = function(html) {
         }
     });
 
+    $('iframe').each((idx, element) => {
+        let url = $(element).attr('src');
+        let match = url.match(/https:\/\/www.facebook.com\/plugins\/video.php/);
+        debug('match = %s', match);
+        if(match) {
+            results.push({
+                type: 'facebook',
+                url: url,
+                youtubeId: null,
+                iframe: null
+            });
+        }
+    });
+
     return results;
 };

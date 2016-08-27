@@ -117,26 +117,13 @@ module.exports = function(req, res, next) {
                 .then((docs) => {
                     return Promise.resolve(docs[0]);
                 }),
-            // Promise.map(news.field_news_ref, (doc) => {
-            //     let newsId = doc.target_id;
-            //     return mongodb14.collection('fields_current.node').findOneAsync({
-            //             _id: newsId
-            //         }, {
-            //             title: 1,
-            //             'field_main_category': 1
-            //         })
-            //         .then((news) => {
-            //             return libs.getImageFromNews(news);
-            //         })
-            //         .then((news) => {
-            //             return libs.findNewsMainCategory(news);
-            //         });
-            //     })
+
+                libs.findNewsMainCategory(news)
         ];
 
         let refNews = [];
         if(news.field_news_ref) {
-            let refNews = yield Promise.map(news.field_news_ref, (doc) => {
+            refNews = yield Promise.map(news.field_news_ref, (doc) => {
                 let newsId = doc.target_id;
                 return mongodb14.collection('fields_current.node').findOneAsync({
                         _id: newsId
@@ -157,6 +144,7 @@ module.exports = function(req, res, next) {
 
         outputNews.prev = other[0];
         outputNews.next = other[1];
+        outputNews.category = other[2];
         outputNews.refNews = refNews;
 
         res.status(200);

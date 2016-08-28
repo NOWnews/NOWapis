@@ -72,5 +72,12 @@ module.exports = {
         port: '8080',
         core: 'core0',
         path: 'solr'
+    },
+
+    /*
+     * HTTP HEADER 欄位 key
+     */
+    header: {
+        'X-NOWnews-API': 'NOWnewsTaiwanNumberOne'
     }
 };

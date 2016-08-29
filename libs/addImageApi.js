@@ -9,13 +9,16 @@ module.exports = function(html) {
 
     $('img').filter(function(i, el) {
         let originSrc = $(el).attr('src');
-        let regexpString = /http:\/\/e.nownews.com\/sites\/default\/files/;
+        let regexpString = /http:\/\/[A-Za-z].nownews.com\/sites\/default\/files/;
         let matchString = originSrc.match(regexpString);
+
         if(matchString !== null) {
-            originSrc = originSrc.replace(/http:\/\/e.nownews.com\/sites\/default\/files/g, 'http://s.nownews.com');
+            originSrc = originSrc.replace(/http:\/\/[A-Za-z].nownews.com\/sites\/default\/files/g, 'http://s.nownews.com');
+            originSrc = `http://imgapi.nownews.com/?w=640&q=75&src=${originSrc}`;
         }
         // 如果是從 e.nownews 出來的，就換成 s.nownews
-        $(el).attr('src', `http://imgapi.nownews.com/?w=640&q=75&src=${originSrc}`);
+        // console.log(originSrc);
+        $(el).attr('src', originSrc);
     });
 
     let result = $.html();

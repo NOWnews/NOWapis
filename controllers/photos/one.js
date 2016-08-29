@@ -120,7 +120,8 @@ module.exports = (req, res, next) => {
                 sortedCompardIds = nodeIds;
 
                 return mongodb14.collection('fields_current.node').find({
-                    _id: { $in: nodeIds }
+                    _id: { $in: nodeIds },
+                    field_media_entity: { $exists: true }
                 }, {
                     field_release_date: 1,
                     field_media_entity: 1

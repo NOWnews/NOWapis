@@ -120,8 +120,7 @@ module.exports = (req, res, next) => {
                 sortedCompardIds = nodeIds;
 
                 return mongodb14.collection('fields_current.node').find({
-                    _id: { $in: nodeIds },
-                    field_media_entity: { $exists: true }
+                    _id: { $in: nodeIds }
                 }, {
                     field_release_date: 1,
                     field_media_entity: 1
@@ -130,6 +129,12 @@ module.exports = (req, res, next) => {
             })
             .then((fileNodes) => {
                 debug('fileNodes = %j', fileNodes);
+
+                // 去除掉沒有 fid 的選項
+                fileNodes = _.filter(fileNodes, function(fileNode) {
+                    return fileNode.field_media_entity;
+                });
+
                 return Promise.map(fileNodes, (fileNode) => {
                     return mongodb14.collection('fields_current.file').findOneAsync({
                             fid: fileNode.field_media_entity.fid

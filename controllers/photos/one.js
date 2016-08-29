@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
             _id: parseInt(nodeId, 10)
         });
 
-        debug('photoAlbum = %j', photoAlbum);
+        // debug('photoAlbum = %j', photoAlbum);
 
         if(!photoAlbum) {
             return yield Promise.reject(new Error('找不到這個圖集'));
@@ -97,7 +97,7 @@ module.exports = (req, res, next) => {
             .limit(30)
             .toArrayAsync()
             .then((docs) => {
-                debug('docs = %j', docs);
+                // debug('docs = %j', docs);
                 // console.log(docs);
                 let nodeIds = []; // 已經經過排序
                 _.forEach(docs, (doc) => {
@@ -128,7 +128,7 @@ module.exports = (req, res, next) => {
                 .toArrayAsync();
             })
             .then((fileNodes) => {
-                debug('fileNodes = %j', fileNodes);
+                // debug('fileNodes = %j', fileNodes);
 
                 // 去除掉沒有 fid 的選項
                 fileNodes = _.filter(fileNodes, function(fileNode) {
@@ -144,7 +144,7 @@ module.exports = (req, res, next) => {
                             field_file_image_height: 1
                         })
                         .then((imageData) => {
-                            debug('imageData = %j', imageData);
+                            // debug('imageData = %j', imageData);
                             let matches = imageData.uri.match(/^hash:\/\/(.*)\.([a-zA-Z0-9]{3,})$/);
                             let ext = matches[2];
                             let name = matches[1];
@@ -172,14 +172,48 @@ module.exports = (req, res, next) => {
             return result[nodeId];
         });
 
-        debug('photosCollections = %j', photosCollections);
-        debug('result = %j', result);
+        // 找出這個圖集的 taxIds
+        let photosTids = yield mongodb14.collection('fields_current.relation').find({
+                _bundle: 'moderator_picture',
+                'endpoints.entity_id': collectionId
+            })
+            .toArrayAsync()
+            .then((docs) => {
+                let taxIds = _.map(docs, (doc) => {
+                    let taxId;
+                    _.forEach(doc.endpoints, (endpoint) => {
+                        if(endpoint.entity_type === 'taxonomy_term') {
+                            taxId = endpoint.entity_id;
+                            return;
+                        }
+                    });
+
+                    return taxId;
+                });
+                return Promise.resolve(taxIds);
+            });
+
+        // debug('photosTids = %j', photosTids);
+
+        // 利用 taxId 找出此圖集的分類
+        let photoCategory = yield mongodb14.collection('fields_current.taxonomy_term').find({
+                _id: { $in: photosTids }
+            }, {
+                _id: 1,
+                name: 1
+            })
+            .toArrayAsync();
+
+        // debug('photoCategory = %j', photoCategory);
+        // debug('photosCollections = %j', photosCollections);
+        // debug('result = %j', result);
 
         return res.json({
             nodeId: photoAlbum._id,
             cite: photoAlbum.title,
             mainImage: mainImage.image,
-            collectionImages: sortedCollectionImages
+            collectionImages: sortedCollectionImages,
+            categories: photoCategory
         });
     })
     .catch(next);

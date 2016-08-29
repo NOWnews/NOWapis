@@ -1145,6 +1145,12 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&q=60&src=http://s.nownews.com/c0/76/c076d43a95c17a0d1630fbe9cb4217ad.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c0/76/c076d43a95c17a0d1630fbe9cb4217ad.jpg"
     }
+  ],
+  "categories": [
+    {
+      "_id": 2607,
+      "name": "運動"
+    }
   ]
 }
 ```

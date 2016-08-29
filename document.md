@@ -1204,7 +1204,17 @@ None
   "image": "http://img.youtube.com/vi/WfShnqdiWZ0/0.jpg",
   "youtubeId": "WfShnqdiWZ0",
   "src": "https://www.youtube.com/embed/WfShnqdiWZ0",
-  "createdAt": "2014/07/06 04:46:55"
+  "createdAt": "2014/07/06 04:46:55",
+  "categories": [
+    {
+      "_id": 3981,
+      "name": "美食"
+    },
+    {
+      "_id": 14133,
+      "name": "知識"
+    }
+  ]
 }
 ```
 

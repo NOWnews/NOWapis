@@ -6,6 +6,8 @@ import Promise from 'bluebird';
 import md5 from 'md5';
 import _ from 'lodash';
 
+import config from '../../config';
+
 module.exports = (req, res, next) => {
 
     let { nodeId } = req.params;
@@ -192,6 +194,13 @@ module.exports = (req, res, next) => {
                 });
                 return Promise.resolve(taxIds);
             });
+
+        let configPhotosTids = _.map(config.photosTids, (photoData) => {
+            return photoData.tid;
+        });
+
+        // 只有取在 config 有的 taxId
+        photosTids = _.intersection(photosTids, configPhotosTids);
 
         // debug('photosTids = %j', photosTids);
 

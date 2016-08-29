@@ -39,7 +39,7 @@ module.exports = (req, res, next) => {
         let solrData = yield request(options);
 
         if(!solrData || !solrData.response || solrData.response.docs.length === 0) {
-            return yield res.json([]);
+            return res.json([]);
         }
 
         let nodeIds = _.map(solrData.response.docs, (doc) => {

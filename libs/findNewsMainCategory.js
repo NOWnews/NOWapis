@@ -22,9 +22,14 @@ module.exports = co.wrap(function*(news) {
     let mainTid = news.field_main_category.tid;
 
     let tax = yield mongodb14.collection('fields_current.taxonomy_term')
-        .findOneAsync({ _id: mainTid });
+        .findOneAsync({
+            _id: mainTid
+        }, {
+            _id: 1,
+            name: 1
+        });
 
-    news.category = tax.name;
+    news.category = tax;
 
     // yield db.closeAsync();
 

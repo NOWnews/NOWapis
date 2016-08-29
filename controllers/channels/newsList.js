@@ -44,6 +44,10 @@ module.exports = function(req, res, next) {
             // });
         debug('channel = %j', channel);
 
+        if(!channel) {
+            return yield Promise.reject(new Error('找不到這個頻道'));
+        }
+
         // 把 channel 的 node id 撈出來
         let nodeIds = _.map(channel.field_node, function(node) {
             return node.target_id;

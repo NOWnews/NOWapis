@@ -246,7 +246,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/45/01/4501e36ea99a0b10ad089cf76c33e0c6.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/45/01/4501e36ea99a0b10ad089cf76c33e0c6.jpg"
     },
-    "category": "政治",
+    "category": {
+      "_id": 419883,
+      "name": "政治"
+    },
     "createdAt": "2016/08/23 16:19:25"
   },
   {
@@ -269,7 +272,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ac/1d/ac1d4ae6409132348a9ef5df9ee492d4.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ac/1d/ac1d4ae6409132348a9ef5df9ee492d4.jpg"
     },
-    "category": "政治",
+    "category": {
+      "_id": 419883,
+      "name": "政治"
+    },
     "createdAt": "2016/08/23 14:49:50"
   },
   ......
@@ -537,7 +543,10 @@ None
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ca/20/ca20463bdc387610885a0b233587b3e9.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ca/20/ca20463bdc387610885a0b233587b3e9.jpg"
       },
-      "category": "政治",
+      "category": {
+        "_id": 419892,
+        "name": "新奇"
+      },
       "createdAt": "2016/07/30 10:48:06"
     },
     {
@@ -557,7 +566,10 @@ None
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/f1/dd/f1dd56f0242cdb32f1cdb553052480be.PNG",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/f1/dd/f1dd56f0242cdb32f1cdb553052480be.PNG"
       },
-      "category": "新奇",
+      "category": {
+        "_id": 419891,
+        "name": "大陸"
+      },
       "createdAt": "2016/08/24 10:53:02"
     },
     ......
@@ -616,7 +628,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/4d/8e/4d8e3fa8aa8f49aa8e34c46d87933e6f.png",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/4d/8e/4d8e3fa8aa8f49aa8e34c46d87933e6f.png"
     },
-    "category": "財經",
+    "category": {
+      "_id": 419883,
+      "name": "政治"
+    },
     "createdAt": "2016/08/23 16:03:30"
   },
   {
@@ -639,7 +654,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ee/95/ee953a34f7d7d523e03247a8d24fdcb7.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ee/95/ee953a34f7d7d523e03247a8d24fdcb7.jpg"
     },
-    "category": "健康",
+    "category": {
+      "_id": 419889,
+      "name": "娛樂"
+    },
     "createdAt": "2016/08/23 14:27:29"
   },
   {
@@ -662,7 +680,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/01/0a/010ac81b3bf89f69a7b0aed287e1f0ab.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/01/0a/010ac81b3bf89f69a7b0aed287e1f0ab.jpg"
     },
-    "category": "娛樂",
+    "category": {
+      "_id": 419889,
+      "name": "娛樂"
+    },
     "createdAt": "2016/08/23 13:02:53"
   },
   ......
@@ -720,7 +741,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/55/25/5525b407d464a27e19c145595f79487d.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/55/25/5525b407d464a27e19c145595f79487d.jpg"
     },
-    "category": "生活",
+    "category": {
+      "_id": 419889,
+      "name": "娛樂"
+    },
     "createdAt": "2016/08/23 09:04:45"
   },
   {
@@ -743,7 +767,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/4f/d2/4fd2042f3728b91979fed49bacecbe04.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/4f/d2/4fd2042f3728b91979fed49bacecbe04.jpg"
     },
-    "category": "社會",
+    "category": {
+      "_id": 419892,
+      "name": "新奇"
+    },
     "createdAt": "2016/08/23 10:53:26"
   },
   ......
@@ -801,7 +828,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg"
     },
-    "category": "娛樂",
+    "category": {
+      "_id": 419883,
+      "name": "政治"
+    },
     "createdAt": "2016/08/23 12:53:12"
   },
   {
@@ -824,7 +854,10 @@ None
       "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9e/67/9e672e7f3b8a6a35a7cf0fefcea17ec7.jpg",
       "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9e/67/9e672e7f3b8a6a35a7cf0fefcea17ec7.jpg"
     },
-    "category": "新奇",
+    "category": {
+      "_id": 419883,
+      "name": "政治"
+    },
     "createdAt": "2016/08/23 14:57:35"
   },
   ......
@@ -922,96 +955,113 @@ None
       "value": "永不放棄　李宗偉明年要拚世界冠軍"
     }
   },
+  "category": {
+    "_id": 419889,
+    "name": "娛樂"
+  },
   "refNews": [
     {
-      "_id": 2216590,
-      "title": "驚！5歲童夜夜坐著睡　竟是這東西塞呼吸道",
+      "_id": 2207028,
+      "title": "不只要偶像動起來！MBC計畫推新綜《偶像料理王》",
       "field_main_category": {
-        "tid": 419896
+        "tid": 419889
       },
       "image": {
-        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-        "uri": "hash://醫藥_01_4.jpg",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/df/19/df19f28714f1658775d5fa7a399e1ad0.jpg",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/df/19/df19f28714f1658775d5fa7a399e1ad0.jpg"
+        "title": "▲《偶像明星運動會》是MBC推出的一檔大型綜藝節目。（圖／翻攝自osen）",
+        "description": "▲《偶像明星運動會》是MBC推出的一檔大型綜藝節目。（圖／翻攝自osen）",
+        "uri": "hash://201608161541775508_57b2b5ae8a285.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9a/ff/9aff2fcf5d5c6e3e816430d147ae66f6.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9a/ff/9aff2fcf5d5c6e3e816430d147ae66f6.jpg"
       },
-      "category": "健康"
+      "category": {
+        "_id": 419889,
+        "name": "娛樂"
+      }
     },
     {
-      "_id": 2216106,
-      "title": "新光醫院傳暴力！　男持鐵棒闖入診間襲醫",
+      "_id": 2207943,
+      "title": "李準基《RM》首秀　公開與洪宗玄、姜河那錄影認證照",
       "field_main_category": {
-        "tid": 419896
+        "tid": 419889
       },
       "image": {
-        "title": "▲醫療暴力事件後，新光醫院立即派人慰問受攻擊的醫師。（圖／翻攝自醫勞盟）",
-        "description": "▲醫療暴力事件後，新光醫院立即派人慰問受攻擊的醫師。（圖／翻攝自醫勞盟）",
-        "uri": "hash://螢幕快照 2016-08-24 下午6.13.13.png",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/d8/05/d805aa25eec91990947e3b8863e5de9c.png",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/d8/05/d805aa25eec91990947e3b8863e5de9c.png"
+        "title": "▲李準基、姜河那、洪宗玄16日參加《Running Man》錄影。（圖／翻攝自李準基IG）",
+        "description": "▲李準基、姜河那、洪宗玄16日參加《Running Man》錄影。（圖／翻攝自李準基IG）",
+        "uri": "hash://LEE.PNG",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/63/e1/63e16fb2a766d0d6462f90c46cfc7e83.PNG",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/63/e1/63e16fb2a766d0d6462f90c46cfc7e83.PNG"
       },
-      "category": "健康"
+      "category": {
+        "_id": 419889,
+        "name": "娛樂"
+      }
     },
     {
-      "_id": 2216067,
-      "title": "血友病藥物回收不完整？　病友團體不滿",
+      "_id": 2202385,
+      "title": "皇子來了！李準基、洪宗玄、姜河那攜手出演《RM》",
       "field_main_category": {
-        "tid": 419896
+        "tid": 419889
       },
       "image": {
-        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／翻攝自網路）",
-        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／翻攝自網路）",
-        "uri": "hash://醫藥圖-05_0.jpg",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9d/84/9d842b6cc91258256476a75af87390fe.jpg",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9d/84/9d842b6cc91258256476a75af87390fe.jpg"
+        "title": "▲李準基、姜河那、洪宗玄將參加《RM》。（圖／翻攝自日刊體育）",
+        "description": "▲李準基、姜河那、洪宗玄將參加《RM》。（圖／翻攝自日刊體育）",
+        "uri": "hash://擷取_231.PNG",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/fb/43/fb437641e3ca438bffb9e6889aaeb983.PNG",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/fb/43/fb437641e3ca438bffb9e6889aaeb983.PNG"
       },
-      "category": "健康"
+      "category": {
+        "_id": 419889,
+        "name": "娛樂"
+      }
     },
     {
-      "_id": 2215956,
-      "title": "抗癌新發現　台灣原生植物成新藥",
-      "field_main_category": {
-        "tid": 419896
-      },
+      "_id": 2194787,
+      "title": "娛樂報報／宋慧喬、宋仲基　男神女神都是運動員？",
+      "field_main_category": null,
       "image": {
-        "title": "▲衛福部、經濟部共同主辦「藥物科技研究發展獎」開跑，要發掘更多台灣本土新藥。（圖／記者陳鈞凱攝,2016.8.24）",
-        "description": "▲衛福部、經濟部共同主辦「藥物科技研究發展獎」開跑，要發掘更多台灣本土新藥。（圖／記者陳鈞凱攝,2016.8.24）",
-        "uri": "hash://S__19193858.jpg",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/bb/29/bb2950da9b397e74a36efc9e11bf4ff0.jpg",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/bb/29/bb2950da9b397e74a36efc9e11bf4ff0.jpg"
+        "title": "張梓琳——跳高、三級跳遠和百米跨欄。",
+        "description": "張梓琳——跳高、三級跳遠和百米跨欄。",
+        "uri": "hash://28_673.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/bb/31/bb319ad15cde136fed1824f7eb325370.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/bb/31/bb319ad15cde136fed1824f7eb325370.jpg"
       },
-      "category": "健康"
+      "category": null
     },
     {
-      "_id": 2215624,
-      "title": "防缺藥潮！近千項「必要藥品」列管　缺藥不報要罰",
+      "_id": 2194596,
+      "title": "越老人生越高潮　Gary秀中文駁斥：我不花心",
       "field_main_category": {
-        "tid": 419896
+        "tid": 419889
       },
       "image": {
-        "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-        "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-        "uri": "hash://醫藥_04_1.jpg",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/e9/28/e928f25067844fd1cb9e15c84fab8716.jpg",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/e9/28/e928f25067844fd1cb9e15c84fab8716.jpg"
+        "title": "▲Gary平面專訪。（圖／記者陳明安攝，2016.8.5）",
+        "description": "▲Gary平面專訪。（圖／記者陳明安攝，2016.8.5）",
+        "uri": "hash://959_57a4376c4399b.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ff/5f/ff5f17cd8c1eb0c34ca21cb21b89dfb9.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ff/5f/ff5f17cd8c1eb0c34ca21cb21b89dfb9.jpg"
       },
-      "category": "健康"
+      "category": {
+        "_id": 419889,
+        "name": "娛樂"
+      }
     },
     {
-      "_id": 2215534,
-      "title": "當心！境外染登革熱217例　13年新高",
+      "_id": 2190454,
+      "title": "ZICO出演《無限挑戰》美國特輯　拍攝現場圖公開！",
       "field_main_category": {
-        "tid": 419896
+        "tid": 419889
       },
       "image": {
-        "title": "▲腸病毒疫情趨緩，但疾管署公布上周仍新增1例腸病毒71型重症個案。（圖／記者陳鈞凱攝,2016.8.23）",
-        "description": "▲腸病毒疫情趨緩，但疾管署公布上周仍新增1例腸病毒71型重症個案。（圖／記者陳鈞凱攝,2016.8.23）",
-        "uri": "hash://S__19136535.jpg",
-        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/67/00/6700325f496ef364ce0ecc01218cfa27.jpg",
-        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/67/00/6700325f496ef364ce0ecc01218cfa27.jpg"
+        "title": "▲Block B隊長ZICO。（圖／翻攝自網路）",
+        "description": "▲Block B隊長ZICO。（圖／翻攝自網路）",
+        "uri": "hash://12973207_1000225200026685_1389170792829085858_o.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/e9/8b/e98b6e60cd7ebfff6ac3baa475632ab9.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/e9/8b/e98b6e60cd7ebfff6ac3baa475632ab9.jpg"
       },
-      "category": "健康"
+      "category": {
+        "_id": 419889,
+        "name": "娛樂"
+      }
     }
   ]
 }
@@ -1272,7 +1322,10 @@ None
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/d5/53/d553819cc92c603ba16a328f246b6db2.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/d5/53/d553819cc92c603ba16a328f246b6db2.jpg"
       },
-      "category": "政治",
+      "category": {
+        "_id": 419883,
+        "name": "政治"
+      },
       "createdAt": "2016/08/27 20:56:24"
     },
     {
@@ -1295,7 +1348,10 @@ None
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/98/7e/987ebb363550ec32308878553164054d.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/98/7e/987ebb363550ec32308878553164054d.jpg"
       },
-      "category": "政治",
+      "category": {
+        "_id": 419883,
+        "name": "政治"
+      },
       "createdAt": "2016/08/27 16:51:59"
     },
     ......

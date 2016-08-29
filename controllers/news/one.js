@@ -33,6 +33,7 @@ module.exports = function(req, res, next) {
             field_authors: 1,
             field_free_body: 1,
             // field_free_tags: 1,
+            field_main_category: 1,
             field_news_ref: 1,
             field_newsby: 1,
             field_short_title: 1,
@@ -144,7 +145,7 @@ module.exports = function(req, res, next) {
 
         outputNews.prev = other[0];
         outputNews.next = other[1];
-        outputNews.category = other[2];
+        outputNews.category = other[2].category;
         outputNews.refNews = refNews;
 
         res.status(200);

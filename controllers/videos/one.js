@@ -84,33 +84,33 @@ module.exports = (req, res, next) => {
                 });
             });
 
-        // 組成 JSON-LD
+        // 組成 JSON-LD 要用資料
         let jsonld = {
-            '@context': 'http://schema.org',
-            '@type': 'NewsArticle',
+            context: 'http://schema.org',
+            type: 'NewsArticle',
             datePublished: moment(video.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             dateModified: moment(video.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
-                '@type': `WebPage`,
-                '@id': `http://m.nownews.com/videos/${video._id}`
+                type: 'WebPage',
+                id: `http://m.nownews.com/videos/${video._id}`
             },
             articleBody: video.title,
             headline: video.title,
             image: {
-                '@type': 'ImageObject',
+                type: 'ImageObject',
                 url: videoYoutubeInfo.youtubeThumbnail,
                 width: 640,
                 height: 360
             },
             author: {
-                '@type': 'Person',
+                type: 'Person',
                 name: video.author || 'NOWnews 今日新聞'
             },
             publisher: {
-                '@type': 'Organization',
+                type: 'Organization',
                 name: 'NOWnews 今日新聞',
                 logo: {
-                    '@type': 'ImageObject',
+                    type: 'ImageObject',
                     url: 'http://www.nownews.com/assets/images/logo.png',
                     width: 220,
                     height: 52

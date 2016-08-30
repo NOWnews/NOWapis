@@ -139,33 +139,33 @@ module.exports = function(req, res, next) {
         outputNews.category = other[2].category;
         outputNews.refNews = refNews;
 
-        // 組成 JSON-LD
+        // 組成 JSON-LD 要用資料
         let jsonld = {
-            '@context': 'http://schema.org',
-            '@type': 'NewsArticle',
+            context: 'http://schema.org',
+            type: 'NewsArticle',
             datePublished: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             dateModified: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
-                '@type': `WebPage`,
-                '@id': `http://m.nownews.com/news/${news._id}`
+                type: 'WebPage',
+                id: `http://m.nownews.com/news/${news._id}`
             },
             articleBody: news.body.summary || news.title,
             headline: news.title,
             image: {
-                '@type': 'ImageObject',
+                type: 'ImageObject',
                 url: news.image.url,
                 width: 640,
                 height: 360
             },
             author: {
-                '@type': 'Person',
+                type: 'Person',
                 name: news.author || 'NOWnews 今日新聞'
             },
             publisher: {
-                '@type': 'Organization',
+                type: 'Organization',
                 name: 'NOWnews 今日新聞',
                 logo: {
-                    '@type': 'ImageObject',
+                    'type': 'ImageObject',
                     url: 'http://www.nownews.com/assets/images/logo.png',
                     width: 220,
                     height: 52
@@ -173,6 +173,40 @@ module.exports = function(req, res, next) {
             },
             description: news.body.summary || news.title
         };
+
+        // let jsonld = {
+        //     '@context': 'http://schema.org',
+        //     '@type': 'NewsArticle',
+        //     datePublished: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+        //     dateModified: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+        //     mainEntityOfPage: {
+        //         '@type': `WebPage`,
+        //         '@id': `http://m.nownews.com/news/${news._id}`
+        //     },
+        //     articleBody: news.body.summary || news.title,
+        //     headline: news.title,
+        //     image: {
+        //         '@type': 'ImageObject',
+        //         url: news.image.url,
+        //         width: 640,
+        //         height: 360
+        //     },
+        //     author: {
+        //         '@type': 'Person',
+        //         name: news.author || 'NOWnews 今日新聞'
+        //     },
+        //     publisher: {
+        //         '@type': 'Organization',
+        //         name: 'NOWnews 今日新聞',
+        //         logo: {
+        //             '@type': 'ImageObject',
+        //             url: 'http://www.nownews.com/assets/images/logo.png',
+        //             width: 220,
+        //             height: 52
+        //         }
+        //     },
+        //     description: news.body.summary || news.title
+        // };
 
         outputNews.jsonld = jsonld;
 

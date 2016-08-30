@@ -214,33 +214,33 @@ module.exports = (req, res, next) => {
             })
             .toArrayAsync();
 
-        // 組成 JSON-LD
+        // 組成 JSON-LD 要用資料
         let jsonld = {
-            '@context': 'http://schema.org',
-            '@type': 'NewsArticle',
+            context: 'http://schema.org',
+            type: 'NewsArticle',
             datePublished: moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             dateModified: moment(photoAlbum.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
-                '@type': `WebPage`,
-                '@id': `http://m.nownews.com/photos/${photoAlbum._id}`
+                type: 'WebPage',
+                id: `http://m.nownews.com/photos/${photoAlbum._id}`
             },
             articleBody: photoAlbum.body.value || photoAlbum.title,
             headline: photoAlbum.title,
             image: {
-                '@type': 'ImageObject',
+                type: 'ImageObject',
                 url: mainImage.image,
                 width: 640,
                 height: 360
             },
             author: {
-                '@type': 'Person',
+                type: 'Person',
                 name: photoAlbum.author || 'NOWnews 今日新聞'
             },
             publisher: {
-                '@type': 'Organization',
+                type: 'Organization',
                 name: 'NOWnews 今日新聞',
                 logo: {
-                    '@type': 'ImageObject',
+                    type: 'ImageObject',
                     url: 'http://www.nownews.com/assets/images/logo.png',
                     width: 220,
                     height: 52

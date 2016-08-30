@@ -84,6 +84,7 @@ module.exports = (req, res, next) => {
                 });
             });
 
+        video.url = `/v/${moment(video.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD')}/${video._id}`;
         video.image = videoYoutubeInfo.youtubeThumbnail;
         video.youtubeId = videoYoutubeInfo.youtubeId;
         video.src = videoYoutubeInfo.embed;

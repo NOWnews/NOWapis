@@ -4,12 +4,7 @@ import Promise from 'bluebird';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:news:one');
-
-// const config = require('../../config');
 const libs = require('../../libs');
-
-// const MongoDB = Promise.promisifyAll(mongodb);
-// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 module.exports = function(req, res, next) {
 
@@ -17,7 +12,6 @@ module.exports = function(req, res, next) {
 
     co(function*(){
 
-        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
         let mongodb14 = yield require('../../mongodb14');
 
         let news = yield mongodb14.collection('fields_current.node').findOneAsync({
@@ -56,7 +50,6 @@ module.exports = function(req, res, next) {
         if(news.field_free_body) {
             videos = libs.getVideos(news.field_free_body.value);
         }
-        // let videos = libs.getVideos(news.field_free_body.value);
 
         let outputNews = {
             nodeId: news._id,
@@ -79,8 +72,6 @@ module.exports = function(req, res, next) {
 
         // news.mobileBody = results;
         debug('outputNews = %j', outputNews);
-
-        // yield db.closeAsync();
 
         // 找出上一篇新聞，下一篇新聞，推薦新聞
         let other = yield [
@@ -158,7 +149,7 @@ module.exports = function(req, res, next) {
                 '@type': `WebPage`,
                 '@id': `http://m.nownews.com/news/${news._id}`
             },
-            articleBody: news.body.summary,
+            articleBody: news.body.summary || news.title,
             headline: news.title,
             image: {
                 '@type': 'ImageObject',
@@ -167,8 +158,8 @@ module.exports = function(req, res, next) {
                 height: 360
             },
             author: {
-              '@type': 'Person',
-              name: news.author
+                '@type': 'Person',
+                name: news.author || 'NOWnews 今日新聞'
             },
             publisher: {
                 '@type': 'Organization',
@@ -180,7 +171,7 @@ module.exports = function(req, res, next) {
                     height: 52
                 }
             },
-            description: news.body.summary
+            description: news.body.summary || news.title
         };
 
         outputNews.jsonld = jsonld;

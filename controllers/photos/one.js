@@ -214,6 +214,41 @@ module.exports = (req, res, next) => {
             })
             .toArrayAsync();
 
+        // 組成 JSON-LD
+        let jsonld = {
+            '@context': 'http://schema.org',
+            '@type': 'NewsArticle',
+            datePublished: moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+            dateModified: moment(photoAlbum.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+            mainEntityOfPage: {
+                '@type': `WebPage`,
+                '@id': `http://m.nownews.com/photos/${photoAlbum._id}`
+            },
+            articleBody: photoAlbum.body.value || photoAlbum.title,
+            headline: photoAlbum.title,
+            image: {
+                '@type': 'ImageObject',
+                url: mainImage.image,
+                width: 640,
+                height: 360
+            },
+            author: {
+                '@type': 'Person',
+                name: photoAlbum.author || 'NOWnews 今日新聞'
+            },
+            publisher: {
+                '@type': 'Organization',
+                name: 'NOWnews 今日新聞',
+                logo: {
+                    '@type': 'ImageObject',
+                    url: 'http://www.nownews.com/assets/images/logo.png',
+                    width: 220,
+                    height: 52
+                }
+            },
+            description: photoAlbum.body.value || photoAlbum.title
+        };
+
         // debug('photoCategory = %j', photoCategory);
         // debug('photosCollections = %j', photosCollections);
         // debug('result = %j', result);
@@ -227,7 +262,8 @@ module.exports = (req, res, next) => {
             createdAt: moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             mainImage: mainImage.image,
             collectionImages: sortedCollectionImages,
-            categories: photoCategory
+            categories: photoCategory,
+            jsonld: jsonld
         });
     })
     .catch(next);

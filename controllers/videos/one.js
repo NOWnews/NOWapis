@@ -17,19 +17,19 @@ module.exports = (req, res, next) => {
 
         // 找出這個 video node
         let video = yield mongodb14.collection('fields_current.node').findOneAsync({
-            _id: parseInt(nodeId, 10),
-            'field_release_status.value': { $gt: 0 }
-        }, {
-            title: 1,
-            body: 1,
-            created: 1,
-            changed: 1,
-            field_newsfrom_image: 1,
-            field_image: 1,
-            field_media_entity: 1,
-            field_free_tags: 1,
-            fid: 1
-        });
+                _id: parseInt(nodeId, 10),
+                'field_release_status.value': { $gt: 0 }
+            }, {
+                title: 1,
+                body: 1,
+                created: 1,
+                changed: 1,
+                field_newsfrom_image: 1,
+                field_image: 1,
+                field_media_entity: 1,
+                field_free_tags: 1,
+                fid: 1
+            });
 
         debug('video = %j', video);
 
@@ -84,12 +84,48 @@ module.exports = (req, res, next) => {
                 });
             });
 
+        // 組成 JSON-LD
+        let jsonld = {
+            '@context': 'http://schema.org',
+            '@type': 'NewsArticle',
+            datePublished: moment(video.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+            dateModified: moment(video.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
+            mainEntityOfPage: {
+                '@type': `WebPage`,
+                '@id': `http://m.nownews.com/videos/${video._id}`
+            },
+            articleBody: video.title,
+            headline: video.title,
+            image: {
+                '@type': 'ImageObject',
+                url: videoYoutubeInfo.youtubeThumbnail,
+                width: 640,
+                height: 360
+            },
+            author: {
+                '@type': 'Person',
+                name: video.author || 'NOWnews 今日新聞'
+            },
+            publisher: {
+                '@type': 'Organization',
+                name: 'NOWnews 今日新聞',
+                logo: {
+                    '@type': 'ImageObject',
+                    url: 'http://www.nownews.com/assets/images/logo.png',
+                    width: 220,
+                    height: 52
+                }
+            },
+            description: video.title
+        };
+
         video.url = `/v/${moment(video.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD')}/${video._id}`;
         video.image = videoYoutubeInfo.youtubeThumbnail;
         video.youtubeId = videoYoutubeInfo.youtubeId;
         video.src = videoYoutubeInfo.embed;
         video.createdAt = moment(video.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
         video.categories = videoCategories;
+        video.jsonld = jsonld;
 
         return res.json(video);
     })

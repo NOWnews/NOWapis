@@ -5,6 +5,7 @@ import co from 'co';
 import Promise from 'bluebird';
 import md5 from 'md5';
 import _ from 'lodash';
+import moment from 'moment';
 
 import config from '../../config';
 
@@ -220,6 +221,8 @@ module.exports = (req, res, next) => {
         return res.json({
             nodeId: photoAlbum._id,
             cite: photoAlbum.title,
+            title: photoAlbum.title,
+            url: `/p/${moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD')}/${photoAlbum._id}`,
             mainImage: mainImage.image,
             collectionImages: sortedCollectionImages,
             categories: photoCategory

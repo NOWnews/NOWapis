@@ -223,6 +223,8 @@ module.exports = (req, res, next) => {
             cite: photoAlbum.title,
             title: photoAlbum.title,
             url: `/p/${moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD')}/${photoAlbum._id}`,
+            created: photoAlbum.created,
+            createdAt: moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             mainImage: mainImage.image,
             collectionImages: sortedCollectionImages,
             categories: photoCategory

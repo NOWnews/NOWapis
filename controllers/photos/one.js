@@ -262,6 +262,7 @@ module.exports = (req, res, next) => {
             created: photoAlbum.created,
             createdAt: moment(photoAlbum.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             mainImage: mainImage.image,
+            originImage: mainImage.originImage,
             collectionImages: sortedCollectionImages,
             categories: photoCategory,
             jsonld: jsonld

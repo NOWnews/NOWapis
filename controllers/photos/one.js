@@ -222,7 +222,7 @@ module.exports = (req, res, next) => {
             dateModified: moment(photoAlbum.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
                 type: 'WebPage',
-                id: `http://m.nownews.com/photos/${photoAlbum._id}`
+                id: `http://m.nownews.com/photo/${photoAlbum._id}`
             },
             articleBody: photoAlbum.body.value || photoAlbum.title,
             headline: photoAlbum.title,

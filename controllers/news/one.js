@@ -174,40 +174,6 @@ module.exports = function(req, res, next) {
             description: news.body.summary || news.title
         };
 
-        // let jsonld = {
-        //     '@context': 'http://schema.org',
-        //     '@type': 'NewsArticle',
-        //     datePublished: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
-        //     dateModified: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
-        //     mainEntityOfPage: {
-        //         '@type': `WebPage`,
-        //         '@id': `http://m.nownews.com/news/${news._id}`
-        //     },
-        //     articleBody: news.body.summary || news.title,
-        //     headline: news.title,
-        //     image: {
-        //         '@type': 'ImageObject',
-        //         url: news.image.url,
-        //         width: 640,
-        //         height: 360
-        //     },
-        //     author: {
-        //         '@type': 'Person',
-        //         name: news.author || 'NOWnews 今日新聞'
-        //     },
-        //     publisher: {
-        //         '@type': 'Organization',
-        //         name: 'NOWnews 今日新聞',
-        //         logo: {
-        //             '@type': 'ImageObject',
-        //             url: 'http://www.nownews.com/assets/images/logo.png',
-        //             width: 220,
-        //             height: 52
-        //         }
-        //     },
-        //     description: news.body.summary || news.title
-        // };
-
         outputNews.jsonld = jsonld;
 
         res.status(200);

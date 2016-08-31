@@ -158,7 +158,7 @@ module.exports = (req, res, next) => {
                     // result.image.title = imageNode.title;
                     // result.image.description = imageNode.title;
                     // result.uri = imageData.uri;
-                    result.thumbnail = 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
+                    result.thumbnail = 'http://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
                     // result.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
 
                     return Promise.resolve(result);

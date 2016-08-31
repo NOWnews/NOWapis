@@ -54,7 +54,8 @@ module.exports = (req, res, next) => {
                 // result.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
                 return Promise.resolve({
                     uri: imageData.uri,
-                    image: 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl
+                    image: 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl,
+                    originImage: imgUrl
                 });
             });
 

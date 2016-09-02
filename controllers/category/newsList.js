@@ -17,6 +17,7 @@ module.exports = function(req, res, next) {
 
     let { taxId } = req.params;
     let { limit, skip, page } = req.query;
+    let now = parseInt(moment(Date.now()).format('X'), 10);
 
     debug('taxId = %s', taxId);
 
@@ -32,13 +33,14 @@ module.exports = function(req, res, next) {
         }
 
         // 如果沒有資料就進去 db 撈，並且 cache 起來
-        // let db = yield MongoClient.connectAsync(config.newsMongoDb);
         let mongodb14 = yield require('../../mongodb14');
 
         // 找出某個分類的新聞
         let categoryNews = yield mongodb14.collection('fields_current.node').find({
            _bundle: 'news',
            _type: 'node',
+           'field_release_status.value': 1,
+           'field_release_date.value': { $lte: now },
            'field_main_category.tid': parseInt(taxId, 10)
         }, {
             _id: 1,

@@ -8,10 +8,10 @@ module.exports = co.wrap(function*(news) {
     let query = {
         _bundle: 'news',
         'field_release_date.value': {
-            $lt: news.field_release_date.value
+            $gt: news.field_release_date.value
         },
         // _id: {
-        //     $lt: news._id
+        //     $gt: news._id
         // },
         'field_release_status.value': 1,
     };
@@ -20,15 +20,12 @@ module.exports = co.wrap(function*(news) {
         query['field_main_category.tid'] = news.field_main_category.tid;
     }
 
-    // console.log(news.field_main_category);
-    console.log(query);
-
     let prevNews = yield mongodb14.collection('fields_current.node').find(query, {
             _id: 1,
             title: 1,
             field_short_title: 1
         })
-        .sort({'field_release_date.value': -1})
+        .sort({'field_release_date.value': 1})
         .limit(1)
         .toArrayAsync()
         .then((docs) => {

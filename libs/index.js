@@ -6,5 +6,7 @@ module.exports = {
     getVideos: require('./getVideos'),
     getImageFromNodeIds: require('./getImageFromNodeIds'),
     getImageFromNews: require('./getImageFromNews'),
-    findNewsMainCategory: require('./findNewsMainCategory')
+    findNewsMainCategory: require('./findNewsMainCategory'),
+    nextNews: require('./nextNews'),
+    prevNews: require('./prevNews')
 };

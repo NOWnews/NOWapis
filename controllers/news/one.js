@@ -4,13 +4,21 @@ import Promise from 'bluebird';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:news:one');
-const libs = require('../../libs');
+import libs from '../../libs';
+import redis from '../../redis';
 
 module.exports = function(req, res, next) {
 
     let nodeId = parseInt(req.params.nodeId, 10);
 
     co(function*(){
+
+        // 先去 redis 要資料，看這篇新聞有沒有 cache
+        let redisNews = yield redis.getValue(`news${nodeId}`);
+        debug('redisNews = %j', redisNews);
+        if(redisNews && redisNews.length !== 0) {
+            return res.json(redisNews);
+        }
 
         let mongodb14 = yield require('../../mongodb14');
 
@@ -28,6 +36,7 @@ module.exports = function(req, res, next) {
             field_free_body: 1,
             // field_free_tags: 1,
             field_main_category: 1,
+            field_release_date: 1,
             field_news_ref: 1,
             field_newsby: 1,
             field_short_title: 1,
@@ -73,44 +82,11 @@ module.exports = function(req, res, next) {
         // news.mobileBody = results;
         debug('outputNews = %j', outputNews);
 
-        // 找出上一篇新聞，下一篇新聞，推薦新聞
+        // 找出上一篇新聞，下一篇新聞，新聞主分類
         let other = yield [
-            mongodb14.collection('fields_current.node').find({
-                    _bundle: 'news',
-                    _id: {
-                        $lt: nodeId
-                    },
-                    'field_release_status.value': 1
-                },{
-                    _id: 1,
-                    title: 1,
-                    field_short_title: 1
-                })
-                .sort({_id: -1})
-                .limit(1)
-                .toArrayAsync()
-                .then((docs) => {
-                    return Promise.resolve(docs[0]);
-                }),
-            mongodb14.collection('fields_current.node').find({
-                    _bundle: 'news',
-                    _id: {
-                        $gt: nodeId
-                    },
-                    'field_release_status.value': 1
-                },{
-                    _id: 1,
-                    title: 1,
-                    field_short_title: 1
-                })
-                .sort({_id: 1})
-                .limit(1)
-                .toArrayAsync()
-                .then((docs) => {
-                    return Promise.resolve(docs[0]);
-                }),
-
-                libs.findNewsMainCategory(news)
+            libs.prevNews(news),
+            libs.nextNews(news),
+            libs.findNewsMainCategory(news)
         ];
 
         let refNews = [];
@@ -175,6 +151,9 @@ module.exports = function(req, res, next) {
         };
 
         outputNews.jsonld = jsonld;
+
+        // 把這篇新聞存進 redis
+        yield redis.setValue(`news${nodeId}`, outputNews, 180);
 
         res.status(200);
         return res.json(outputNews);

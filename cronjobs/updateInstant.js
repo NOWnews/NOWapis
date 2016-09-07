@@ -4,6 +4,7 @@ import Promise from 'bluebird';
 // import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
+import request from 'request-promise';
 
 const debug = require('debug')('NOWapis:cronjobs:instant');
 // const config = require('../config');
@@ -104,7 +105,30 @@ module.exports = co.wrap(function*() {
         return compareNews[nodeId];
     });
 
-    yield redis.setValue('instant', sortedNewsList, 3600 * 24);
+    // 處理廣告
+    let ads = yield [
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
+    ];
+
+    ads = _.map(ads, (ad, idx) => {
+        return {
+            sn: idx + 1,
+            ad: ad || null
+        };
+    });
+
+    yield redis.setValue('hotNews', {
+        newsList: sortedNewsList,
+        ads: ads
+    }, 3600 * 24);
+
+    // yield redis.setValue('instant', sortedNewsList, 3600 * 24);
     // yield [
     //     redis.setValue('instant', sortedNewsList, 3600 * 24),
     //     db.closeAsync()

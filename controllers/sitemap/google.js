@@ -4,7 +4,6 @@ import moment from 'moment-timezone';
 import _ from 'lodash';
 
 import config from '../../config';
-// import request from 'request-promise';
 
 module.exports = (req, res, next) => {
 

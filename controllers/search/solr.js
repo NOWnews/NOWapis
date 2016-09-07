@@ -16,8 +16,7 @@ module.exports = (req, res, next) => {
 
     let { keyword, type, limit, page } = req.query;
     let offset = (page - 1) * limit;
-    // let fq = ['bundle:news'];
-    // console.log(decodeURI(keyword));
+
     co(function*() {
 
         let options = {

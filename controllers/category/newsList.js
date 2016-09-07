@@ -1,17 +1,11 @@
 import co from 'co';
 import Promise from 'bluebird';
-// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:category:newsList');
 const redis = require('../../redis');
 const libs = require('../../libs');
-// const config = require('../../config');
-
-// const MongoDB = Promise.promisifyAll(mongodb);
-// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
-const concurrency = 10;
 
 module.exports = function(req, res, next) {
 
@@ -48,9 +42,7 @@ module.exports = function(req, res, next) {
             created: 1,
             field_main_category: 1,
             field_release_date: 1,
-            field_short_title: 1,
-            // body: true,
-            // field_news_ref: true
+            field_short_title: 1
         })
         .limit(limit)
         .skip((page - 1) * limit)
@@ -65,7 +57,7 @@ module.exports = function(req, res, next) {
         // 找尋新聞分類
         yield Promise.map(newsData, function(news) {
             return libs.findNewsMainCategory(news);
-        }, { concurrency: concurrency });
+        });
 
         // 時間正規化
         _.map(newsData, function(news) {

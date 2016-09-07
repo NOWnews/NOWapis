@@ -2,16 +2,13 @@
 import co from 'co';
 import Promise from 'bluebird';
 import _ from 'lodash';
-// import moment from 'moment-timezone';
 import md5 from 'md5';
 
 const debug = require('debug')('NOWapis:controller:category:photosList');
 const redis = require('../../redis');
-// const libs = require('../../libs');
 
 module.exports = (req, res, next) => {
 
-    // let taxId = parseInt(req.params.taxId, 10);
     let { taxId } = req.params;
     let { limit, skip, page } = req.query;
     let now = Math.floor(+new Date() / 1000);

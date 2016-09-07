@@ -1,6 +1,5 @@
 import co from 'co';
 import Promise from 'bluebird';
-// import mongodb from 'mongodb';
 import moment from 'moment-timezone';
 
 const debug = require('debug')('NOWapis:controller:news:one');

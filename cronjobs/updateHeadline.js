@@ -82,12 +82,19 @@ module.exports = co.wrap(function*() {
     // 處理廣告
     let ads = yield [
         request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
-        request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
+        // request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
     ];
 
     ads = _.map(ads, (ad, idx) => {

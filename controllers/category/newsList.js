@@ -3,6 +3,7 @@ import Promise from 'bluebird';
 import _ from 'lodash';
 import moment from 'moment-timezone';
 import request from 'request-promise';
+import iconv from 'iconv-lite';
 
 const debug = require('debug')('NOWapis:controller:category:newsList');
 const redis = require('../../redis');
@@ -65,24 +66,7 @@ module.exports = function(req, res, next) {
             news.createdAt = moment(news.field_release_date.value * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
         });
 
-        // 尋找 ad2004 原生廣告
-        // let options = {
-        //     uri: `http://ad1.nownews.com/ads.php`,
-        //     qs: {
-
-        //         q: decodeURI(keyword),
-        //         fq: 'bundle:news',
-        //         start: offset,
-        //         rows: limit,
-        //         fl: 'entity_id',
-        //         wt: 'json',
-        //         explainOther: '',
-        //         'hl.fl': 0,
-        //         sort: 'its_field_release_date desc'
-        //     },
-        //     json: true
-        // };
-
+        // 處理 ad2004 廣告
         let ads = yield [
             request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
             request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
@@ -102,7 +86,7 @@ module.exports = function(req, res, next) {
         ads = _.map(ads, (ad, idx) => {
             return {
                 sn: idx + 1,
-                ad: ad || null
+                ad: JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'))
             };
         });
 

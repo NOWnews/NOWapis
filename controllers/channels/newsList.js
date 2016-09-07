@@ -2,6 +2,8 @@ import co from 'co';
 import Promise from 'bluebird';
 import _ from 'lodash';
 import moment from 'moment-timezone';
+import request from 'request-promise';
+import iconv from 'iconv-lite';
 
 const debug = require('debug')('NOWapis:controller:channels:newsList');
 
@@ -83,10 +85,35 @@ module.exports = function(req, res, next) {
             return compareNews[id];
         });
 
+        // 處理廣告
+        let ads = yield [
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
+            // request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
+        ];
+
+        ads = _.map(ads, (ad, idx) => {
+            return {
+                sn: idx + 1,
+                ad: JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'))
+            };
+        });
+
         let output = {
             channelId: channel._id,
             channelName: channel.title,
-            newsList: sortedNews
+            newsList: sortedNews,
+            ads: ads
         };
 
         // 把資料存入 redis 並且關掉 db instance

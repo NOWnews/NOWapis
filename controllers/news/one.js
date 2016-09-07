@@ -1,6 +1,7 @@
 import co from 'co';
 import Promise from 'bluebird';
 import moment from 'moment-timezone';
+import request from 'request-promise';
 
 const debug = require('debug')('NOWapis:controller:news:one');
 import libs from '../../libs';
@@ -150,6 +151,9 @@ module.exports = function(req, res, next) {
         };
 
         outputNews.jsonld = jsonld;
+
+        // 處理原生廣告
+        outputNews.ad = yield request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true });
 
         // 把這篇新聞存進 redis
         yield redis.setValue(`news${nodeId}`, outputNews, 180);

@@ -108,7 +108,10 @@ module.exports = function(req, res, next) {
 
         // 把資料存入 redis
         if(page === 1) {
-            yield redis.setValue(`category${taxId}`, newsData, 180);
+            yield redis.setValue(`category${taxId}`, {
+                newsList: newsData,
+                ads: ads
+            }, 180);
         }
 
         return res.send({

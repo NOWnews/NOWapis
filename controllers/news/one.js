@@ -3,9 +3,6 @@ import Promise from 'bluebird';
 import moment from 'moment-timezone';
 import request from 'request-promise';
 import iconv from 'iconv-lite';
-import windows1252 from 'windows-1252';
-
-// var windows1252 = require('windows-1252');
 
 const debug = require('debug')('NOWapis:controller:news:one');
 import libs from '../../libs';

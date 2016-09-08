@@ -67,38 +67,13 @@ module.exports = co.wrap(function*() {
 
     debug('newsWithImage = %j', newsWithImage);
 
-    // 處理廣告
-    let ads = yield [
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
-    ];
-
-    ads = _.map(ads, (ad, idx) => {
-        return {
-            sn: idx + 1,
-            ad: JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'))
-        };
-    });
+    // 處理列表廣告
+    let ads = yield libs.newsNativeAds();
 
     yield redis.setValue('hotNews', {
         newsList: newsWithImage,
         ads: ads
     }, 3600 * 24);
-    // yield [
-    //     redis.setValue('hotNews', newsWithImage, 3600 * 24),
-    //     db.closeAsync()
-    // ];
 
     return Promise.resolve({});
 });

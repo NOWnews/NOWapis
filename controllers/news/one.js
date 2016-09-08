@@ -154,7 +154,7 @@ module.exports = function(req, res, next) {
         outputNews.jsonld = jsonld;
 
         // 處理原生廣告
-        let ad = yield request('http://ad1.nownews.com/ads.php?ownerid=2995', {
+        let ad = yield request('http://ad1.nownews.com/ads.php?ownerid=2994', {
             encoding: null,
         });
 

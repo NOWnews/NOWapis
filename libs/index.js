@@ -8,5 +8,6 @@ module.exports = {
     getImageFromNews: require('./getImageFromNews'),
     findNewsMainCategory: require('./findNewsMainCategory'),
     nextNews: require('./nextNews'),
-    prevNews: require('./prevNews')
+    prevNews: require('./prevNews'),
+    newsNativeAds: require('./newsNativeAds')
 };

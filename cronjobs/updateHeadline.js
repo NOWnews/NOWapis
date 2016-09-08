@@ -1,25 +1,17 @@
 
 import co from 'co';
 import Promise from 'bluebird';
-// import mongodb from 'mongodb';
 import _ from 'lodash';
 import moment from 'moment-timezone';
-import request from 'request-promise';
-import iconv from 'iconv-lite';
 
 const debug = require('debug')('NOWapis:cronjobs:updateHeadline');
-// const config = require('../config');
 const redis = require('../redis');
 const libs = require('../libs');
-
-// const MongoDB = Promise.promisifyAll(mongodb);
-// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
     let mongodb14 = yield require('../mongodb14');
 
     let headlineNode = yield mongodb14.collection('fields_current.node').findOneAsync({
@@ -80,40 +72,13 @@ module.exports = co.wrap(function*() {
     // debug('headlineNewsNodes = %j', headlineNewsNodes);
     debug('sortedNews = %j', sortedNews);
 
-    // 處理廣告
-    let ads = yield [
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2995', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2996', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2997', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2998', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=2999', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=3000', { json: true }),
-        // request('http://ad1.nownews.com/ads.php?ownerid=3001', { json: true })
-    ];
-
-    ads = _.map(ads, (ad, idx) => {
-        // ad = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
-        return {
-            sn: idx + 1,
-            ad: JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'))
-        };
-    });
+    // 處理列表廣告
+    let ads = yield libs.newsNativeAds();
 
     yield redis.setValue('headline', {
         newsList: sortedNews,
         ads: ads
     }, 3600 * 24);
-    // yield [
-    //     redis.setValue('headline', sortedNews, 3600 * 24),
-    //     db.closeAsync()
-    // ];
 
     return yield Promise.resolve({});
 });

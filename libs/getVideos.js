@@ -4,7 +4,9 @@ const debug = require('debug')('NOWapis:libs:getVideo');
 module.exports = function(html) {
 
     let results = [];
-    let $ = cheerio.load(html);
+    let $ = cheerio.load(html, {
+        decodeEntities: false
+    });
     $('.youtube-player').each(function(idx, element) {
         let youtubeId; 
         let url = $(element).attr('src');

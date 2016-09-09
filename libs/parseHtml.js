@@ -4,7 +4,9 @@ import cheerio from 'cheerio';
 module.exports = function(html) {
 
     let results = [];
-    let $ = cheerio.load(html);
+    let $ = cheerio.load(html, {
+        decodeEntities: false
+    });
     $('p').each(function(idx, element) {
         let obj = {};
 

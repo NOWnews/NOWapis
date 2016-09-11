@@ -35,7 +35,7 @@ module.exports = function(req, res, next) {
             field_adult: 1,
             field_authors: 1,
             field_free_body: 1,
-            // field_free_tags: 1,
+            field_free_tags: 1,
             field_main_category: 1,
             field_release_date: 1,
             field_news_ref: 1,
@@ -50,6 +50,9 @@ module.exports = function(req, res, next) {
         // 找尋新聞首圖
         yield libs.getImageFromNews(news);
         // debug('image = %j', news.image);
+
+        // 取得新聞關鍵字
+        yield libs.getNewsKeyWords(news);
 
         // 將新聞內文的圖片都加上 image api
         news.body.value = libs.addImageApi(news.body.value);
@@ -80,7 +83,8 @@ module.exports = function(req, res, next) {
             mobileBody: results,
             freeBody: (news.field_free_body && news.field_free_body.value) || '',
             author: (news.field_newsby && news.field_newsby.value) || '',
-            adult: (news.field_adult && news.field_adult.value) || '0'
+            adult: (news.field_adult && news.field_adult.value) || '0',
+            keywords: news.keywords
         };
 
         // news.mobileBody = results;

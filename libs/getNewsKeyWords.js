@@ -39,7 +39,11 @@ module.exports = co.wrap(function*(news) {
         })
         .toArrayAsync();
 
-    news.keywords = taxTerms;
+    _.forEach(taxTerms, (term) => {
+        keywords.push(term.name);
+    });
+
+    news.keywords = keywords.join(',');
 
     return yield Promise.resolve(news);
 });

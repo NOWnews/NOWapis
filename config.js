@@ -75,6 +75,13 @@ module.exports = {
     },
 
     /*
+     * header routers 的白名單資訊
+     */
+    headerWhiteList: [
+        '/check'
+    ],
+
+    /*
      * HTTP HEADER 欄位 key
      */
     header: {

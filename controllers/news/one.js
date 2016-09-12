@@ -59,12 +59,14 @@ module.exports = function(req, res, next) {
 
         let results = libs.parseHtml(news.body.value);
 
-        // 拿掉一些非必要的資訊
-        news.field_free_body.value = libs.formatFreeBody(news.field_free_body.value);
-
         let videos = [];
+
+        // 處理自由欄位裡面的資料
         if(news.field_free_body) {
             videos = libs.getVideos(news.field_free_body.value);
+
+            // 拿掉一些非必要的資訊
+            news.field_free_body.value = libs.formatFreeBody(news.field_free_body.value);
         }
 
         let outputNews = {

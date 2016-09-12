@@ -9,6 +9,7 @@ const hotNews = require('./hotNews');
 const instant = require('./instant');
 const search = require('./search');
 const sitemap = require('./sitemap');
+const check = require('./check');
 
 module.exports = function(app) {
 
@@ -22,6 +23,7 @@ module.exports = function(app) {
     app.use('/', videos);
     app.use('/', search);
     app.use('/', sitemap);
+    app.use('/', check);
 
     return function(req, res, next) {
         return next();

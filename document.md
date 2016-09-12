@@ -4,7 +4,7 @@
 
 ##  NOWapis 系統資訊
 
-Node.js 版本: v6.4.0
+Node.js 版本: v6.5.0
 
 ##  執行方式
 

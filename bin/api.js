@@ -8,7 +8,7 @@ let env = process.env.NODE_ENV;
 let port = process.env.PORT || '5000';
 api.set('port', port);
 
-var server = http.createServer(api);
+let server = http.createServer(api);
 server.listen(port);
 console.log(`-------------------------------`);
 console.log(`Start NOWapis`);

@@ -8,18 +8,14 @@ import request from 'request-promise';
 import iconv from 'iconv-lite';
 
 const debug = require('debug')('NOWapis:cronjobs:updateHotNews');
-// const config = require('../config');
+
 const redis = require('../redis');
 const libs = require('../libs');
-
-// const MongoDB = Promise.promisifyAll(mongodb);
-// const MongoClient = Promise.promisifyAll(MongoDB.MongoClient);
 
 const concurrency = 10;
 
 module.exports = co.wrap(function*() {
 
-    // let db = yield MongoClient.connectAsync(config.newsMongoDb);
     let mongodb14 = yield require('../mongodb14');
 
     let now = Math.floor(+new Date() / 1000);
@@ -28,7 +24,6 @@ module.exports = co.wrap(function*() {
             '_bundle':'news',
             'field_release_status.value': 1,
             'field_release_status2.value': { $gt: 0 },
-            'field_release_date.value': { $lte : now },
             "field_release_date.value": { $gte : now - (24*3600)},
             'field_news_hide.value': 0
         }, {
@@ -38,6 +33,7 @@ module.exports = co.wrap(function*() {
             field_main_category: 1,
             field_release_date: 1,
             field_short_title: 1,
+            // field_release_status2: 1
             // field_ra: 1
             // body: true,
             // field_news_ref: true
@@ -49,6 +45,11 @@ module.exports = co.wrap(function*() {
         .limit(50)
         .toArrayAsync();
     // debug('newsList = %j', newsList);
+
+    //所以要過濾時間，要不然會有未來的人氣新聞.....(系統老問題...只能用程式解決)
+    newsList = _.filter(newsList, (news) => {
+        return news.field_release_date.value <= now;
+    });
 
     let newsWithImage = yield Promise.map(newsList, function(news) {
         return libs.getImageFromNews(news);
@@ -62,7 +63,7 @@ module.exports = co.wrap(function*() {
 
     // 時間正規化
     _.map(newsList, function(news) {
-        news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+        news.createdAt = moment(news.field_release_date.value * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
     });
 
     debug('newsWithImage = %j', newsWithImage);

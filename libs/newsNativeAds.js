@@ -12,13 +12,13 @@ module.exports = co.wrap(function*() {
 
     // 從 ad2004 取得 JSON
     let ads = yield [
-        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2996', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2997', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2998', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=2999', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=3000', { encoding: null }),
-        request('http://ad1.nownews.com/ads.php?ownerid=3001', { encoding: null }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2995', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2996', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2997', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2998', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=2999', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=3000', { encoding: null, timeout: 5000 }),
+        request('http://ad1.nownews.com/ads.php?ownerid=3001', { encoding: null, timeout: 5000 }),
     ];
 
     // 處理該死的 big5 編碼轉換

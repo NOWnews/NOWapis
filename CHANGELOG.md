@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.4] - 2016-09-29
+### Changed
+- 更新 API 文件 @SimonSun.
+
 ## [1.0.3] - 2016-09-29
 ### Changed
 - 更改 header key 的撈取方式 @SimonSun.

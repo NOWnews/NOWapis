@@ -225,62 +225,86 @@ None
 #### Response Data
 
 ```
-[
-  {
-    "_id": 2214630,
-    "title": "台中港漢光聯合反登陸操演　首加入空勤總隊直升機",
-    "created": 1471940365,
-    "field_release_date": {
-      "value": 1471941315
+{
+  "newsList": [
+    {
+      "_id": 2253561,
+      "title": "9月29日世界各報頭條",
+      "created": 1475114432,
+      "field_release_date": {
+        "value": 1475116207
+      },
+      "field_short_title": {
+        "value": "9月29日世界各報頭條"
+      },
+      "field_main_category": {
+        "tid": 419883
+      },
+      "image": {
+        "title": "▲美國首場總統選舉電視辯論會，外界普遍認為共和黨總統候選人川普表現不如對手希拉蕊。（圖／達志影像）",
+        "description": "▲美國首場總統選舉電視辯論會，外界普遍認為共和黨總統候選人川普表現不如對手希拉蕊。（圖／達志影像）",
+        "uri": "hash://T73476554_5M.jpg",
+        "originImage": "http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg"
+      },
+      "category": {
+        "_id": 419883,
+        "name": "政治"
+      },
+      "createdAt": "2016/09/29 10:30:07"
     },
-    "field_short_title": {
-      "value": "漢光實兵操演　首度加入空勤直升機"
+    {
+      "_id": 2253409,
+      "title": "立委認為颱風假應補班、補課　網友嗆：無薪假何解？",
+      "created": 1475076491,
+      "field_release_date": {
+        "value": 1475107440
+      },
+      "field_short_title": {
+        "value": "立委認為颱風假應補班　網友這樣說"
+      },
+      "field_main_category": {
+        "tid": 419883
+      },
+      "image": {
+        "title": "▲民進黨立委王定宇21日總質詢時表示，外界有一說，行政院長林全民調直落是受「三大罪人」影響，一個就是政務委員張景森、一個是交通部長賀陳旦，最後則是國防部長馮世寬。（圖／記者陳彥驊攝,2016.06.21）",
+        "description": "▲民進黨立委王定宇21日總質詢時表示，外界有一說，行政院長林全民調直落是受「三大罪人」影響，一個就是政務委員張景森、一個是交通部長賀陳旦，最後則是國防部長馮世寬。（圖／記者陳彥驊攝,2016.06.21）",
+        "uri": "hash://DSCN4323.JPG",
+        "originImage": "http://s.nownews.com/e9/4c/e94c98ea3306e75e7da1a3dc68a04a3e.JPG",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/e9/4c/e94c98ea3306e75e7da1a3dc68a04a3e.JPG",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/e9/4c/e94c98ea3306e75e7da1a3dc68a04a3e.JPG"
+      },
+      "category": {
+        "_id": 419883,
+        "name": "政治"
+      },
+      "createdAt": "2016/09/29 08:04:00"
     },
-    "field_main_category": {
-      "tid": 419883
+    ......,
+    ......
+  ],
+  "ads": [
+    {
+      "sn": 1,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100805-4452js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2994&bannerid=35235"
+      }
     },
-    "image": {
-      "title": "國軍第五作戰區「漢光32號」演習23日在台中港進行實兵作戰演練， M60A3坦克戰車（圖）執行地面掃蕩，展現強大打擊與機動力。中央社記者廖壬楷攝　105年8月23日",
-      "description": "國軍第五作戰區「漢光32號」演習23日在台中港進行實兵作戰演練， M60A3坦克戰車（圖）執行地面掃蕩，展現強大打擊與機動力。中央社記者廖壬楷攝　105年8月23日",
-      "uri": "hash://20160823126.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/45/01/4501e36ea99a0b10ad089cf76c33e0c6.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/45/01/4501e36ea99a0b10ad089cf76c33e0c6.jpg"
+    {
+      "sn": 2,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100954-1099js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2996&bannerid=35236"
+      }
     },
-    "category": {
-      "_id": 419883,
-      "name": "政治"
-    },
-    "createdAt": "2016/08/23 16:19:25"
-  },
-  {
-    "_id": 2214508,
-    "title": "兆豐銀涉洗錢遭美方開罰　黃國昌痛批：根本是慣犯",
-    "created": 1471934990,
-    "field_release_date": {
-      "value": 1471934991
-    },
-    "field_short_title": {
-      "value": "兆豐銀洗錢案　黃國昌痛批慣犯"
-    },
-    "field_main_category": {
-      "tid": 419883
-    },
-    "image": {
-      "title": "▲針對兆豐銀紐約分行涉洗錢案，遭美方開罰新台幣57億元一事，時代力量立委黃國昌今（23）日質疑「金管會是路人甲，還是銀行的好兄弟？」並痛批「兆豐根本是違反洗錢防制的慣犯」。（圖／翻攝自黃國昌臉書）",
-      "description": "▲針對兆豐銀紐約分行涉洗錢案，遭美方開罰新台幣57億元一事，時代力量立委黃國昌今（23）日質疑「金管會是路人甲，還是銀行的好兄弟？」並痛批「兆豐根本是違反洗錢防制的慣犯」。（圖／翻攝自黃國昌臉書）",
-      "uri": "hash://14115020_1895757900651387_4916849079006134515_o.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ac/1d/ac1d4ae6409132348a9ef5df9ee492d4.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ac/1d/ac1d4ae6409132348a9ef5df9ee492d4.jpg"
-    },
-    "category": {
-      "_id": 419883,
-      "name": "政治"
-    },
-    "createdAt": "2016/08/23 14:49:50"
-  },
-  ......
-  ......
-]
+    ......
+    ......
+  ]
+}
 ```
 
 ### `GET` /category/photos/{:taxId}
@@ -607,88 +631,86 @@ None
 #### Response Data
 
 ```
-[
-  {
-    "_id": 2214610,
-    "title": "純萃喝被新加坡要求召回　台灣比菲多強調：產品沒問題",
-    "created": 1471939410,
-    "field_release_date": {
-      "value": 1471939411
+{
+  "newsList": [
+    {
+      "_id": 2253616,
+      "title": "快訊／文湖線列車傳爆炸聲　初判設備異常",
+      "created": 1475116444,
+      "field_release_date": {
+        "value": 1475116445
+      },
+      "field_short_title": {
+        "value": "快訊／文湖線列車傳爆炸聲嚇壞乘客"
+      },
+      "field_main_category": {
+        "tid": 419887
+      },
+      "image": {
+        "title": "▲搭乘文湖線碰到異常事件時，謹記安全攻略「壓、說、聽」三步驟。。（圖／記者王苡嫣攝 2016.07.13）",
+        "description": "▲搭乘文湖線碰到異常事件時，謹記安全攻略「壓、說、聽」三步驟。。（圖／記者王苡嫣攝 2016.07.13）",
+        "uri": "hash://IMG_3728.JPG",
+        "originImage": "http://s.nownews.com/20/f0/20f097f85f66fbdb5f5c128cb4c24632.JPG",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/20/f0/20f097f85f66fbdb5f5c128cb4c24632.JPG",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/20/f0/20f097f85f66fbdb5f5c128cb4c24632.JPG"
+      },
+      "category": {
+        "_id": 419887,
+        "name": "社會"
+      },
+      "createdAt": "2016/09/29 10:34:04"
     },
-    "field_short_title": {
-      "value": "純萃喝被召回　比菲多：產品沒問題"
+    {
+      "_id": 2253563,
+      "title": "手機巨星殞落！黑苺公司不再發展硬體　轉向開發軟體",
+      "created": 1475114486,
+      "field_release_date": {
+        "value": 1475114487
+      },
+      "field_short_title": {
+        "value": "手機巨星殞落！黑苺公司不發展硬體"
+      },
+      "field_main_category": {
+        "tid": 419895
+      },
+      "image": {
+        "title": "▲黑苺公司已在官網宣布，朝向軟體業務發展。（圖／翻攝自黑苺官方網站）",
+        "description": "▲黑苺公司已在官網宣布，朝向軟體業務發展。（圖／翻攝自黑苺官方網站）",
+        "uri": "hash://擷取_312.PNG",
+        "originImage": "http://s.nownews.com/c6/ad/c6ad2bc9f14eee3bd43ab46498e7f9c0.PNG",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/c6/ad/c6ad2bc9f14eee3bd43ab46498e7f9c0.PNG",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c6/ad/c6ad2bc9f14eee3bd43ab46498e7f9c0.PNG"
+      },
+      "category": {
+        "_id": 419895,
+        "name": "科技"
+      },
+      "createdAt": "2016/09/29 10:01:26"
     },
-    "field_main_category": {
-      "tid": 419884
+    ......
+    ......
+  ],
+  "ads": [
+    {
+      "sn": 1,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100805-4452js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2994&bannerid=35235"
+      }
     },
-    "image": {
-      "title": "▲「純萃。喝」品牌旗下的醇乳奶茶被新加坡要求召回，對此，台灣比菲多食品公司表示，茶胺酸在台灣是可以添加的食品添加物，已和有關當局聯絡，另外提出申請許可。（圖／翻攝自比菲多官網）",
-      "description": "▲「純萃。喝」品牌旗下的醇乳奶茶被新加坡要求召回，對此，台灣比菲多食品公司表示，茶胺酸在台灣是可以添加的食品添加物，已和有關當局聯絡，另外提出申請許可。（圖／翻攝自比菲多官網）",
-      "uri": "hash://螢幕快照 2016-08-23 下午4.00.29.png",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/4d/8e/4d8e3fa8aa8f49aa8e34c46d87933e6f.png",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/4d/8e/4d8e3fa8aa8f49aa8e34c46d87933e6f.png"
+    {
+      "sn": 2,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100954-1099js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2996&bannerid=35236"
+      }
     },
-    "category": {
-      "_id": 419883,
-      "name": "政治"
-    },
-    "createdAt": "2016/08/23 16:03:30"
-  },
-  {
-    "_id": 2214483,
-    "title": "純萃喝含「這」遭新加坡召回？　成分在台合法",
-    "created": 1471933649,
-    "field_release_date": {
-      "value": 1471933650
-    },
-    "field_short_title": {
-      "value": "純萃喝含這遭召回？　成分在台合法"
-    },
-    "field_main_category": {
-      "tid": 419896
-    },
-    "image": {
-      "title": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-      "description": "▲最具影響力的新聞，都在NOWnews今日新聞。（圖／NOWnews）",
-      "uri": "hash://消費_01_5.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ee/95/ee953a34f7d7d523e03247a8d24fdcb7.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ee/95/ee953a34f7d7d523e03247a8d24fdcb7.jpg"
-    },
-    "category": {
-      "_id": 419889,
-      "name": "娛樂"
-    },
-    "createdAt": "2016/08/23 14:27:29"
-  },
-  {
-    "_id": 2214413,
-    "title": "混血妻管教有方　謝和弦大讚炎亞綸「勇敢的人」",
-    "created": 1471928573,
-    "field_release_date": {
-      "value": 1471938983
-    },
-    "field_short_title": {
-      "value": "混血妻管教有方　謝和弦大讚炎亞綸"
-    },
-    "field_main_category": {
-      "tid": 419889
-    },
-    "image": {
-      "title": "▲謝和弦（右）誇獎炎亞綸很勇敢。（合成圖／記者陳明安、林柏年攝，2016.8.23）",
-      "description": "▲謝和弦（右）誇獎炎亞綸很勇敢。（合成圖／記者陳明安、林柏年攝，2016.8.23）",
-      "uri": "hash://506_5793178c9b21c-horz.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/01/0a/010ac81b3bf89f69a7b0aed287e1f0ab.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/01/0a/010ac81b3bf89f69a7b0aed287e1f0ab.jpg"
-    },
-    "category": {
-      "_id": 419889,
-      "name": "娛樂"
-    },
-    "createdAt": "2016/08/23 13:02:53"
-  },
-  ......
-  ......
-]
+    ......
+    ......
+  ]
+}
 ```
 
 ### `GET` /news/hotNews
@@ -720,62 +742,86 @@ None
 #### Response Data
 
 ```
-[
-  {
-    "_id": 2214061,
-    "title": "寶可夢玩家擠爆北投　美國時代雜誌：預見了末日景象",
-    "created": 1471914285,
-    "field_release_date": {
-      "value": 1471914286
+{
+  "newsList": [
+    {
+      "_id": 2253512,
+      "title": "美南卡州逆倫慘案　少年殺父後再闖小學槍傷3人",
+      "created": 1475112638,
+      "field_release_date": {
+        "value": 1475114054
+      },
+      "field_short_title": {
+        "value": "美少年殺父後　再闖小學槍傷3人"
+      },
+      "field_main_category": {
+        "tid": 419890
+      },
+      "image": {
+        "title": "▲美國南卡羅來納州湯維爾小學（Townville Elementary）發生槍擊案，造成3人受傷。警方進入校園搜捕嫌犯。（圖／達志影像／美聯社）",
+        "description": "▲美國南卡羅來納州湯維爾小學（Townville Elementary）發生槍擊案，造成3人受傷。警方進入校園搜捕嫌犯。（圖／達志影像／美聯社）",
+        "uri": "hash://AP_16272684881979.jpg",
+        "originImage": "http://s.nownews.com/5e/74/5e740301294655897a3ac56f6de692be.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/5e/74/5e740301294655897a3ac56f6de692be.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/5e/74/5e740301294655897a3ac56f6de692be.jpg"
+      },
+      "category": {
+        "_id": 419890,
+        "name": "國際"
+      },
+      "createdAt": "2016/09/29 09:54:14"
     },
-    "field_short_title": {
-      "value": "北投抓寶瘋潮　時代雜誌：預見末日"
+    {
+      "_id": 2253561,
+      "title": "9月29日世界各報頭條",
+      "created": 1475114432,
+      "field_release_date": {
+        "value": 1475116207
+      },
+      "field_short_title": {
+        "value": "9月29日世界各報頭條"
+      },
+      "field_main_category": {
+        "tid": 419883
+      },
+      "image": {
+        "title": "▲美國首場總統選舉電視辯論會，外界普遍認為共和黨總統候選人川普表現不如對手希拉蕊。（圖／達志影像）",
+        "description": "▲美國首場總統選舉電視辯論會，外界普遍認為共和黨總統候選人川普表現不如對手希拉蕊。（圖／達志影像）",
+        "uri": "hash://T73476554_5M.jpg",
+        "originImage": "http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/04/ef/04ef6cd606b8546153e2b2a2e96ebe05.jpg"
+      },
+      "category": {
+        "_id": 419883,
+        "name": "政治"
+      },
+      "createdAt": "2016/09/29 10:30:07"
     },
-    "field_main_category": {
-      "tid": 419885
+    ......
+    ......
+  ],
+  "ads": [
+    {
+      "sn": 1,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100805-4452js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2994&bannerid=35235"
+      }
     },
-    "image": {
-      "title": "台北市北投公園（圖）因手遊寶可夢常出現稀有神奇寶貝，大批民眾21日趁假日尾聲前去抓怪，附近車陣也回堵將近1公里，人潮甚至多到沒有手機訊號。中央社記者游凱翔攝  105年8月21日",
-      "description": "台北市北投公園（圖）因手遊寶可夢常出現稀有神奇寶貝，大批民眾21日趁假日尾聲前去抓怪，附近車陣也回堵將近1公里，人潮甚至多到沒有手機訊號。中央社記者游凱翔攝  105年8月21日",
-      "uri": "hash://20160821155.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/55/25/5525b407d464a27e19c145595f79487d.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/55/25/5525b407d464a27e19c145595f79487d.jpg"
+    {
+      "sn": 2,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100954-1099js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2996&bannerid=35236"
+      }
     },
-    "category": {
-      "_id": 419889,
-      "name": "娛樂"
-    },
-    "createdAt": "2016/08/23 09:04:45"
-  },
-  {
-    "_id": 2214210,
-    "title": "男子酒駕開貨車無罪？　法官判決「神標準」大公開",
-    "created": 1471920806,
-    "field_release_date": {
-      "value": 1471920806
-    },
-    "field_short_title": {
-      "value": "酒駕有罪變無罪？　法官神標準公開"
-    },
-    "field_main_category": {
-      "tid": 419887
-    },
-    "image": {
-      "title": "圖說：對陳姓男子實施酒測其酒測值高達0.41毫克。",
-      "description": "圖說：對陳姓男子實施酒測其酒測值高達0.41毫克。",
-      "uri": "hash://1_857.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/4f/d2/4fd2042f3728b91979fed49bacecbe04.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/4f/d2/4fd2042f3728b91979fed49bacecbe04.jpg"
-    },
-    "category": {
-      "_id": 419892,
-      "name": "新奇"
-    },
-    "createdAt": "2016/08/23 10:53:26"
-  },
-  ......
-  ......
-]
+    ......
+    ......
+  ]
+}
 ```
 
 ### `GET` /news/instant
@@ -807,62 +853,86 @@ None
 #### Response Data
 
 ```
-[
-  {
-    "_id": 2214404,
-    "title": "《偶像料理王》9月播出！兩百名藝人競爭「料理王」寶座",
-    "created": 1471927992,
-    "field_release_date": {
-      "value": 1471942800
+{
+  "newsList": [
+    {
+      "_id": 2253644,
+      "title": "輔導劵商請辭爆危機　匯特：財務健全將積極重新送件",
+      "created": 1475117250,
+      "field_release_date": {
+        "value": 1475117251
+      },
+      "field_short_title": {
+        "value": "匯特生技爆危機　將積極重新送件"
+      },
+      "field_main_category": {
+        "tid": 419884
+      },
+      "image": {
+        "title": "▲匯特生技上櫃輔導劵商紛紛請辭受到不少關注，匯特表示公司營運正常、財務健全，也會積極接洽其他證券商擔任主辦及協辦輔導推薦證券商，一旦確定，就會重新送件申請恢復交易。圖左三為匯特總經理江滄炫。（圖／匯特生技提供）",
+        "description": "▲匯特生技上櫃輔導劵商紛紛請辭受到不少關注，匯特表示公司營運正常、財務健全，也會積極接洽其他證券商擔任主辦及協辦輔導推薦證券商，一旦確定，就會重新送件申請恢復交易。圖左三為匯特總經理江滄炫。（圖／匯特生技提供）",
+        "uri": "hash://S__42000393.jpg",
+        "originImage": "http://s.nownews.com/bf/59/bf5914bc85e3862ca8cea3b8dedb8c69.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/bf/59/bf5914bc85e3862ca8cea3b8dedb8c69.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/bf/59/bf5914bc85e3862ca8cea3b8dedb8c69.jpg"
+      },
+      "category": {
+        "_id": 419884,
+        "name": "財經"
+      },
+      "createdAt": "2016/09/29 10:47:30"
     },
-    "field_short_title": {
-      "value": "《偶像料理王》9月中旬播出"
+    {
+      "_id": 2253631,
+      "title": "MLB／海盜隊Jaso「完全打擊」",
+      "created": 1475117142,
+      "field_release_date": {
+        "value": 1475117179
+      },
+      "field_short_title": {
+        "value": "海盜隊Jaso「完全打擊」"
+      },
+      "field_main_category": {
+        "tid": 419888
+      },
+      "image": {
+        "title": "▲海盜隊John Jaso（右）成功滑上三壘，締造完全打擊紀錄。（圖／美聯社／達志影像）",
+        "description": "▲海盜隊John Jaso（右）成功滑上三壘，締造完全打擊紀錄。（圖／美聯社／達志影像）",
+        "uri": "hash://AP_633856198709.jpg",
+        "originImage": "http://s.nownews.com/10/6c/106c380267117dc9c8ef819a80b6479f.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/10/6c/106c380267117dc9c8ef819a80b6479f.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/10/6c/106c380267117dc9c8ef819a80b6479f.jpg"
+      },
+      "category": {
+        "_id": 419888,
+        "name": "運動"
+      },
+      "createdAt": "2016/09/29 10:45:42"
     },
-    "field_main_category": {
-      "tid": 419889
+    ......
+    ......
+  ],
+  "ads": [
+    {
+      "sn": 1,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100805-4452js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2994&bannerid=35235"
+      }
     },
-    "image": {
-      "title": "▲《偶像料理王》將在9月播出。（圖／翻攝自OSEN、MBC）",
-      "description": "▲《偶像料理王》將在9月播出。（圖／翻攝自OSEN、MBC）",
-      "uri": "hash://201608230956774220_57bba02e5f4c7.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg"
+    {
+      "sn": 2,
+      "ad": {
+        "title": "屋主降價 緊來看!過了這村就沒這店",
+        "img": "http://legacy.nownews.com/ad2004/160919-100954-1099js.jpg",
+        "url": "http://ad1.nownews.com/adclick.php?ownerid=2996&bannerid=35236"
+      }
     },
-    "category": {
-      "_id": 419883,
-      "name": "政治"
-    },
-    "createdAt": "2016/08/23 12:53:12"
-  },
-  {
-    "_id": 2214526,
-    "title": "巨乳訓練師出沒　比基尼皮卡丘等你收服",
-    "created": 1471935455,
-    "field_release_date": {
-      "value": 1471942800
-    },
-    "field_short_title": {
-      "value": "巨乳玩家出沒　泳裝皮卡丘等你收服"
-    },
-    "field_main_category": {
-      "tid": 419892
-    },
-    "image": {
-      "title": "▲巨乳訓練師出沒，比基尼皮卡丘等你收服。（圖／翻攝自推特）",
-      "description": "▲巨乳訓練師出沒，比基尼皮卡丘等你收服。（圖／翻攝自推特）",
-      "uri": "hash://507_577fac478b30c_31.jpg",
-      "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9e/67/9e672e7f3b8a6a35a7cf0fefcea17ec7.jpg",
-      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9e/67/9e672e7f3b8a6a35a7cf0fefcea17ec7.jpg"
-    },
-    "category": {
-      "_id": 419883,
-      "name": "政治"
-    },
-    "createdAt": "2016/08/23 14:57:35"
-  },
-  ......
-  ......
-]
+    ......
+    ......
+  ]
+}
 ```
 
 ### `GET` /news/{:nodeId}
@@ -905,6 +975,7 @@ None
     "title": "▲《偶像料理王》將在9月播出。（圖／翻攝自OSEN、MBC）",
     "description": "▲《偶像料理王》將在9月播出。（圖／翻攝自OSEN、MBC）",
     "uri": "hash://201608230956774220_57bba02e5f4c7.jpg",
+    "originImage": "http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg",
     "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg",
     "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg"
   },
@@ -938,21 +1009,22 @@ None
       "content": "▲《偶像料理王》將邀請200名藝人參加。（圖／翻攝自EXO、BTS、BTOB、VIXX臉書）"
     }
   ],
-  "freeBody": "<div class=\"other_info1\">\r\n\t<a href=\"http://goo.gl/C8QriH\" style=\"display:block; color:#E40012; line-height: 1em; margin-bottom: 0.5em; font-weight: 900;\">》》投票去，我有話要說！</a>\r\n\t<div class=\"other_info1\">\r\n\t\t<div>\r\n\t\t\t<span style=\"color: rgb(51, 51, 51); font-family: Arial, 新細明體; font-size: 16px; line-height: 30px;\">更多NOWnews新聞</span>都在行動APP上：</div>\r\n\t\t<a href=\"https://goo.gl/AWVNkD\" style=\"display:block; color:#097cd2;\">》》Android APP請點這裡下載</a> <a href=\"https://goo.gl/M49ADW\" style=\"display:block; color:#097cd2;\">》》iOS APP請點這裡下載</a> <a href=\"http://legacy.nownews.com/events/adtips/mobile_app/NowNews_Mobile.apk\" style=\"display:block; color:#097cd2;\">》》大陸地區請點此直接下載APK安裝</a></div>\r\n</div>\r\n",
+  "freeBody": "\r\n",
   "author": "娛樂中心／綜合報導",
   "adult": "0",
+  "keywords": "速報,首頁,八卦,娛樂,美食,料理,比賽,廚藝,EXO,BTOB,料理王,娛樂看板,VIXX,LOVELYZ,韓綜,TWICE,日韓流行線,BTS防彈少年團,NCT 127,偶像料理王",
   "prev": {
-    "_id": 2216641,
-    "title": "阿富汗美國大學遇襲2死25傷　歹徒遭擊斃",
+    "_id": 2214550,
+    "title": "如果自己是男人　Mina「我想和定延交往」",
     "field_short_title": {
-      "value": "阿國美大學遇襲2死　2歹徒遭擊斃"
+      "value": "如果是男人　Mina想和定延交往"
     }
   },
   "next": {
-    "_id": 2216647,
-    "title": "奧運／永不放棄　李宗偉明年還要拚世界冠軍",
+    "_id": 2214681,
+    "title": "艾爾帕西諾、安東尼霍普金斯　破天荒同台拍片",
     "field_short_title": {
-      "value": "永不放棄　李宗偉明年要拚世界冠軍"
+      "value": "帕西諾、霍普金斯　破天荒同台拍片"
     }
   },
   "category": {
@@ -970,6 +1042,7 @@ None
         "title": "▲《偶像明星運動會》是MBC推出的一檔大型綜藝節目。（圖／翻攝自osen）",
         "description": "▲《偶像明星運動會》是MBC推出的一檔大型綜藝節目。（圖／翻攝自osen）",
         "uri": "hash://201608161541775508_57b2b5ae8a285.jpg",
+        "originImage": "http://s.nownews.com/9a/ff/9aff2fcf5d5c6e3e816430d147ae66f6.jpg",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/9a/ff/9aff2fcf5d5c6e3e816430d147ae66f6.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/9a/ff/9aff2fcf5d5c6e3e816430d147ae66f6.jpg"
       },
@@ -988,6 +1061,7 @@ None
         "title": "▲李準基、姜河那、洪宗玄16日參加《Running Man》錄影。（圖／翻攝自李準基IG）",
         "description": "▲李準基、姜河那、洪宗玄16日參加《Running Man》錄影。（圖／翻攝自李準基IG）",
         "uri": "hash://LEE.PNG",
+        "originImage": "http://s.nownews.com/63/e1/63e16fb2a766d0d6462f90c46cfc7e83.PNG",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/63/e1/63e16fb2a766d0d6462f90c46cfc7e83.PNG",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/63/e1/63e16fb2a766d0d6462f90c46cfc7e83.PNG"
       },
@@ -1006,6 +1080,7 @@ None
         "title": "▲李準基、姜河那、洪宗玄將參加《RM》。（圖／翻攝自日刊體育）",
         "description": "▲李準基、姜河那、洪宗玄將參加《RM》。（圖／翻攝自日刊體育）",
         "uri": "hash://擷取_231.PNG",
+        "originImage": "http://s.nownews.com/fb/43/fb437641e3ca438bffb9e6889aaeb983.PNG",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/fb/43/fb437641e3ca438bffb9e6889aaeb983.PNG",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/fb/43/fb437641e3ca438bffb9e6889aaeb983.PNG"
       },
@@ -1022,6 +1097,7 @@ None
         "title": "張梓琳——跳高、三級跳遠和百米跨欄。",
         "description": "張梓琳——跳高、三級跳遠和百米跨欄。",
         "uri": "hash://28_673.jpg",
+        "originImage": "http://s.nownews.com/bb/31/bb319ad15cde136fed1824f7eb325370.jpg",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/bb/31/bb319ad15cde136fed1824f7eb325370.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/bb/31/bb319ad15cde136fed1824f7eb325370.jpg"
       },
@@ -1037,6 +1113,7 @@ None
         "title": "▲Gary平面專訪。（圖／記者陳明安攝，2016.8.5）",
         "description": "▲Gary平面專訪。（圖／記者陳明安攝，2016.8.5）",
         "uri": "hash://959_57a4376c4399b.jpg",
+        "originImage": "http://s.nownews.com/ff/5f/ff5f17cd8c1eb0c34ca21cb21b89dfb9.jpg",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/ff/5f/ff5f17cd8c1eb0c34ca21cb21b89dfb9.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/ff/5f/ff5f17cd8c1eb0c34ca21cb21b89dfb9.jpg"
       },
@@ -1055,6 +1132,7 @@ None
         "title": "▲Block B隊長ZICO。（圖／翻攝自網路）",
         "description": "▲Block B隊長ZICO。（圖／翻攝自網路）",
         "uri": "hash://12973207_1000225200026685_1389170792829085858_o.jpg",
+        "originImage": "http://s.nownews.com/e9/8b/e98b6e60cd7ebfff6ac3baa475632ab9.jpg",
         "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/e9/8b/e98b6e60cd7ebfff6ac3baa475632ab9.jpg",
         "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/e9/8b/e98b6e60cd7ebfff6ac3baa475632ab9.jpg"
       },
@@ -1063,7 +1141,45 @@ None
         "name": "娛樂"
       }
     }
-  ]
+  ],
+  "jsonld": {
+    "context": "http://schema.org",
+    "type": "NewsArticle",
+    "datePublished": "2016-08-23T12:53:12+08:00",
+    "dateModified": "2016-08-23T13:01:47+08:00",
+    "mainEntityOfPage": {
+      "type": "WebPage",
+      "id": "http://m.nownews.com/news/2214404"
+    },
+    "articleBody": "韓國MBC電視台從2010年開始，每年的中秋和新年都會推出《偶像明星運動會》，邀請各家藝人共同競賽。日前，MBC電視台也傳出今年中秋將再加開一檔特別綜藝《偶像料理王》，今（23）日，部分參加名單也已經公開，預計有50組團體、多達200名藝人參加，一同競爭「料理王」寶座。",
+    "headline": "《偶像料理王》9月播出！兩百名藝人競爭「料理王」寶座",
+    "image": {
+      "type": "ImageObject",
+      "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/c1/b9/c1b9e8c87de5ef51b0443c917b732489.jpg",
+      "width": 640,
+      "height": 360
+    },
+    "author": {
+      "type": "Person",
+      "name": "NOWnews 今日新聞"
+    },
+    "publisher": {
+      "type": "Organization",
+      "name": "NOWnews 今日新聞",
+      "logo": {
+        "type": "ImageObject",
+        "url": "http://www.nownews.com/assets/images/logo.png",
+        "width": 220,
+        "height": 52
+      }
+    },
+    "description": "韓國MBC電視台從2010年開始，每年的中秋和新年都會推出《偶像明星運動會》，邀請各家藝人共同競賽。日前，MBC電視台也傳出今年中秋將再加開一檔特別綜藝《偶像料理王》，今（23）日，部分參加名單也已經公開，預計有50組團體、多達200名藝人參加，一同競爭「料理王」寶座。"
+  },
+  "ad": {
+    "title": "屋主降價 緊來看!過了這村就沒這店",
+    "img": "http://legacy.nownews.com/ad2004/160919-102214-6458js.jpg",
+    "url": "http://ad1.nownews.com/adclick.php?ownerid=2994&bannerid=35242"
+  }
 }
 ```
 

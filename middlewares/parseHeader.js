@@ -13,13 +13,9 @@ module.exports = (app) => {
         let mode = process.env.NODE_ENV;
         let apiKey = req.header('X-NOWnews-API');
 
-        if(mode === 'production' && (!apiKey || apiKey !== config.header['X-NOWnews-API'])) {
+        if(mode === 'production' && (!apiKey || !config.header['X-NOWnews-API'].includes(apiKey))) {
             return next(new Error('BAD REQUEST'));
         }
-
-        // if(apiKey !== config.header['X-NOWnews-AP']) {
-        //     return next(new Error('BAD REQUEST'));
-        // }
 
         return next();
     };

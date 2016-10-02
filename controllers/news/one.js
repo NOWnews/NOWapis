@@ -78,7 +78,7 @@ module.exports = function(req, res, next) {
             summary: news.body.summary,
             created: news.created,
             changed: news.changed,
-            createdAt: moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
+            createdAt: moment(news.field_release_date.value * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             updatedAt: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss'),
             htmlBody: news.body.value,
             videos: videos,

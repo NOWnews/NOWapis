@@ -10,6 +10,7 @@ const instant = require('./instant');
 const search = require('./search');
 const sitemap = require('./sitemap');
 const check = require('./check');
+const nearByNews = require('./nearByNews');
 
 module.exports = function(app) {
 
@@ -24,6 +25,7 @@ module.exports = function(app) {
     app.use('/', search);
     app.use('/', sitemap);
     app.use('/', check);
+    app.use('/', nearByNews);
 
     return function(req, res, next) {
         return next();

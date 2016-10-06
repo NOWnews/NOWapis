@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.6] - 2016-10-06
+### Added
+- 新增附近的人在看什麼新聞的功能 @SimonSun.
+
 ## [1.0.5] - 2016-10-02
 ### Changed
 - 新聞內頁的時間改用發佈時間 `field_release_date.value` @SimonSun.

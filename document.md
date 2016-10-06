@@ -1475,3 +1475,327 @@ None
   ]
 }
 ```
+
+### `GET` /nearByNews
+
+找出座標附近的使用者觀看過的新聞
+
+#### Header Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| X-NOWnews-API | 驗證是否有存取 api 權限的 token，目前為固定的值 | [`NOWnewsTaiwanNumberOne`] | √ | `request.header['X-NOWnews-API'] = 'NOWnewsTaiwanNumberOne'` |
+
+#### Url Parameters
+
+None
+
+#### Body Parameters
+
+None
+
+#### Query Parameters
+
+| 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
+|---|---|---|---|---|
+| longitude | 經度 | String | √ | `/nearByNews?longitude=25.03505257&latitude=121.53838206` |
+| latitude | 緯度 | String | √ | `/nearByNews??longitude=25.03505257&latitude=121.53838206` |
+
+#### Response Status Code
+
+200
+
+#### Response Data
+
+```
+{
+  "newsList": [
+    {
+      "_id": 2262306,
+      "_type": "node",
+      "_bundle": "news",
+      "_revision_id": 3424599,
+      "nid": 2262306,
+      "vid": 3424599,
+      "type": "news",
+      "language": "zh-hant",
+      "title": "買房vs.租房哪個好？　來聽專家怎麼說再決定",
+      "uid": 992,
+      "status": 1,
+      "created": 1475721670,
+      "changed": 1475732983,
+      "comment": 2,
+      "promote": 0,
+      "sticky": 0,
+      "tnid": 0,
+      "translate": 0,
+      "body": {
+        "summary": "到底買房好還是租房好？這是千古不變的熱門討論話題。許多年輕人認為高房價無力負擔，就算負擔得起，還必須承擔2、30年左右的房貸壓力，所以寧可選擇一輩子當租屋族，也不願意當房奴。每個人的財務狀況和身處環境不同，先了解租屋及買屋的差別，再評估自己的能力狀況。",
+        "value": "<p>到底買房好還是租房好？這是千古不變的熱門討論話題。許多年輕人認為高房價無力負擔，就算負擔得起，還必須承擔2、30年左右的房貸壓力，所以寧可選擇一輩子當租屋族，也不願意當房奴。每個人的財務狀況和身處環境不同，先了解租屋及買屋的差別，再評估自己的能力狀況。</p>\r\n<p>中信房屋羅東富貴加盟店魏聚瑋店長分析，租屋族適合短期使用者或是手頭無資金者，像是在外讀書的學生或是選擇在工作附近租屋的上班族，通常待2至4年就會離開此地。買屋者則適合有足夠資金、希望有家的感覺或是想強迫儲蓄的人。</p>\r\n<p>租屋族雖然享有自由的移居生活，但生活沒有保障，最害怕遇到的就是惡房東，再來是不定期的房租漲價，這些都難以掌控，因為活在他人的屋簷下；買屋者則需準備3成的自備款，手頭有足夠資金以及能承受未來房貸的考驗，每月房貸建議別超過薪水的3分之1，才能保有正常的生活品質。</p>\r\n<p>以下整理租屋及買屋的優缺點：</p>\r\n<p>租屋者</p>\r\n<p>優點：</p>\r\n<p>1.享有更好生活品質</p>\r\n<p>2.多餘錢可以用在其他花費上</p>\r\n<p>3.可依照工作地點選擇交通方便的租屋處</p>\r\n<p>缺點：</p>\r\n<p>1.無法保證生活品質（房東隨時調整租金、遇到惡房東、房東隨時收回房子等）</p>\r\n<p>2.年紀大不好租房</p>\r\n<p>3.租屋久，房子也不屬於自己</p>\r\n<p>買屋者</p>\r\n<p>優點：</p>\r\n<p>1.安心踏實</p>\r\n<p>2.房子未來可增值</p>\r\n<p>3.可擁有自己的房子</p>\r\n<p>缺點：</p>\r\n<p>1.需承受高經濟壓力</p>\r\n<p>2.需接受購屋的無形機會成本（損失掉部分娛樂費、生活費等）</p>\r\n<p>那到底買房好還是租房好？魏聚瑋認為，套用華人觀念「有土斯有財」，現在低利率時代，銀行利息跟不上通膨速度，把錢存在銀行，錢反而變薄；把錢繳給房東，租金可以拿來負擔房貸，而房產是最具保值性的投資物件，趁年輕為自己打拚存錢，有個人生目標才能讓自己成長。</p>\r\n<p>現在房價下修、屋主心態鬆動議價空間大、銀行利率低，再加上政府推出「青年安心成家方案」，前兩年零利率，最長可寬限30年，很多人認為租屋可以減少很多生活開銷，可以將錢運用在娛樂和其他投資上，但買房也是一種投資，比起其他投資物件，房地產產生的稅收相對低。不過魏聚瑋也提醒，買房必須謹慎挑選，建議尋找合法房屋仲介，否則買錯後悔莫及。</p>\r\n",
+        "format": "full_html"
+      },
+      "field_adult": {
+        "value": "0"
+      },
+      "field_auth": {
+        "value": "1"
+      },
+      "field_authors": {
+        "target_id": 1546329
+      },
+      "field_free_body": {
+        "value": "<div class=\"other_info1\">\r\n\t<a href=\"http://goo.gl/C8QriH\" style=\"display:block; color:#E40012; line-height: 1em; margin-bottom: 0.5em; font-weight: 900;\">》》投票去，我有話要說！</a>\r\n\t<div class=\"other_info1\">\r\n\t\t<div>\r\n\t\t\t<span style=\"color: rgb(51, 51, 51); font-family: Arial, 新細明體; font-size: 16px; line-height: 30px;\">更多NOWnews新聞</span>都在行動APP上：</div>\r\n\t\t<a href=\"https://goo.gl/AWVNkD\" style=\"display:block; color:#097cd2;\">》》Android APP請點這裡下載</a> <a href=\"https://goo.gl/M49ADW\" style=\"display:block; color:#097cd2;\">》》iOS APP請點這裡下載</a> <a href=\"http://legacy.nownews.com/events/adtips/mobile_app/NowNews_Mobile.apk\" style=\"display:block; color:#097cd2;\">》》大陸地區請點此直接下載APK安裝</a></div>\r\n</div>\r\n",
+        "format": "free_style"
+      },
+      "field_free_tags": [
+        {
+          "tid": 22529
+        },
+        {
+          "tid": 370713
+        },
+        {
+          "tid": 235737
+        },
+        {
+          "tid": 4014
+        },
+        {
+          "tid": 458779
+        },
+        {
+          "tid": 2572
+        }
+      ],
+      "field_handler": {
+        "target_id": 86
+      },
+      "field_hot_status": {
+        "value": "5"
+      },
+      "field_image_title": null,
+      "field_is_red": {
+        "value": 0
+      },
+      "field_news_hide": {
+        "value": 0
+      },
+      "field_news_ref": [
+        {
+          "target_id": 2262298
+        },
+        {
+          "target_id": 2262291
+        },
+        {
+          "target_id": 2229741
+        },
+        {
+          "target_id": 2262222
+        },
+        {
+          "target_id": 2262241
+        },
+        {
+          "target_id": 2255324
+        },
+        {
+          "target_id": 2262151
+        },
+        {
+          "target_id": 2262193
+        }
+      ],
+      "field_newsby": {
+        "value": "記者章瑋芸／綜合報導"
+      },
+      "field_original_id": null,
+      "field_push_to": null,
+      "field_ra": {
+        "radioactivity_energy": 8290,
+        "radioactivity_timestamp": 1475748055
+      },
+      "field_release_date": {
+        "value": 1475732910
+      },
+      "field_release_status": {
+        "value": 1
+      },
+      "field_short_title": {
+        "value": "買房、租房哪個好？來聽專家怎麼說"
+      },
+      "field_source": {
+        "target_id": 639
+      },
+      "field_today_pv": {
+        "value": 0
+      },
+      "field_today_pv2": {
+        "value": 0
+      },
+      "field_release_status2": {
+        "value": 5
+      },
+      "field_script_memo": null,
+      "field_zeekmag": null,
+      "field_main_category": {
+        "tid": 419885
+      },
+      "image": {
+        "title": "▲買房vs.租房哪個好？來聽專家怎麼說再決定。（圖／翻攝自網路）",
+        "description": "▲買房vs.租房哪個好？來聽專家怎麼說再決定。（圖／翻攝自網路）",
+        "uri": "hash://買房好租屋好.jpg",
+        "originImage": "http://s.nownews.com/6b/01/6b015e82a52358a4f3a561570c8468a4.jpg",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/6b/01/6b015e82a52358a4f3a561570c8468a4.jpg",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/6b/01/6b015e82a52358a4f3a561570c8468a4.jpg"
+      },
+      "category": {
+        "_id": 419885,
+        "name": "生活"
+      },
+      "createdAt": "2016/10/06 13:48:30"
+    },
+    {
+      "_id": 2262453,
+      "_type": "node",
+      "_bundle": "news",
+      "_revision_id": 3424368,
+      "nid": 2262453,
+      "vid": 3424368,
+      "type": "news",
+      "language": "zh-hant",
+      "title": "更高的捕捉率！寶可夢全新系統將到來",
+      "uid": 964,
+      "status": 1,
+      "created": 1475726685,
+      "changed": 1475726685,
+      "comment": 2,
+      "promote": 0,
+      "sticky": 0,
+      "tnid": 0,
+      "translate": 0,
+      "body": {
+        "summary": "《Pokemon GO》官方粉絲頁面於今(6)日發出的公告中釋出全新功能，未來當玩家獲得成就徽章時，可以提升捕捉該系寶可夢的成功率，官方同時也表示這個全新的功能很快就會到來。",
+        "value": "<p>《Pokemon GO》官方粉絲頁面於今(6)日發出的公告中釋出全新功能，未來當玩家獲得成就徽章時，可以提升捕捉該系寶可夢的成功率，官方同時也表示這個全新的功能很快就會到來。</p>\r\n<p>這個全新系統有區分屬性類別，每一種屬性都會各自擁有等級，分為銅、銀、金三個階段，玩家透過捕捉該同屬性寶可夢之後，就可以提升屬性位階，獲取新的成就徽章；銅牌徽章提升需要捕捉10隻寶可夢、銀牌則為50隻、金牌200隻。</p>\r\n<p>這邊簡單舉例，玩家如果達到Kindler（火系金牌）這個等級，捕捉小火龍、六尾、小火馬之類的火系寶可夢會提升它的「捕捉率」，官網目前則無透露銅、銀、金的捕捉率提升百分比，只能依照邏輯推測應該是以位階排序高低。另外，像是波波同時具有飛行、普通二種類別，獎勵將同時分給這二個屬性徽章；也就是說抓二種屬性的寶可夢，將能一次提升二種屬性徽章。</p>\r\n<p>官方目前尚未透露這個新系統開放的時間，只表示將很快到來。</p>\r\n",
+        "format": "full_html"
+      },
+      "field_adult": {
+        "value": "0"
+      },
+      "field_auth": {
+        "value": "0"
+      },
+      "field_authors": {
+        "target_id": 2257436
+      },
+      "field_free_body": {
+        "value": "<div class=\"other_info1\">\r\n\t<a href=\"http://vote.nownews.com/\" style=\"display:block; color:#E40012; line-height: 1em; margin-bottom: 0.5em; font-weight: 900;\">》》投票去，我有話要說！</a>\r\n\t<div class=\"other_info1\">\r\n\t\t<div>\r\n\t\t\t<span style=\"color: rgb(51, 51, 51); font-family: Arial, 新細明體; font-size: 16px; line-height: 30px;\">更多NOWnews新聞</span>都在行動APP上：</div>\r\n\t\t<a href=\"https://goo.gl/AWVNkD\" style=\"display:block; color:#097cd2;\">》》Android APP請點這裡下載</a> <a href=\"https://goo.gl/M49ADW\" style=\"display:block; color:#097cd2;\">》》iOS APP請點這裡下載</a> <a href=\"http://legacy.nownews.com/events/adtips/mobile_app/NowNews_Mobile.apk\" style=\"display:block; color:#097cd2;\">》》大陸地區請點此直接下載APK安裝</a></div>\r\n</div>\r\n",
+        "format": "free_style"
+      },
+      "field_free_tags": [
+        {
+          "tid": 432477
+        },
+        {
+          "tid": 435263
+        },
+        {
+          "tid": 2625
+        },
+        {
+          "tid": 2611
+        },
+        {
+          "tid": 3970
+        },
+        {
+          "tid": 3973
+        },
+        {
+          "tid": 3977
+        }
+      ],
+      "field_handler": {
+        "target_id": 964
+      },
+      "field_hot_status": {
+        "value": "5"
+      },
+      "field_image_title": null,
+      "field_is_red": {
+        "value": 0
+      },
+      "field_news_hide": {
+        "value": 0
+      },
+      "field_news_ref": [
+        {
+          "target_id": 2261323
+        },
+        {
+          "target_id": 2260673
+        },
+        {
+          "target_id": 2259504
+        },
+        {
+          "target_id": 2259016
+        },
+        {
+          "target_id": 2257467
+        }
+      ],
+      "field_newsby": {
+        "value": "電玩中心／台北報導"
+      },
+      "field_original_id": null,
+      "field_push_to": null,
+      "field_ra": {
+        "radioactivity_energy": 9078,
+        "radioactivity_timestamp": 1475748055
+      },
+      "field_release_date": {
+        "value": 1475726686
+      },
+      "field_release_status": {
+        "value": 1
+      },
+      "field_short_title": {
+        "value": "更高的捕捉率！寶可夢新系統將到來"
+      },
+      "field_source": {
+        "target_id": 639
+      },
+      "field_today_pv": {
+        "value": 2
+      },
+      "field_today_pv2": {
+        "value": 0
+      },
+      "field_release_status2": {
+        "value": 5
+      },
+      "field_script_memo": null,
+      "field_zeekmag": null,
+      "field_main_category": {
+        "tid": 419895
+      },
+      "image": {
+        "title": "▲這套新系統在推出後，玩家將有更高的捕捉率，捕捉稀有的寶可夢。（圖／翻攝自網路）",
+        "description": "▲這套新系統在推出後，玩家將有更高的捕捉率，捕捉稀有的寶可夢。（圖／翻攝自網路）",
+        "uri": "hash://14481778_987452574734634_8289876730596488518_o.png",
+        "originImage": "http://s.nownews.com/50/8b/508bca989ee3a19cade78bcdd272c1de.png",
+        "thumbnail": "http://imgapi.nownews.com/?w=640&h=360&q=60&src=http://s.nownews.com/50/8b/508bca989ee3a19cade78bcdd272c1de.png",
+        "url": "http://imgapi.nownews.com/?w=640&q=75&src=http://s.nownews.com/50/8b/508bca989ee3a19cade78bcdd272c1de.png"
+      },
+      "category": {
+        "_id": 419895,
+        "name": "科技"
+      },
+      "createdAt": "2016/10/06 12:04:46"
+    },
+    ......
+    ......
+  ]
+}
+```

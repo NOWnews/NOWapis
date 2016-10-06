@@ -86,5 +86,10 @@ module.exports = {
      */
     header: {
         'X-NOWnews-API': ['NOWnewsTaiwanNumberOne', 'csmuse_dev']
+    },
+
+    pageview: {
+        host: process.env.NODE_ENV === 'production' ? 'pv.nownews.pri' : '61.67.121.50',
+        port: process.env.NODE_ENV === 'production' ? 10012 : 10012
     }
 };

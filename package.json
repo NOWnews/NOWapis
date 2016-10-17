@@ -1,6 +1,6 @@
 {
   "name": "nowapis",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "NOWnews api service",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "debug": "2.2.0",
     "express": "4.13.4",
     "iconv": "2.2.1",
-    "is_js": "0.8.0",
+    "is_js": "^0.8.0",
     "lodash": "4.15.0",
     "md5": "2.2.1",
     "mocha": "3.0.2",

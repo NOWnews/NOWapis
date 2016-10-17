@@ -2,6 +2,16 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.7] - 2016-10-17
+### Added
+- 加入 `is_js` module @SimonSun.
+
+### Changed
+- 修改文件 @SimonSun.
+
+### Fixed
+- 修正如果廣告沒有吐出任何東西會發生錯誤 @SimonSun
+
 ## [1.0.6] - 2016-10-06
 ### Added
 - 新增附近的人在看什麼新聞的功能 @SimonSun.

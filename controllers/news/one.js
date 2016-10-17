@@ -2,6 +2,7 @@ import co from 'co';
 import Promise from 'bluebird';
 import moment from 'moment-timezone';
 import request from 'request-promise';
+import is from 'is_js';
 import iconv from 'iconv-lite';
 
 const debug = require('debug')('NOWapis:controller:news:one');
@@ -168,11 +169,11 @@ module.exports = function(req, res, next) {
         });
 
         // 將字串轉換成 big5 之後再 parse 成 JSON
-        if(ad) {
+        if(ad && is.json(ad)) {
             ad = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
         }
 
-        outputNews.ad = ad;
+        outputNews.ad = is.json(ad) ? ad : null;
 
         // 把這篇新聞存進 redis
         yield redis.setValue(`news${nodeId}`, outputNews, 180);

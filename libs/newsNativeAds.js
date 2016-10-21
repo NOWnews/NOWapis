@@ -7,6 +7,7 @@ import Promise from 'bluebird';
 import request from 'request-promise';
 import iconv from 'iconv-lite';
 import _ from 'lodash';
+import is from 'is_js';
 
 module.exports = co.wrap(function*() {
 
@@ -24,12 +25,13 @@ module.exports = co.wrap(function*() {
     // 處理該死的 big5 編碼轉換
     ads = _.map(ads, (ad, idx) => {
         let adjson;
-        try {
+
+        if(ad && is.json(ad)) {
             adjson = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
         }
-        catch(err) {
-            adjson = null;
-        }
+
+        adjson = is.json(ad) ? ad : null;
+
         return {
             sn: idx + 1,
             ad: adjson

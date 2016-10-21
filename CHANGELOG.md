@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.8] - 2016-10-21
+### Changed
+- 修正讀取廣告沒東西的錯誤 @SimonSun.
+
 ## [1.0.7] - 2016-10-17
 ### Added
 - 加入 `is_js` module @SimonSun.

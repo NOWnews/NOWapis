@@ -9,10 +9,12 @@ module.exports = function(req, res, next) {
     co(function*(){
 
         let mongodb14 = yield require('../../mongodb14');
+        let epochTime = parseInt(moment(Date.now()).format('X'), 10);
 
         let newestNews = yield mongodb14.collection('fields_current.node').find({
                 _bundle: 'news',
-                'field_release_status.value': 1
+                'field_release_status.value': 1,
+                'field_release_date.value': { $lte: epochTime }
             })
             .sort({'field_release_date.value': -1})
             .limit(10)

@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.10] - 2016-11-07
+### Changed
+- 更改 `config.js` 中， mongodb 連線的資料，從 `61.220.58.2` 改成 `mongodb-s14.nownews.com.tw` @SimonSun.
+
 ## [1.0.9] - 2016-10-28
 ### Changed
 - 讀取最新10則新聞，使用 release date 來做判斷 @SimonSun.

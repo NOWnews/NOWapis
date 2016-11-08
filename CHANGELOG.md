@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.11] - 2016-11-08
+### Changed
+- 新聞圖片的 title 與 desc 是分開的，將圖說改為正確的 desc @SimonSun.
+
 ## [1.0.10] - 2016-11-07
 ### Changed
 - 更改 `config.js` 中， mongodb 連線的資料，從 `61.220.58.2` 改成 `mongodb-s14.nownews.com.tw` @SimonSun.

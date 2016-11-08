@@ -19,7 +19,7 @@ module.exports = co.wrap(function*(news) {
     // let db = yield MongoClient.connectAsync(config.newsMongoDb);
     let mongodb14 = yield require('../mongodb14');
 
-    let imageNodeId = yield mongodb14.collection('fields_current.relation').findOneAsync({
+    let imageRelationNode = yield mongodb14.collection('fields_current.relation').findOneAsync({
             _bundle: 'relation_news_image',
             // _type: 'relation',
             'endpoints.entity_id': news._id
@@ -32,16 +32,19 @@ module.exports = co.wrap(function*(news) {
             if(!node || !node.endpoints) {
                 return undefined;
             }
-            return Promise.resolve(node.endpoints[1].entity_id);
+            return Promise.resolve({
+                nodeId: node.endpoints[1].entity_id,
+                desc: node.field_rel_description.value
+            });
         });
-    // debug('imageNodeId = %s', imageNodeId);
+    // debug('imageRelationNode = %s', imageRelationNode);
 
-    if(!imageNodeId) {
+    if(!imageRelationNode) {
         return Promise.resolve(news);
     }
 
     let imageNode = yield mongodb14.collection('fields_current.node').findOneAsync({
-            _id: imageNodeId,
+            _id: imageRelationNode.nodeId,
             // _bundle: 'media',
             // _type: 'node',
             // 'field_release_status.value': 1,
@@ -85,8 +88,8 @@ module.exports = co.wrap(function*(news) {
     // 下載圖片，帶入 url, 資料夾位置， 檔案名稱
     // let imageInfo = yield downloadImage(imgUrl, __dirname + '/newsImages', hash + '.' + ext);
 
-    news.image.title = imageNode.title;
-    news.image.description = imageNode.title;
+    news.image.title = imageNode.title || imageRelationNode.desc;
+    news.image.description = imageRelationNode.desc || imageNode.title;
     news.image.uri = imageData.uri;
     news.image.originImage = imgUrl;
     news.image.thumbnail = 'http://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;

@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.12] - 2016-11-09
+### Fixed
+- 修正廣告吐出有可能是 buffer 的問題 @SimonSun.
+
 ## [1.0.11] - 2016-11-08
 ### Changed
 - 新聞圖片的 title 與 desc 是分開的，將圖說改為正確的 desc @SimonSun.

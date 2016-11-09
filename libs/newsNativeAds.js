@@ -24,13 +24,18 @@ module.exports = co.wrap(function*() {
 
     // 處理該死的 big5 編碼轉換
     ads = _.map(ads, (ad, idx) => {
+
         let adjson;
 
         if(ad && is.json(ad)) {
             adjson = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
         }
 
-        adjson = is.json(ad) ? ad : null;
+        if(ad && is.object(ad)) {
+            adjson = JSON.parse(iconv.decode(ad, 'BIG5'));
+        }
+
+        adjson = (is.json(ad) || is.object(ad)) ? adjson : null;
 
         return {
             sn: idx + 1,

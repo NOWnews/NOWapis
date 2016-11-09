@@ -173,7 +173,11 @@ module.exports = function(req, res, next) {
             ad = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
         }
 
-        outputNews.ad = is.json(ad) ? ad : null;
+        if(ad && is.object(ad)) {
+            ad = JSON.parse(iconv.decode(ad, 'BIG5'));
+        }
+
+        outputNews.ad = (is.json(ad) || is.object(ad)) ? ad : null;
 
         // 把這篇新聞存進 redis
         yield redis.setValue(`news${nodeId}`, outputNews, 180);

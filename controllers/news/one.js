@@ -168,16 +168,24 @@ module.exports = function(req, res, next) {
             encoding: null,
         });
 
+        let adString = iconv.decode(new Buffer(ad), 'BIG5');
+
+        outputNews.ad = (adString === '') ? null : JSON.parse(adString);
+
+        /* 原本的 code
+
         // 將字串轉換成 big5 之後再 parse 成 JSON
         if(ad && is.json(ad)) {
             ad = JSON.parse(iconv.decode(new Buffer(ad), 'BIG5'));
         }
 
-        if(ad && is.object(ad)) {
+        if(ad && is.object(ad)) { 
             ad = JSON.parse(iconv.decode(ad, 'BIG5'));
         }
 
         outputNews.ad = (is.json(ad) || is.object(ad)) ? ad : null;
+
+         */
 
         // 把這篇新聞存進 redis
         yield redis.setValue(`news${nodeId}`, outputNews, 180);

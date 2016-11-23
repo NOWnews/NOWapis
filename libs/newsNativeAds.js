@@ -25,6 +25,11 @@ module.exports = co.wrap(function*() {
     // 處理該死的 big5 編碼轉換
     ads = _.map(ads, (ad, idx) => {
 
+        let adString = iconv.decode(new Buffer(ad), 'BIG5');
+
+        let adjson = (adString === '') ? null : JSON.parse(adString);
+
+        /* 原本的 code
         let adjson;
 
         if(ad && is.json(ad)) {
@@ -36,6 +41,8 @@ module.exports = co.wrap(function*() {
         }
 
         adjson = (is.json(ad) || is.object(ad)) ? adjson : null;
+
+         */
 
         return {
             sn: idx + 1,

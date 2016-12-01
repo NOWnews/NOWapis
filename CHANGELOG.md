@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.14] - 2016-12-01
+### Added
+- 在 `config.js` 加入 header key `JHK` @SimonSun.
+
 ## [1.0.13] - 2016-11-23
 ### Fixed
 - 修正廣告吐出錯誤問題，但是不包含廣告上錯的人為因素 @SimonSun.

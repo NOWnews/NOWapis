@@ -85,7 +85,7 @@ module.exports = {
      * HTTP HEADER 欄位 key
      */
     header: {
-        'X-NOWnews-API': ['NOWnewsTaiwanNumberOne', 'csmuse_dev']
+        'X-NOWnews-API': ['NOWnewsTaiwanNumberOne', 'csmuse_dev', 'JHK']
     },
 
     pageview: {

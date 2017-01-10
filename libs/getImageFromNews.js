@@ -92,9 +92,9 @@ module.exports = co.wrap(function*(news) {
     news.image.description = imageRelationNode.desc || imageNode.title;
     news.image.uri = imageData.uri;
     news.image.originImage = imgUrl;
-    news.image.thumbnail = 'http://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
+    news.image.thumbnail = 'https://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
     // news.image.fileName = imageInfo.fileName;
-    news.image.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
+    news.image.url = 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
     // debug('news = %j', news);
     // debug('news id = %s', news._id);
     // yield db.closeAsync();

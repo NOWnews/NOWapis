@@ -26,7 +26,7 @@ let formatUrl = function(file) {
     news.image.title = imageNode.title;
     news.image.description = imageNode.title;
     news.image.uri = imageData.uri;
-    news.image.url = 'http://imgapi.nownews.com/?w=1280&q=70&src=' + imgUrl;
+    news.image.url = 'https://imgapi.nownews.com/?w=1280&q=70&src=' + imgUrl;
 };
 
 module.exports = co.wrap(function*(nodeIds) {

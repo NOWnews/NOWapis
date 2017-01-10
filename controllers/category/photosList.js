@@ -156,7 +156,7 @@ module.exports = (req, res, next) => {
                     // result.image.description = imageNode.title;
                     // result.uri = imageData.uri;
                     result.thumbnail = 'https://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
-                    // result.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
+                    // result.url = 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
 
                     return Promise.resolve(result);
                 });

@@ -45,16 +45,16 @@ module.exports = (req, res, next) => {
                 let ext = matches[2];
                 let name = matches[1];
                 let hash = md5(name + '.' + ext);
-                let imgUrl = 'http://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
+                let imgUrl = 'https://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
 
                 // result.image.title = imageNode.title;
                 // result.image.description = imageNode.title;
                 // result.uri = imageData.uri;
-                // result.thumbnail = 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
-                // result.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
+                // result.thumbnail = 'https://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
+                // result.url = 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
                 return Promise.resolve({
                     uri: imageData.uri,
-                    image: 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl,
+                    image: 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl,
                     originImage: imgUrl
                 });
             });
@@ -153,15 +153,15 @@ module.exports = (req, res, next) => {
                             let ext = matches[2];
                             let name = matches[1];
                             let hash = md5(name + '.' + ext);
-                            let imgUrl = 'http://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
+                            let imgUrl = 'https://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
 
                             result[fileNode._id].fileNodeId = fileNode._id;
-                            result[fileNode._id].thumbnail = 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
-                            result[fileNode._id].url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
+                            result[fileNode._id].thumbnail = 'https://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl;
+                            result[fileNode._id].url = 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
 
                             return Promise.resolve({
-                                thumbnail: 'http://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl,
-                                image: 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl
+                                thumbnail: 'https://imgapi.nownews.com/?w=640&q=60&src=' + imgUrl,
+                                image: 'https://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl
                             });
                         });
                 });
@@ -223,7 +223,7 @@ module.exports = (req, res, next) => {
             dateModified: moment(photoAlbum.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
                 type: 'WebPage',
-                id: `http://m.nownews.com/photo/${photoAlbum._id}`
+                id: `https://m.nownews.com/photo/${photoAlbum._id}`
             },
             articleBody: photoAlbum.body.value || photoAlbum.title,
             headline: photoAlbum.title,

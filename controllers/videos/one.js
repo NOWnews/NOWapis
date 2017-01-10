@@ -92,7 +92,7 @@ module.exports = (req, res, next) => {
             dateModified: moment(video.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
                 type: 'WebPage',
-                id: `http://m.nownews.com/video/${video._id}`
+                id: `https://m.nownews.com/video/${video._id}`
             },
             articleBody: video.title,
             headline: video.title,

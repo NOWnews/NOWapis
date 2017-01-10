@@ -150,12 +150,12 @@ module.exports = (req, res, next) => {
                     let ext = matches[2];
                     let name = matches[1];
                     let hash = md5(name + '.' + ext);
-                    let imgUrl = 'http://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
+                    let imgUrl = 'https://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
 
                     // result.image.title = imageNode.title;
                     // result.image.description = imageNode.title;
                     // result.uri = imageData.uri;
-                    result.thumbnail = 'http://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
+                    result.thumbnail = 'https://imgapi.nownews.com/?w=640&h=360&q=60&src=' + imgUrl;
                     // result.url = 'http://imgapi.nownews.com/?w=640&q=75&src=' + imgUrl;
 
                     return Promise.resolve(result);

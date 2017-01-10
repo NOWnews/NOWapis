@@ -134,7 +134,7 @@ module.exports = function(req, res, next) {
             dateModified: moment(news.changed * 1000).tz('Asia/Taipei').format('YYYY-MM-DDTHH:mm:ss+08:00'),
             mainEntityOfPage: {
                 type: 'WebPage',
-                id: `http://m.nownews.com/news/${news._id}`
+                id: `https://m.nownews.com/news/${news._id}`
             },
             articleBody: news.body.summary || news.title,
             headline: news.title,

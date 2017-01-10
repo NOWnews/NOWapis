@@ -153,15 +153,15 @@ module.exports = (req, res, next) => {
             let obj = {};
 
             if(!news.field_type) {
-                obj.url = `http://m.nownews.com/news/${news._id}`;
+                obj.url = `https://m.nownews.com/news/${news._id}`;
             }
 
             if(news.field_type && news.field_type.value === 1) {
-                obj.url = `http://m.nownews.com/photo/${news._id}`;
+                obj.url = `https://m.nownews.com/photo/${news._id}`;
             }
 
             if(news.field_type && news.field_type.value === 2) {
-                obj.url = `http://m.nownews.com/video/${news._id}`;
+                obj.url = `https://m.nownews.com/video/${news._id}`;
             }
 
             obj.changefreq = 'daily';

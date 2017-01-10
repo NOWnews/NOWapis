@@ -150,7 +150,7 @@ module.exports = (req, res, next) => {
                     let ext = matches[2];
                     let name = matches[1];
                     let hash = md5(name + '.' + ext);
-                    let imgUrl = 'https://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
+                    let imgUrl = 'http://s.nownews.com/' + hash.substr(0, 2) + '/' + hash.substr(2, 2) + '/' + hash + '.' + ext;
 
                     // result.image.title = imageNode.title;
                     // result.image.description = imageNode.title;

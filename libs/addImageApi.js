@@ -13,7 +13,7 @@ module.exports = function(html) {
         let matchString = originSrc.match(regexpString);
 
         if(matchString !== null) {
-            originSrc = originSrc.replace(/http:\/\/[A-Za-z].nownews.com\/sites\/default\/files/g, 'https://s.nownews.com');
+            originSrc = originSrc.replace(/http:\/\/[A-Za-z].nownews.com\/sites\/default\/files/g, 'http://s.nownews.com');
             originSrc = `https://imgapi.nownews.com/?w=640&q=75&src=${originSrc}`;
         }
         // 如果是從 e.nownews 出來的，就換成 s.nownews

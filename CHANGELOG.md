@@ -2,6 +2,14 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.16] - 2017-01-11
+### Changed
+- 將所有的內部連結從 `http` 改為 `https` @SimonSun.
+
+### Added
+- 開一隻專門給 https 用的 sitemap @SimonSun.
+- 開一隻給 mobile web 提交的 news sitemap @SimonSun.
+
 ## [1.0.14] - 2016-12-01
 ### Added
 - 在 `config.js` 加入 header key `JHK` @SimonSun.

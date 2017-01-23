@@ -10,6 +10,7 @@ const updateCategory = require('./updateCategory');
 const updateCategoryNews = require('./updateCategoryNews');
 const updatePhotosCategory = require('./updatePhotosCategory');
 const updateVideosCategory = require('./updateVideosCategory');
+const updateCsmuseChannels = require('./updateCsmuseChannels');
 
 const updateHeadline = require('./updateHeadline');
 const updateInstant = require('./updateInstant');
@@ -42,6 +43,8 @@ module.exports = co.wrap(function*() {
     // console.log('Update Category Menu Complete.');
 
     let videoCategories = yield updateVideosCategory();
+
+    let csmuseChannels = yield updateCsmuseChannels();
 
     // let channelsNews = yield updateChannelsNews();
     // console.log('Update Channels News Complete.');

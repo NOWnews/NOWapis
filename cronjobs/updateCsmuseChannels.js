@@ -36,12 +36,13 @@ module.exports = co.wrap(function*() {
             formatChannels[channel.class] = [];
         }
 
-        keys.push(channel.class);
+        let categoryName = channel.class;
 
         // 因為 android 的關鍵字是 class，所以要先拿掉
         delete channel.class;
 
-        formatChannels[channel.class].push(channel);
+        keys.push(categoryName);
+        formatChannels[categoryName].push(channel);
     });
     debug('csmuse formatChannels = %j', formatChannels);
 

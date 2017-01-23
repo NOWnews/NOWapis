@@ -11,6 +11,7 @@ const search = require('./search');
 const sitemap = require('./sitemap');
 const check = require('./check');
 const nearByNews = require('./nearByNews');
+const csmuse = require('./csmuse');
 
 module.exports = function(app) {
 
@@ -26,6 +27,7 @@ module.exports = function(app) {
     app.use('/', sitemap);
     app.use('/', check);
     app.use('/', nearByNews);
+    app.use('/', csmuse);
 
     return function(req, res, next) {
         return next();

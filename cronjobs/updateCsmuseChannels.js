@@ -8,6 +8,8 @@ import request from 'request-promise';
 const debug = require('debug')('NOWapis:cronjobs:updateCsmuseChannels');
 const redis = require('../redis');
 
+const whiteList = ['6','10','12','22','25','31','38','39','48','51','53','55','56','70','73','75','76','79','120','121'];
+
 module.exports = co.wrap(function*() {
 
     let options = {
@@ -24,6 +26,12 @@ module.exports = co.wrap(function*() {
     let keys = [];
 
     _.forEach(csmuseData.Channel, (channel) => {
+
+        // 除了白名單之外，其他的濾掉
+        if(!_.includes(whiteList, channel.code)) {
+            return;
+        }
+
         if(!formatChannels[channel.class]) {
             formatChannels[channel.class] = [];
         }

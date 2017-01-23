@@ -2,7 +2,6 @@
 import co from 'co';
 import Promise from 'bluebird';
 import _ from 'lodash';
-import moment from 'moment-timezone';
 
 import request from 'request-promise';
 
@@ -10,8 +9,6 @@ const debug = require('debug')('NOWapis:cronjobs:updateCsmuseChannels');
 const redis = require('../redis');
 
 module.exports = co.wrap(function*() {
-
-    let unixTimestamp = moment(Date.now()).format('x');
 
     let options = {
         uri: `http://dvbt-tw.kikiplay.com.tw/dvbt/api/nownews/getInfo.php?Time=1&Key=0c691089feabda737a315ce2664fdc27`,

@@ -8,7 +8,8 @@ import request from 'request-promise';
 const debug = require('debug')('NOWapis:cronjobs:updateCsmuseChannels');
 const redis = require('../redis');
 
-const whiteList = ['6','10','12','22','25','31','38','39','48','51','53','55','56','70','73','75','76','79','120','121'];
+const whiteList = ['6','10','12','22','25','31','38','39','49', '50', '51','53','55','56','70','73','75','76','79','120','121'];
+const sortList = ['新聞資訊', '綜合娛樂', '戲劇電影', '專業體育', '兒少動漫'];
 
 module.exports = co.wrap(function*() {
 
@@ -62,6 +63,12 @@ module.exports = co.wrap(function*() {
             list: formatChannels[key]
         };
     });
+
+    // 分類也要做排序QQ
+    result.data = _.sortBy(result.data, function(item){
+        return sortList.indexOf(item.categoryName);
+    });
+
     debug('csmuse result = %j', result);
 
     yield redis.setValue('csmuseChannels', result, 3600 * 24);

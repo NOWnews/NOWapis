@@ -1498,8 +1498,8 @@ None
 
 | 參數名稱 | 解釋 | 型態(或列舉) | 是否需要 | 範例 |
 |---|---|---|---|---|
-| longitude | 經度 | String | √ | `/nearByNews?longitude=25.03505257&latitude=121.53838206` |
-| latitude | 緯度 | String | √ | `/nearByNews?longitude=25.03505257&latitude=121.53838206` |
+| longitude | 經度 | String | √ | `/nearByNews?longitude=121.53838206&latitude=25.03505257` |
+| latitude | 緯度 | String | √ | `/nearByNews?longitude=121.53838206&latitude=25.03505257` |
 
 #### Response Status Code
 

@@ -215,8 +215,9 @@ module.exports = (req, res, next) => {
             })
             .toArrayAsync();
 
-        console.log(photoAlbum, 'L217')
+        //TODO 不知為何有些 photoAlbum.body 會是空的，所以這裡加上一個判斷式 2017/02/16
         let articleBody = photoAlbum.body? photoAlbum.body.value: photoAlbum.title;
+
         // 組成 JSON-LD 要用資料
         let jsonld = {
             context: 'http://schema.org',

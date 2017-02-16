@@ -215,6 +215,8 @@ module.exports = (req, res, next) => {
             })
             .toArrayAsync();
 
+        console.log(photoAlbum, 'L217')
+        let articleBody = photoAlbum.body? photoAlbum.body.value: photoAlbum.title;
         // 組成 JSON-LD 要用資料
         let jsonld = {
             context: 'http://schema.org',
@@ -225,7 +227,7 @@ module.exports = (req, res, next) => {
                 type: 'WebPage',
                 id: `https://m.nownews.com/photo/${photoAlbum._id}`
             },
-            articleBody: photoAlbum.body.value || photoAlbum.title,
+            articleBody: articleBody,
             headline: photoAlbum.title,
             image: {
                 type: 'ImageObject',
@@ -247,7 +249,7 @@ module.exports = (req, res, next) => {
                     height: 52
                 }
             },
-            description: photoAlbum.body.value || photoAlbum.title
+            description: articleBody
         };
 
         // debug('photoCategory = %j', photoCategory);

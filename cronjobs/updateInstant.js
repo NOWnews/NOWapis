@@ -29,7 +29,7 @@ module.exports = co.wrap(function*() {
         _bundle: 'moderator',
         endpoints: {
             entity_type: 'taxonomy_term',
-            entity_id: tid, 
+            entity_id: tid,
             r_index: 1
         },
         'field_release_date.value': {
@@ -92,7 +92,8 @@ module.exports = co.wrap(function*() {
 
     // 時間正規化
     _.map(newsList, function(news) {
-        news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+        //news.createdAt = moment(news.created * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
+        news.createdAt = moment(news.field_release_date.value * 1000).tz('Asia/Taipei').format('YYYY/MM/DD HH:mm:ss');
     });
 
     // 比較排序
@@ -100,7 +101,7 @@ module.exports = co.wrap(function*() {
     _.forEach(newsList, function(news) {
         compareNews[news._id] = news;
     });
-    
+
     // 重新排序新聞
     let sortedNewsList = _.map(nodeIds, function(nodeId) {
         return compareNews[nodeId];

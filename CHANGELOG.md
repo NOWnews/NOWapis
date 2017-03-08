@@ -2,6 +2,11 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.17] - 2017-03-18
+### Added
+- 加入 app 首圖 api 端點在 `controllers/headImage` @SimonSun.
+- 加入記錄 mobile device token API 端點在 `controllers/deviceToken` @SimonSun.
+
 ## [1.0.16] - 2017-01-11
 ### Changed
 - 將所有的內部連結從 `http` 改為 `https` @SimonSun.

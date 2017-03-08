@@ -11,9 +11,12 @@ module.exports = (req, res, next) => {
             key: 'ios'
         });
 
-        iosHeadImage.data.splash_url = 'https://imgapi.nownews.com/?w=1920&q=75&src=' + iosHeadImage.data.splash_url;
-
-        return res.json(iosHeadImage);
+        return res.json({
+            hash: iosHeadImage.data.splash_hash,
+            url: 'https://imgapi.nownews.com/?w=1920&q=75&src=' + iosHeadImage.data.splash_url,
+            adKey: iosHeadImage.data.splash_adkey,
+            adType: iosHeadImage.data.splash_adtype
+        });
     })
     .catch(next);
 };

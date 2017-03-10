@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.18] - 2017-03-10
+### Added
+- 將健康頻道隱藏起來 @WayneLin.
+
 ## [1.0.17] - 2017-03-18
 ### Added
 - 加入 app 首圖 api 端點在 `controllers/headImage` @SimonSun.

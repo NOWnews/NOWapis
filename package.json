@@ -1,6 +1,6 @@
 {
   "name": "nowapis",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "NOWnews api service",
   "main": "index.js",
   "scripts": {

@@ -20,7 +20,6 @@ module.exports = co.wrap(function*() {
     categories = _.filter(categories, (category) => {
         return (category._id !== 449377) && (category._id !== 419897) && (category._id !== 419896);
     });
-    console.log(categories,'L23');
     debug('categories = %j', categories);
 
     let cacheCategory = yield redis.setValue('categories', categories, 3600 * 24);

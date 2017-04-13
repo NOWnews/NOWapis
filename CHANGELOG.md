@@ -2,11 +2,15 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.19] - 2017-04-13
+### Added
+- 加入非常視界的直播頻道 API @SimonSun.
+
 ## [1.0.18] - 2017-03-10
 ### Added
 - 將健康頻道隱藏起來 @WayneLin.
 
-## [1.0.17] - 2017-03-18
+## [1.0.17] - 2017-03-08
 ### Added
 - 加入 app 首圖 api 端點在 `controllers/headImage` @SimonSun.
 - 加入記錄 mobile device token API 端點在 `controllers/deviceToken` @SimonSun.

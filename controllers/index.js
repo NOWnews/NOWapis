@@ -13,6 +13,7 @@ const check = require('./check');
 const nearByNews = require('./nearByNews');
 const csmuse = require('./csmuse');
 const lifefei = require('./lifefei');
+const kmt = require('./kmt');
 const deviceToken = require('./deviceToken');
 const headImage = require('./headImage');
 
@@ -32,6 +33,7 @@ module.exports = function(app) {
     app.use('/', nearByNews);
     app.use('/', csmuse);
     app.use('/', lifefei);
+    app.use('/', kmt);
     app.use('/', deviceToken);
     app.use('/', headImage);
 

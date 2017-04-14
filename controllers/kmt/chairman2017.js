@@ -3,7 +3,7 @@
  */
 
 import co from 'co';
-const debug = require('debug')('NOWapis:controller:csmuse:chairman2017');
+const debug = require('debug')('NOWapis:controller:kmt:chairman2017');
 
 const redis = require('../../redis');
 

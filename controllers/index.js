@@ -14,6 +14,7 @@ const nearByNews = require('./nearByNews');
 const csmuse = require('./csmuse');
 const lifefei = require('./lifefei');
 const kmt = require('./kmt');
+const order = require('./order');
 const deviceToken = require('./deviceToken');
 const headImage = require('./headImage');
 
@@ -34,6 +35,7 @@ module.exports = function(app) {
     app.use('/', csmuse);
     app.use('/', lifefei);
     app.use('/', kmt);
+    app.use('/', order);
     app.use('/', deviceToken);
     app.use('/', headImage);
 

@@ -5,6 +5,7 @@ NOWapis 所有的變更紀錄都在這份文件中
 ## [1.0.20] - 2017-04-14
 ### Added
 - 加入國民黨 2017 黨主席辯論直播 API @SimonSun.
+- 加入訂單結帳 QR code API @SimonSun.
 
 ## [1.0.19] - 2017-04-13
 ### Added

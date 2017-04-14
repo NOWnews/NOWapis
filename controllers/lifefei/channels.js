@@ -160,9 +160,9 @@ module.exports = function(req, res, next) {
                 watchTime: 20,
                 lockTime: 30,
                 watchable: true,
-                sourceFrom: 'http://',
-                errorMessage: '',
-                downloadable: true,
+                icon: 'http://legacy.nownews.com/NOWnews_static/lifefei.png',
+                titleMessage: '本直播由飛常視界APP提供精彩試看\n請密切關注飛常視界的開放下載通知！\n\n飛常視界是台灣國際多媒體\n所屬之視頻服務',
+                downloadable: false,
                 iosDownloadLink: '',
                 androidDownloadLink: ''
             },

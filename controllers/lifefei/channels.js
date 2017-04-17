@@ -13,9 +13,9 @@ module.exports = function(req, res, next) {
         let isMember = req.body.isMember === 'true' ? true : false;
 
         /*
-         * 處理 ip
+         * 處理 ip，那個 'x-real-ip' 不知道是哪個該死的設定在 nginx 裡面取代 remote address
          */
-        let ipString = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        let ipString = req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         let isIPV6 = new Address6(ipString);
         if(isIPV6.isValid()) {
             ipString = isIPV6.to4().address;

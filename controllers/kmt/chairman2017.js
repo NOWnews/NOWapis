@@ -15,10 +15,10 @@ module.exports = function(req, res, next) {
             title: '2017 國民黨黨主席辯論直播',
             url: 'https://www.youtube.com/embed/KyrppX4KFH4',
             youtubeId: 'KyrppX4KFH4',
-            livePage: 'http://test.m.nownews.com/live/KyrppX4KFH4',
+            livePage: 'https://m.nownews.com/live/KyrppX4KFH4',
             background: 'http://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: true,
-            campainStatus: true
+            isOnAir: false,
+            campainStatus: false
         });
     })
     .catch(next);

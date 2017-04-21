@@ -14,8 +14,9 @@ module.exports = function(req, res, next) {
         return res.json({
             title: '2017 國民黨黨主席辯論直播',
             url: 'https://www.youtube.com/embed/KyrppX4KFH4',
-            livePage: '',
             youtubeId: 'KyrppX4KFH4',
+            livePage: 'http://test.m.nownews.com/live/KyrppX4KFH4',
+            background: 'http://legacy.nownews.com/NOWnews_static/live-background.jpg',
             isOnAir: true,
             campainStatus: true
         });

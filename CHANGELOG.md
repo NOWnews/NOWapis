@@ -2,6 +2,11 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.22] - 2017-04-21
+### Changed
+- 加上新的 header key @SimonSun.
+- 更改直播 api 相關資訊 @SimonSun.
+
 ## [1.0.21] - 2017-04-17
 ### Changed
 - 幫 stream channels 加上防盜連的機制 @SimonSun.

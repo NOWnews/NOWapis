@@ -18,7 +18,7 @@ module.exports = function(req, res, next) {
             wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
             youtubeId: 'CmprojsR_PM',
             livePage: 'https://m.nownews.com/live/CmprojsR_PM',
-            background: 'http://legacy.nownews.com/NOWnews_static/live-background.jpg',
+            background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             isOnAir: false,
             campainStatus: true
         });

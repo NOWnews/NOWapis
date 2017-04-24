@@ -12,14 +12,14 @@ module.exports = function(req, res, next) {
     co(function*() {
 
         return res.json({
-            title: '直播 /「龍談大小事」- 藍營準黨主席 PK',
-            teaserTitle: '19:00 「龍談大小事」- 藍營準黨主席 PK',
-            url: 'https://www.youtube.com/embed/CmprojsR_PM',
+            title: '直播 /「龍談大小事」- 藍營準黨魁大PK',
+            teaserTitle: '19:00 「龍談大小事」- 藍營準黨魁大PK',
+            url: 'https://www.youtube.com/embed/Ps1SpLK-pqw',
             wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
-            youtubeId: 'CmprojsR_PM',
-            livePage: 'https://m.nownews.com/live/CmprojsR_PM',
+            youtubeId: 'Ps1SpLK-pqw',
+            livePage: 'https://m.nownews.com/live/Ps1SpLK-pqw',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: false,
+            isOnAir: true,
             campainStatus: true
         });
     })

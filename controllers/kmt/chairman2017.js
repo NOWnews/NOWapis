@@ -19,8 +19,8 @@ module.exports = function(req, res, next) {
             youtubeId: 'Ps1SpLK-pqw',
             livePage: 'https://m.nownews.com/live/Ps1SpLK-pqw',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: true,
-            campainStatus: true
+            isOnAir: false,
+            campainStatus: false
         });
     })
     .catch(next);

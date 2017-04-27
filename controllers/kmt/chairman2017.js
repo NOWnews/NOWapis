@@ -17,9 +17,9 @@ module.exports = function(req, res, next) {
             url: 'https://www.youtube.com/embed/7CfgWE8f2rU',
             wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
             youtubeId: '7CfgWE8f2rU',
-            livePage: 'https://m.nownews.com/live/7CfgWE8f2rU',
+            livePage: 'http://dragon.nownews.com/',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: true,
+            isOnAir: false,
             campainStatus: true
         });
     })

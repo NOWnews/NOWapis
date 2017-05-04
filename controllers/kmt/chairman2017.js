@@ -19,8 +19,8 @@ module.exports = function(req, res, next) {
             youtubeId: 'i7bPBqCZ6As',
             livePage: 'http://dragon.nownews.com/',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: true,
-            campainStatus: true
+            isOnAir: false,
+            campainStatus: false
         });
     })
     .catch(next);

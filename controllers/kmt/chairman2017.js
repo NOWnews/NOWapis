@@ -14,12 +14,12 @@ module.exports = function(req, res, next) {
         return res.json({
             title: '5/4(四) 19:00收看「龍談大小事」， 唐湘龍潘維剛跟你面對面！',
             teaserTitle: '5/4(四) 19:00收看「龍談大小事」， 唐湘龍潘維剛跟你面對面！',
-            url: 'https://www.youtube.com/embed/7CfgWE8f2rU',
+            url: 'https://www.youtube.com/embed/i7bPBqCZ6As',
             wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
-            youtubeId: '7CfgWE8f2rU',
+            youtubeId: 'i7bPBqCZ6As',
             livePage: 'http://dragon.nownews.com/',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
-            isOnAir: false,
+            isOnAir: true,
             campainStatus: true
         });
     })

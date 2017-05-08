@@ -37,7 +37,8 @@ module.exports = function(req, res, next) {
             wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
             youtubeId: 'xdn6qQPS6oM',
             livePage: '',
-            background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
+            background: 'https://legacy.nownews.com/NOWnews_static/background_god.jpg',
+            backgroundColor: '#403534',
             redirect: '',
             isOnAir: true,
             campainStatus: true

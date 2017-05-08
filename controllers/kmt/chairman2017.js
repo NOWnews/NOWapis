@@ -31,8 +31,8 @@ module.exports = function(req, res, next) {
         return res.json({
             title: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
             teaserTitle: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
-            banner: '',
-            alt: '',
+            banner: 'http://legacy.nownews.com/NOWnews_static/1200x720%E4%BD%9B%E6%95%992.jpg',
+            alt: '「美麗的聲音」慶佛誕音樂會',
             url: 'https://www.youtube.com/embed/xdn6qQPS6oM?controls=0',
             wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
             youtubeId: 'xdn6qQPS6oM',

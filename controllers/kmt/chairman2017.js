@@ -28,15 +28,15 @@ module.exports = function(req, res, next) {
 
         // 音樂會
         return res.json({
-            title: '今天晚上19:30 NOWnews線上直播「最美的聲音」音樂會',
-            teaserTitle: '今天晚上19:30 NOWnews線上直播「最美的聲音」音樂會',
+            title: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
+            teaserTitle: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
             banner: '',
             alt: '',
             url: 'https://www.youtube.com/embed/i7bPBqCZ6As',
             wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
             youtubeId: 'i7bPBqCZ6As',
             livePage: '',
-            background: '',
+            background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             isOnAir: false,
             campainStatus: false
         });

@@ -36,12 +36,12 @@ module.exports = function(req, res, next) {
             url: 'https://www.youtube.com/embed/xdn6qQPS6oM',
             wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
             youtubeId: 'xdn6qQPS6oM',
-            livePage: '',
+            livePage: 'https://m.nownews.com/live/xdn6qQPS6oM',
             background: 'https://legacy.nownews.com/NOWnews_static/background_god.jpg',
             backgroundColor: '#403534',
             redirect: '',
-            isOnAir: true,
-            campainStatus: true
+            isOnAir: false,
+            campainStatus: false
         });
     })
     .catch(next);

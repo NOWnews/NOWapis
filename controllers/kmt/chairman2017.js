@@ -22,6 +22,7 @@ module.exports = function(req, res, next) {
         //     youtubeId: 'i7bPBqCZ6As',
         //     livePage: 'http://dragon.nownews.com/',
         //     background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
+        //     redirect: 'http://dragon.nownews.com/',
         //     isOnAir: false,
         //     campainStatus: false
         // });
@@ -32,11 +33,12 @@ module.exports = function(req, res, next) {
             teaserTitle: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
             banner: '',
             alt: '',
-            url: 'https://www.youtube.com/embed/i7bPBqCZ6As',
-            wowza: 'http://59.124.93.43/live/KMT.stream/playlist.m3u8?pf=mm',
-            youtubeId: 'i7bPBqCZ6As',
+            url: 'https://www.youtube.com/embed/xdn6qQPS6oM?controls=0',
+            wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
+            youtubeId: 'xdn6qQPS6oM',
             livePage: '',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
+            redirect: '',
             isOnAir: false,
             campainStatus: false
         });

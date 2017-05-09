@@ -83,20 +83,10 @@ module.exports = function(req, res, next) {
             code: '',
             title: 'MOMO親子台',
             path: `http://59.124.93.43:1935/live/nns211.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: '東森幼幼台',
-            path: `http://59.124.93.43:1935/live/nns212.stream/playlist.m3u8?johncena=${johncena}`
         }];
 
         // 新聞資訊
         let news = [{
-            SN: '',
-            code: '',
-            title: '東森新聞台',
-            path: `http://59.124.93.43:1935/live/nns197.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
             SN: '',
             code: '',
             title: '中天新聞台',
@@ -121,11 +111,6 @@ module.exports = function(req, res, next) {
             code: '',
             title: 'TVBS',
             path: `http://59.124.93.43:1935/live/nns170.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: '東森財經新聞台',
-            path: `http://59.124.93.43:1935/live/nns171.stream/playlist.m3u8?johncena=${johncena}`
         }, {
             SN: '',
             code: '',

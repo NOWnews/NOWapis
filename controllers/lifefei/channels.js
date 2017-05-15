@@ -51,16 +51,16 @@ module.exports = function(req, res, next) {
             title: '緯來綜合台',
             path: `http://59.124.93.43:1935/live/nns213.stream/playlist.m3u8?johncena=${johncena}`
         }, {
-            SN: '',
-            code: '',
-            title: '三立台灣台',
-            path: `http://59.124.93.43:1935/live/nns216.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: '三立都會台',
-            path: `http://59.124.93.43:1935/live/nns185.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
+        //     SN: '',
+        //     code: '',
+        //     title: '三立台灣台',
+        //     path: `http://59.124.93.43:1935/live/nns216.stream/playlist.m3u8?johncena=${johncena}`
+        // }, {
+        //     SN: '',
+        //     code: '',
+        //     title: '三立都會台',
+        //     path: `http://59.124.93.43:1935/live/nns185.stream/playlist.m3u8?johncena=${johncena}`
+        // }, {
             SN: '',
             code: '',
             title: 'TVBS歡樂台',

@@ -109,11 +109,11 @@ module.exports = function(req, res, next) {
             code: '',
             title: '民視新聞台',
             path: `http://59.124.93.43:1935/live/nns199.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: '三立新聞台',
-            path: `http://59.124.93.43:1935/live/nns200.stream/playlist.m3u8?johncena=${johncena}`
+        // }, {
+        //     SN: '',
+        //     code: '',
+        //     title: '三立新聞台',
+        //     path: `http://59.124.93.43:1935/live/nns200.stream/playlist.m3u8?johncena=${johncena}`
         }, {
             SN: '',
             code: '',

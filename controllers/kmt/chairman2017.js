@@ -41,7 +41,7 @@ module.exports = function(req, res, next) {
             backgroundColor: '#403534',
             redirect: 'http://dragon.nownews.com/',
             isOnAir: false,
-            campainStatus: false
+            campainStatus: true
         });
     })
     .catch(next);

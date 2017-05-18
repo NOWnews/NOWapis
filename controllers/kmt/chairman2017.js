@@ -40,7 +40,7 @@ module.exports = function(req, res, next) {
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             backgroundColor: '#403534',
             redirect: 'http://dragon.nownews.com/',
-            isOnAir: false,
+            isOnAir: true,
             campainStatus: true
         });
     })

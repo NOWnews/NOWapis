@@ -29,17 +29,17 @@ module.exports = function(req, res, next) {
 
         // 音樂會
         return res.json({
-            title: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
-            teaserTitle: '今天晚上19:30 NOWnews線上直播「美麗的聲音」音樂會',
-            banner: 'http://legacy.nownews.com/NOWnews_static/1200x720%E4%BD%9B%E6%95%992.jpg',
-            alt: '「美麗的聲音」慶佛誕音樂會',
-            url: 'https://www.youtube.com/embed/xdn6qQPS6oM',
+            title: '就是現在！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+            teaserTitle: '就是今晚 19:00！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+            banner: 'http://legacy.nownews.com/NOWnews_static/live-banner.jpg',
+            alt: '「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+            url: 'https://www.youtube.com/embed/bI9fwUCGFKM',
             wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
-            youtubeId: 'xdn6qQPS6oM',
-            livePage: 'https://m.nownews.com/live/xdn6qQPS6oM',
-            background: 'https://legacy.nownews.com/NOWnews_static/background_god.jpg',
+            youtubeId: 'bI9fwUCGFKM',
+            livePage: 'http://dragon.nownews.com/',
+            background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             backgroundColor: '#403534',
-            redirect: '',
+            redirect: 'http://dragon.nownews.com/',
             isOnAir: false,
             campainStatus: false
         });

@@ -2,6 +2,10 @@
 
 NOWapis 所有的變更紀錄都在這份文件中
 
+## [1.0.23] - 2017-05-26
+### Changed
+- 換上 watchNOW logo @SimonSun.
+
 ## [1.0.22] - 2017-04-21
 ### Changed
 - 加上新的 header key @SimonSun.

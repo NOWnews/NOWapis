@@ -50,7 +50,8 @@ module.exports = function(req, res, next) {
             code: '',
             title: '緯來綜合台',
             path: `http://59.124.93.43:1935/live/nns213.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
+        },
+        // {
         //     SN: '',
         //     code: '',
         //     title: '三立台灣台',
@@ -60,12 +61,14 @@ module.exports = function(req, res, next) {
         //     code: '',
         //     title: '三立都會台',
         //     path: `http://59.124.93.43:1935/live/nns185.stream/playlist.m3u8?johncena=${johncena}`
-        // }, {
-            SN: '',
-            code: '',
-            title: 'TVBS歡樂台',
-            path: `http://59.124.93.43:1935/live/nns193.stream/playlist.m3u8?johncena=${johncena}`
-        }];
+        // },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: 'TVBS歡樂台',
+        //     path: `http://59.124.93.43:1935/live/nns193.stream/playlist.m3u8?johncena=${johncena}`
+        // }
+        ];
 
         // 兒少動漫
         let animes = [{
@@ -99,44 +102,49 @@ module.exports = function(req, res, next) {
         //     title: '東森新聞台',
         //     path: `http://59.124.93.43:1935/live/nns197.stream/playlist.m3u8?johncena=${johncena}`
         // },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: '中天新聞台',
+        //     path: `http://59.124.93.43:1935/live/nns198.stream/playlist.m3u8?johncena=${johncena}`
+        // },
         {
-            SN: '',
-            code: '',
-            title: '中天新聞台',
-            path: `http://59.124.93.43:1935/live/nns198.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
             SN: '',
             code: '',
             title: '民視新聞台',
             path: `http://59.124.93.43:1935/live/nns199.stream/playlist.m3u8?johncena=${johncena}`
-        // }, {
+        },
+        // {
         //     SN: '',
         //     code: '',
         //     title: '三立新聞台',
         //     path: `http://59.124.93.43:1935/live/nns200.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: 'TVBS新聞台',
-            path: `http://59.124.93.43:1935/live/nns169.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: 'TVBS',
-            path: `http://59.124.93.43:1935/live/nns170.stream/playlist.m3u8?johncena=${johncena}`
-        },
+        // },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: 'TVBS新聞台',
+        //     path: `http://59.124.93.43:1935/live/nns169.stream/playlist.m3u8?johncena=${johncena}`
+        // },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: 'TVBS',
+        //     path: `http://59.124.93.43:1935/live/nns170.stream/playlist.m3u8?johncena=${johncena}`
+        // },
         //  {
         //     SN: '',
         //     code: '',
         //     title: '東森財經新聞台',
         //     path: `http://59.124.93.43:1935/live/nns171.stream/playlist.m3u8?johncena=${johncena}`
         // },
-        {
-            SN: '',
-            code: '',
-            title: '非凡新聞台',
-            path: `http://59.124.93.43:1935/live/nns172.stream/playlist.m3u8?johncena=${johncena}`
-        }];
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: '非凡新聞台',
+        //     path: `http://59.124.93.43:1935/live/nns172.stream/playlist.m3u8?johncena=${johncena}`
+        // }
+        ];
 
         // 戲劇電影
         let dramas = [{
@@ -162,17 +170,20 @@ module.exports = function(req, res, next) {
             code: '',
             title: '緯來體育台',
             path: `http://59.124.93.43:1935/live/nns181.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: 'FOX SPORTS',
-            path: `http://59.124.93.43:1935/live/nns182.stream/playlist.m3u8?johncena=${johncena}`
-        }, {
-            SN: '',
-            code: '',
-            title: 'FOX SPORTS2',
-            path: `http://59.124.93.43:1935/live/nns183.stream/playlist.m3u8?johncena=${johncena}`
-        }];
+        },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: 'FOX SPORTS',
+        //     path: `http://59.124.93.43:1935/live/nns182.stream/playlist.m3u8?johncena=${johncena}`
+        // },
+        // {
+        //     SN: '',
+        //     code: '',
+        //     title: 'FOX SPORTS2',
+        //     path: `http://59.124.93.43:1935/live/nns183.stream/playlist.m3u8?johncena=${johncena}`
+        // }
+        ];
 
         return res.json({
             liveInfo: {

@@ -73,6 +73,12 @@ module.exports = function(req, res, next) {
             {
                 SN: '',
                 code: '',
+                title: '民視新聞台',
+                path: `http://59.124.93.43:1935/live/nns199.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
                 title: '寰宇新聞二台',
                 path: `http://59.124.93.43:1935/live/nns146.stream/playlist.m3u8?johncena=${johncena}`
             },
@@ -151,7 +157,7 @@ module.exports = function(req, res, next) {
                 watchTime: 20,
                 lockTime: 30,
                 watchable: true,
-                icon: 'http://legacy.nownews.com/NOWnews_static/watchNOW-logo.png',
+                icon: 'http://legacy.nownews.com/NOWnews_static/watchNOW-logo-v2.png',
                 titleMessage: '本直播由 watchNOW APP 提供精彩試看\n請密切關注 watchNOW 的下載通知！\n\n本服務由華夏新媒體有限公司提供\n客服專線: 0903-892-221\n聯絡我們: 0903899221@gmail.com',
                 downloadable: false,
                 iosDownloadLink: '',

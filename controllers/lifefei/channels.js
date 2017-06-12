@@ -29,6 +29,36 @@ module.exports = function(req, res, next) {
             {
                 SN: '',
                 code: '',
+                title: '民視',
+                path: `http://59.124.93.43:1935/live/nns153.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '台視',
+                path: `http://59.124.93.43:1935/live/nns201.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '中視',
+                path: `http://59.124.93.43:1935/live/nns202.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '華視',
+                path: `http://59.124.93.43:1935/live/nns203.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '緯來綜合台',
+                path: `http://59.124.93.43:1935/live/nns213.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
                 title: '公視2',
                 path: `http://59.124.93.43:1935/live/nns136.stream/playlist.m3u8?johncena=${johncena}`
             },
@@ -60,6 +90,24 @@ module.exports = function(req, res, next) {
 
         // 兒少動漫
         let animes = [
+            {
+                SN: '',
+                code: '',
+                title: '卡通頻道',
+                path: `http://59.124.93.43:1935/live/nns209.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '迪士尼頻道',
+                path: `http://59.124.93.43:1935/live/nns210.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: 'MOMO親子台',
+                path: `http://59.124.93.43:1935/live/nns211.stream/playlist.m3u8?johncena=${johncena}`
+            },
             {
                 SN: '',
                 code: '',
@@ -113,6 +161,18 @@ module.exports = function(req, res, next) {
             {
                 SN: '',
                 code: '',
+                title: '衛視電影台',
+                path: `http://59.124.93.43:1935/live/nns173.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '衛視洋片台',
+                path: `http://59.124.93.43:1935/live/nns179.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
                 title: 'HBO',
                 path: `http://59.124.93.43:1935/live/nns1226.stream/playlist.m3u8?johncena=${johncena}`
             },
@@ -132,6 +192,18 @@ module.exports = function(req, res, next) {
 
         // 專業體育
         let sports = [
+            {
+                SN: '',
+                code: '',
+                title: '緯來育樂台',
+                path: `http://59.124.93.43:1935/live/nns206.stream/playlist.m3u8?johncena=${johncena}`
+            },
+            {
+                SN: '',
+                code: '',
+                title: '緯來體育台',
+                path: `http://59.124.93.43:1935/live/nns181.stream/playlist.m3u8?johncena=${johncena}`
+            },
             {
                 SN: '',
                 code: '',

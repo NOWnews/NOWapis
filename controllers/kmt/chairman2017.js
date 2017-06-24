@@ -57,8 +57,8 @@ module.exports = function(req, res, next) {
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             backgroundColor: '#403534',
             redirect: '',
-            isOnAir: true,
-            campainStatus: true
+            isOnAir: false,
+            campainStatus: false
         });
     })
     .catch(next);

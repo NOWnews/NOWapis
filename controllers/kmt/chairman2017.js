@@ -28,20 +28,37 @@ module.exports = function(req, res, next) {
         // });
 
         // 音樂會
+        // return res.json({
+        //     title: '就是現在！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+        //     teaserTitle: '就是今晚 19:00！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+        //     banner: 'http://legacy.nownews.com/NOWnews_static/live-banner.jpg',
+        //     alt: '「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+        //     url: 'https://www.youtube.com/embed/bI9fwUCGFKM',
+        //     wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
+        //     youtubeId: 'bI9fwUCGFKM',
+        //     livePage: 'http://dragon.nownews.com/',
+        //     background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
+        //     backgroundColor: '#403534',
+        //     redirect: 'http://dragon.nownews.com/',
+        //     isOnAir: false,
+        //     campainStatus: false
+        // });
+
+        // 金曲
         return res.json({
-            title: '就是現在！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
-            teaserTitle: '就是今晚 19:00！「龍談大小事」 唐湘龍獨家專訪洪秀柱',
+            title: '第28屆金曲獎頒獎典禮紅毯 ！#NOW直擊 媒體採訪區',
+            teaserTitle: '第28屆金曲獎頒獎典禮紅毯 ！#NOW直擊 媒體採訪區',
             banner: 'http://legacy.nownews.com/NOWnews_static/live-banner.jpg',
-            alt: '「龍談大小事」 唐湘龍獨家專訪洪秀柱',
-            url: 'https://www.youtube.com/embed/bI9fwUCGFKM',
-            wowza: 'http://59.124.93.43/live/music.stream/playlist.m3u8?pf=mm',
-            youtubeId: 'bI9fwUCGFKM',
-            livePage: 'http://dragon.nownews.com/',
+            alt: '第28屆金曲獎頒獎典禮紅毯 ！#NOW直擊 媒體採訪區',
+            url: 'https://www.youtube.com/embed/rqESGX2vt3M',
+            wowza: '',
+            youtubeId: 'rqESGX2vt3M',
+            livePage: 'https://m.nownews.com/live/rqESGX2vt3M',
             background: 'https://legacy.nownews.com/NOWnews_static/live-background.jpg',
             backgroundColor: '#403534',
-            redirect: 'http://dragon.nownews.com/',
-            isOnAir: false,
-            campainStatus: false
+            redirect: '',
+            isOnAir: true,
+            campainStatus: true
         });
     })
     .catch(next);
